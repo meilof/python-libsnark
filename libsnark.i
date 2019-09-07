@@ -64,12 +64,28 @@ typedef libff::Fr<default_r1cs_ppzksnark_pp> FieldT;
     $result = PyLong_FromString(ss.str().c_str(), NULL, 10);    
 }
 
+%typemap(out, precedence=3001) libff::bigint<FieldT::num_limbs> {
+    stringstream ss;
+    ss << $1;
+    $result = PyLong_FromString(ss.str().c_str(), NULL, 10);    
+}
+
+
 // todo: do typecheck to map field elements, etc to linearcombinations (then: lc(field) also not necessary)???
 
 %inline %{
  
 libff::Fr<libsnark::default_r1cs_ppzksnark_pp> fieldinverse(const libff::Fr<libsnark::default_r1cs_ppzksnark_pp>& val) {
     return val.inverse();
+}
+    
+%}
+libff::Fr<libsnark::default_r1cs_ppzksnark_pp> fieldinverse(const libff::Fr<libsnark::default_r1cs_ppzksnark_pp>& val);
+
+%inline %{
+ 
+libff::bigint<FieldT::num_limbs> get_modulus() {
+    return FieldT::mod;
 }
     
 %}
