@@ -39,17 +39,14 @@ typedef libff::Fr<default_r1cs_ppzksnark_pp> FieldT;
   $1 = PyLong_Check($input) ? 1 : 0;
 }
 
-// leaks memory?
 %typemap(in, precedence=3000) libff::Fr<libsnark::default_r1cs_ppzksnark_pp> const& {
     long val;
     int overflow;
     val = PyLong_AsLongAndOverflow($input, &overflow);
     
     if (val!=-1 || (overflow==0 && !PyErr_Occurred())) {
-        cerr << "succeeded via int" << endl;
         $1 = new FieldT(val);
     } else {
-        cerr << "trying via obj" << endl;
         PyObject *str = PyObject_Str($input);
         if (!str) { SWIG_fail; }
     
@@ -61,9 +58,22 @@ typedef libff::Fr<default_r1cs_ppzksnark_pp> FieldT;
     }
 }
 
+%typemap(out, precedence=3000) libff::Fr<libsnark::default_r1cs_ppzksnark_pp> {
+    stringstream ss;
+    ss << $1.as_bigint();
+    $result = PyLong_FromString(ss.str().c_str(), NULL, 10);    
+}
+
 // todo: do typecheck to map field elements, etc to linearcombinations (then: lc(field) also not necessary)???
 
-
+%inline %{
+ 
+libff::Fr<libsnark::default_r1cs_ppzksnark_pp> fieldinverse(const libff::Fr<libsnark::default_r1cs_ppzksnark_pp>& val) {
+    return val.inverse();
+}
+    
+%}
+libff::Fr<libsnark::default_r1cs_ppzksnark_pp> fieldinverse(const libff::Fr<libsnark::default_r1cs_ppzksnark_pp>& val);
  
 namespace libsnark {
 

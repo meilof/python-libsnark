@@ -152,11 +152,11 @@ public:
 //
 //    std::vector<linear_term<FieldT> > terms;
 //
-//    linear_combination() {};
+    linear_combination() {};
 //    linear_combination(const integer_coeff_t int_coeff);
     linear_combination(const FieldT &field_coeff);
 //    linear_combination(const variable<FieldT> &var);
-//    linear_combination(const pb_variable<FieldT> &var);
+    linear_combination(const pb_variable<FieldT> &var);
 //    linear_combination(const linear_term<FieldT> &lt);
 //    linear_combination(const std::vector<linear_term<FieldT> > &all_terms);
 //
