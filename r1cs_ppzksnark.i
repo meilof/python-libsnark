@@ -295,8 +295,8 @@ public:
 // * serializes/deserializes, and verifies proofs. We only expose some information
 // * about the structure for statistics purposes.
 // */
-//template<typename ppT>
-//class r1cs_ppzksnark_proof {
+template<typename ppT>
+class r1cs_ppzksnark_proof {
 //public:
 //    knowledge_commitment<libff::G1<ppT>, libff::G1<ppT> > g_A;
 //    knowledge_commitment<libff::G2<ppT>, libff::G1<ppT> > g_B;
@@ -362,7 +362,7 @@ public:
 //    bool operator==(const r1cs_ppzksnark_proof<ppT> &other) const;
 //    friend std::ostream& operator<< <ppT>(std::ostream &out, const r1cs_ppzksnark_proof<ppT> &proof);
 //    friend std::istream& operator>> <ppT>(std::istream &in, r1cs_ppzksnark_proof<ppT> &proof);
-//};
+};
 //
 //
 ///***************************** Main algorithms *******************************/
@@ -388,10 +388,18 @@ r1cs_ppzksnark_keypair<ppT> r1cs_ppzksnark_generator(const r1cs_constraint_syste
 // *               ``there exists Y such that CS(X,Y)=0''.
 // * Above, CS is the R1CS constraint system that was given as input to the generator algorithm.
 // */
+
+
 //template<typename ppT>
 //r1cs_ppzksnark_proof<ppT> r1cs_ppzksnark_prover(const r1cs_ppzksnark_proving_key<ppT> &pk,
 //                                                const r1cs_ppzksnark_primary_input<ppT> &primary_input,
 //                                                const r1cs_ppzksnark_auxiliary_input<ppT> &auxiliary_input);
+
+template<typename ppT>
+r1cs_ppzksnark_proof<ppT> r1cs_ppzksnark_prover(const r1cs_ppzksnark_proving_key<ppT> &pk,
+                                                const r1cs_primary_input<libff::Fr<ppT>> &primary_input,
+                                                const r1cs_auxiliary_input<libff::Fr<ppT>> &auxiliary_input);
+
 //
 ///*
 // Below are four variants of verifier algorithm for the R1CS ppzkSNARK.
@@ -416,16 +424,28 @@ r1cs_ppzksnark_keypair<ppT> r1cs_ppzksnark_generator(const r1cs_constraint_syste
 //bool r1cs_ppzksnark_verifier_weak_IC(const r1cs_ppzksnark_verification_key<ppT> &vk,
 //                                     const r1cs_ppzksnark_primary_input<ppT> &primary_input,
 //                                     const r1cs_ppzksnark_proof<ppT> &proof);
+
+template<typename ppT>
+bool r1cs_ppzksnark_verifier_weak_IC(const r1cs_ppzksnark_verification_key<ppT> &vk,
+                                     const r1cs_primary_input<libff::Fr<ppT>> &primary_input,
+                                     const r1cs_ppzksnark_proof<ppT> &proof);
+//
 //
 ///**
 // * A verifier algorithm for the R1CS ppzkSNARK that:
 // * (1) accepts a non-processed verification key, and
 // * (2) has strong input consistency.
 // */
-//template<typename ppT>
+template<typename ppT>
 //bool r1cs_ppzksnark_verifier_strong_IC(const r1cs_ppzksnark_verification_key<ppT> &vk,
 //                                       const r1cs_ppzksnark_primary_input<ppT> &primary_input,
 //                                       const r1cs_ppzksnark_proof<ppT> &proof);
+
+template<typename ppT>
+bool r1cs_ppzksnark_verifier_strong_IC(const r1cs_ppzksnark_verification_key<ppT> &vk,
+                                       const r1cs_primary_input<libff::Fr<ppT>> &primary_input,
+                                       const r1cs_ppzksnark_proof<ppT> &proof);
+
 //
 ///**
 // * Convert a (non-processed) verification key into a processed verification key.

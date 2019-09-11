@@ -48,6 +48,21 @@ public:
 ///* TODO: specify that it does *NOT* include the constant 1 */
 //template<typename FieldT>
 //using r1cs_primary_input = std::vector<FieldT>;
+
+template<typename FieldT>
+class r1cs_primary_input {
+public:
+int size();
+FieldT at(int index) const;
+};
+
+template<typename FieldT> 
+class r1cs_auxiliary_input {
+public:
+int size();
+FieldT at(int index) const;
+};
+
 //
 //template<typename FieldT>
 //using r1cs_auxiliary_input = std::vector<FieldT>;
