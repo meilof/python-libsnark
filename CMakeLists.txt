@@ -25,7 +25,6 @@ set_property(SOURCE libsnark.i PROPERTY CPLUSPLUS ON)
 swig_add_library(libsnark
                  TYPE SHARED
                  LANGUAGE python
-                 NO_PROXY
                  SOURCES libsnark.i)
 
 set_property(TARGET libsnark PROPERTY SWIG_INCLUDE_DIRECTORIES ${DEPENDS_DIR}/libsnark)

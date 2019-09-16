@@ -3,3 +3,8 @@
 __pycache__/*
 build/*
 old/*
+examples/__pycache__/libsnark.cpython-37.pyc
+examples/_libsnark.so
+examples/ekfile
+examples/vkfile
+examples/libsnark.py
