@@ -29,7 +29,7 @@ swig_add_library(libsnark
                  SOURCES libsnark.i)
 
 set_property(TARGET libsnark PROPERTY SWIG_INCLUDE_DIRECTORIES ${DEPENDS_DIR}/libsnark)
-set_property(TARGET libsnark PROPERTY SUFFIX "${PYTHON_EXTENSION_MODULE_SUFFIX}")
+set_property(TARGET libsnark PROPERTY SUFFIX ".so")
 set_property(TARGET libsnark PROPERTY SWIG_GENERATED_INCLUDE_DIRECTORIES ${DEPENDS_DIR}/libsnark;${DEPENDS_DIR}/libsnark/depends/libfqfft;${DEPENDS_DIR}/libsnark/depends/libff;${OPENSSL_INCLUDE_DIR};${Python3_INCLUDE_DIRS};${GMP_INCLUDE_DIR})
 
 #add_library(libsnark MODULE libsnark.cpp)
