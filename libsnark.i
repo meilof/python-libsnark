@@ -1,6 +1,8 @@
 %module libsnark
 %{
- 
+
+#define MONTGOMERY_OUTPUT
+#define BINARY_OUTPUT
 
 #include "libff/algebra/fields/field_utils.hpp"
 #include "libsnark/zk_proof_systems/ppzksnark/r1cs_ppzksnark/r1cs_ppzksnark.hpp"
@@ -16,6 +18,7 @@
 using namespace libsnark;
 using namespace std;
 using namespace libff;
+
 
 typedef libff::Fr<default_r1cs_ppzksnark_pp> FieldT;
 
@@ -138,13 +141,25 @@ public:
 
 %typemap(out, precedence=3000) libff::Fr<libsnark::default_r1cs_ppzksnark_pp> {
     stringstream ss;
-    ss << $1.as_bigint();
+    
+    mpz_t t;
+    mpz_init(t);
+    $1.as_bigint().to_mpz(t);
+    ss << t;
+    mpz_clear(t);
+    
     $result = PyLong_FromString(ss.str().c_str(), NULL, 10);    
 }
 
 %typemap(out, precedence=3001) libff::bigint<FieldT::num_limbs> {
     stringstream ss;
-    ss << $1;
+    
+    mpz_t t;
+    mpz_init(t);
+    $1.to_mpz(t);
+    ss << t;
+    mpz_clear(t);
+    
     $result = PyLong_FromString(ss.str().c_str(), NULL, 10);    
 }
 
