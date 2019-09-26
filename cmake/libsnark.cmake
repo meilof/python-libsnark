@@ -1,5 +1,11 @@
 # CMake options from https://github.com/howardwu/libsnark-tutorial
 
+option(
+  USE_PT_COMPRESSION
+  "Use point compression"
+  OFF
+)
+
 set(
   CURVE
   "ALT_BN128"

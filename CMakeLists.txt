@@ -1,9 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 cmake_policy(VERSION 3.14)
-cmake_policy(SET CMP0077 NEW)
 project(python-libsnark)
 
-set(USE_PT_COMPRESSION OFF)
 
 include(cmake/libsnark.cmake)
 
