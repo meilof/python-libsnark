@@ -76,6 +76,18 @@ if("${MULTICORE}")
   add_definitions(-DMULTICORE=1)
 endif()
 
+if("${BINARY_OUTPUT}")
+  add_definitions(-DBINARY_OUTPUT)
+endif()
+
+if("${MONTGOMERY_OUTPUT}")
+  add_definitions(-DMONTGOMERY_OUTPUT)
+endif()
+
+if(NOT "${USE_PT_COMPRESSION}")
+  add_definitions(-DNO_PT_COMPRESSION=1)
+endif()
+
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OPT_FLAGS}")
 
 # need to do this here because libsnark requires cmake < 3.1,
