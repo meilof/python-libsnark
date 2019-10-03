@@ -210,15 +210,15 @@ namespace libsnark {
 
 //%template(variable) libsnark::variable<libff::Fr<libsnark::default_r1cs_ppzksnark_pp>>;
 //%template(linear_term) libsnark::linear_term<libff::Fr<libsnark::default_r1cs_ppzksnark_pp>>;
-%template(linear_combination) libsnark::linear_combination<libff::Fr<libsnark::default_r1cs_ppzksnark_pp>>;
-%template(r1cs_constraint) libsnark::r1cs_constraint<libff::Fr<libsnark::default_r1cs_ppzksnark_pp>>;
-%template(r1cs_constraint_system) libsnark::r1cs_constraint_system<libff::Fr<libsnark::default_r1cs_ppzksnark_pp>>;
-%template(pb_variable) libsnark::pb_variable<libff::Fr<libsnark::default_r1cs_ppzksnark_pp>>;
-%template(protoboard) libsnark::protoboard<libff::Fr<libsnark::default_r1cs_ppzksnark_pp>>;
+%template(zks_linear_combination) libsnark::linear_combination<libff::Fr<libsnark::default_r1cs_ppzksnark_pp>>;
+%template(zks_r1cs_constraint) libsnark::r1cs_constraint<libff::Fr<libsnark::default_r1cs_ppzksnark_pp>>;
+%template(zks_r1cs_constraint_system) libsnark::r1cs_constraint_system<libff::Fr<libsnark::default_r1cs_ppzksnark_pp>>;
+%template(zks_pb_variable) libsnark::pb_variable<libff::Fr<libsnark::default_r1cs_ppzksnark_pp>>;
+%template(zks_protoboard) libsnark::protoboard<libff::Fr<libsnark::default_r1cs_ppzksnark_pp>>;
 
-%template(r1cs_primary_input) libsnark::r1cs_primary_input<libff::Fr<libsnark::default_r1cs_ppzksnark_pp>>;
-%template(r1cs_auxiliary_input) libsnark::r1cs_auxiliary_input<libff::Fr<libsnark::default_r1cs_ppzksnark_pp>>;
-%template(r1cs_ppzksnark_proof) libsnark::r1cs_ppzksnark_proof<libsnark::default_r1cs_ppzksnark_pp>;
+%template(zks_r1cs_primary_input) libsnark::r1cs_primary_input<libff::Fr<libsnark::default_r1cs_ppzksnark_pp>>;
+%template(zks_r1cs_auxiliary_input) libsnark::r1cs_auxiliary_input<libff::Fr<libsnark::default_r1cs_ppzksnark_pp>>;
+%template(zks_r1cs_ppzksnark_proof) libsnark::r1cs_ppzksnark_proof<libsnark::default_r1cs_ppzksnark_pp>;
 
 
 class protoboard_pub: public libsnark::protoboard<libff::Fr<libsnark::default_r1cs_ppzksnark_pp>> {
@@ -231,11 +231,11 @@ public:
 };
 
 
-%template(r1cs_ppzksnark_keypair) libsnark::r1cs_ppzksnark_keypair<libsnark::default_r1cs_ppzksnark_pp>;
-%template(r1cs_ppzksnark_generator) libsnark::r1cs_ppzksnark_generator<libsnark::default_r1cs_ppzksnark_pp>;
-%template(r1cs_ppzksnark_prover) libsnark::r1cs_ppzksnark_prover<libsnark::default_r1cs_ppzksnark_pp>;
-%template(r1cs_ppzksnark_verifier_weak_IC) libsnark::r1cs_ppzksnark_verifier_weak_IC<libsnark::default_r1cs_ppzksnark_pp>;
-%template(r1cs_ppzksnark_verifier_strong_IC) libsnark::r1cs_ppzksnark_verifier_strong_IC<libsnark::default_r1cs_ppzksnark_pp>;
+%template(zks_keypair) libsnark::r1cs_ppzksnark_keypair<libsnark::default_r1cs_ppzksnark_pp>;
+%template(zks_generator) libsnark::r1cs_ppzksnark_generator<libsnark::default_r1cs_ppzksnark_pp>;
+%template(zks_prover) libsnark::r1cs_ppzksnark_prover<libsnark::default_r1cs_ppzksnark_pp>;
+%template(zks_verifier_weak_IC) libsnark::r1cs_ppzksnark_verifier_weak_IC<libsnark::default_r1cs_ppzksnark_pp>;
+%template(zks_verifier_strong_IC) libsnark::r1cs_ppzksnark_verifier_strong_IC<libsnark::default_r1cs_ppzksnark_pp>;
 
 
 %inline %{
