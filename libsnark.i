@@ -21,7 +21,7 @@ typedef libff::Fr<default_r1cs_ppzksnark_pp> FieldT;
 
 namespace libsnark {
 
-class protoboard_pub: public protoboard<FieldT> {
+class zks_protoboard_pub: public protoboard<FieldT> {
     vector<var_index_t> pubixs;
 public:
 
@@ -221,7 +221,7 @@ namespace libsnark {
 %template(zks_r1cs_ppzksnark_proof) libsnark::r1cs_ppzksnark_proof<libsnark::default_r1cs_ppzksnark_pp>;
 
 
-class protoboard_pub: public libsnark::protoboard<libff::Fr<libsnark::default_r1cs_ppzksnark_pp>> {
+class zks_protoboard_pub: public libsnark::protoboard<libff::Fr<libsnark::default_r1cs_ppzksnark_pp>> {
 public:
     void setpublic(const libsnark::pb_variable<libff::Fr<libsnark::default_r1cs_ppzksnark_pp>> &var);
     libsnark::r1cs_constraint_system<libff::Fr<libsnark::default_r1cs_ppzksnark_pp>> get_constraint_system_pubs();

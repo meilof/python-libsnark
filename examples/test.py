@@ -18,12 +18,12 @@ pb.setpublic(outv)
 # create constraints
 
 # let int=inv*(2*inv+1)
-pb.add_r1cs_constraint(libsnark.r1cs_constraint(libsnark.zks_linear_combination(inv),
+pb.add_r1cs_constraint(libsnark.zks_r1cs_constraint(libsnark.zks_linear_combination(inv),
                                                 libsnark.zks_linear_combination(inv)*2+libsnark.zks_linear_combination(1),
                                                 libsnark.zks_linear_combination(int)))
                        
 # let out=(int-1)*inv
-pb.add_r1cs_constraint(libsnark.r1cs_constraint(libsnark.zks_linear_combination(int)-libsnark.zks_linear_combination(1),
+pb.add_r1cs_constraint(libsnark.zks_r1cs_constraint(libsnark.zks_linear_combination(int)-libsnark.zks_linear_combination(1),
                                                 libsnark.zks_linear_combination(inv),
                                                 libsnark.zks_linear_combination(outv)))
 
