@@ -1,8 +1,8 @@
 %module libsnark
 %{
 
-#define MONTGOMERY_OUTPUT
-#define BINARY_OUTPUT
+//#define MONTGOMERY_OUTPUT
+//#define BINARY_OUTPUT
 
 #include "libff/algebra/fields/field_utils.hpp"
 #include "libsnark/zk_proof_systems/ppzksnark/r1cs_ppzksnark/r1cs_ppzksnark.hpp"
