@@ -1,6 +1,12 @@
 cmake_minimum_required(VERSION 3.10)
-cmake_policy(SET CMP0078 OLD)
-cmake_policy(SET CMP0086 OLD)
+if(${CMAKE_VERSION} VERSION_GREATER_EQUAL "3.13") 
+    # policy introduced in CMake 3.13
+    cmake_policy(SET CMP0078 OLD)
+endif()
+if(${CMAKE_VERSION} VERSION_GREATER_EQUAL "3.14") 
+    # policy introduced in CMake 3.13
+    cmake_policy(SET CMP0086 OLD)
+endif()
 project(python-libsnark)
 
 include(cmake/libsnark.cmake)
