@@ -16,8 +16,46 @@ using namespace libsnark;
 using namespace std;
 using namespace libff;
 
-
 typedef libff::Fr<default_r1cs_ppzksnark_pp> FieldT;
+
+#include <iostream>
+#include <fstream>
+
+//void prove(const libsnark::r1cs_constraint_system<libff::Fr<libsnark::default_r1cs_ppzksnark_pp>>& cs, const char* ekfile, const char* vkfile) {
+    
+template<mp_size_t n, const bigint<n>& modulus>
+void prettywrite(std::ostream &strm, const Fp_model<n, modulus> &val) {
+    mpz_t t;
+    mpz_init(t);
+    val.as_bigint().to_mpz(t);
+    strm << t;
+    mpz_clear(t);       
+}
+    
+template<mp_size_t n, const bigint<n>& modulus>
+void prettywrite(std::ostream &strm, const Fp2_model<n, modulus> &el)
+{
+    prettywrite(strm, el.c0);
+    strm << " ";
+    prettywrite(strm, el.c1);
+}
+    
+// formatting by https://github.com/christianlundkvist/libsnark-tutorial/blob/master/src/util.hpp
+
+void prettywrite(ostream& strm, const libff::G1<default_r1cs_ppzksnark_pp>& pt) {
+    libff::G1<default_r1cs_ppzksnark_pp> pp(pt);
+    pp.to_affine_coordinates();
+    prettywrite(strm, pp.X); strm << endl;
+    prettywrite(strm, pp.Y); strm << endl;
+}
+    
+void prettywrite(ostream& strm, const libff::G2<default_r1cs_ppzksnark_pp>& pt) {
+    libff::G2<default_r1cs_ppzksnark_pp> pp(pt);
+    pp.to_affine_coordinates();
+    prettywrite(strm, pp.X); strm << endl;
+    prettywrite(strm, pp.Y); strm << endl;
+}
+
 
 namespace libsnark {
 
@@ -295,11 +333,54 @@ libsnark::r1cs_ppzksnark_keypair<libsnark::default_r1cs_ppzksnark_pp>* read_key(
     return keys;
 }
     
+template<typename T>
+void prettywrite(std::ostream& out, const sparse_vector<T> &v)
+{
+    for (int i = 0; i < v.indices.size(); i++) {
+        //out << v.indices[i] << endl;
+        prettywrite(out, v.values[i]);
+        //out << endl;
+    }
+//    out << v.domain_size_ << "\n";
+//    out << v.indices.size() << "\n";
+//    for (const size_t& i : v.indices)
+//    {
+//        out << i << "\n";
+//    }
+//
+//    out << v.values.size() << "\n";
+//    for (const T& t : v.values)
+//    {
+//        out << t << OUTPUT_NEWLINE;
+//    }
+}
+    
+template<typename T>
+void prettywrite(std::ostream& out, const accumulation_vector<T> &v)
+{
+    out << (v.rest.indices.size()+1) << endl;
+    prettywrite(out, v.first);
+    prettywrite(out, v.rest);
+}
+    
+template<typename ppT>
+void prettywrite(std::ostream &out, const r1cs_ppzksnark_verification_key<ppT> &vk) {
+    prettywrite(out, vk.alphaA_g2);
+    prettywrite(out, vk.alphaB_g1);
+    prettywrite(out, vk.alphaC_g2);
+    prettywrite(out, vk.gamma_g2);
+    prettywrite(out, vk.gamma_beta_g1);
+    prettywrite(out, vk.gamma_beta_g2);
+    prettywrite(out, vk.rC_Z_g2);
+    prettywrite(out, vk.encoded_IC_query);    
+}
+    
 void write_keys(const libsnark::r1cs_ppzksnark_keypair<default_r1cs_ppzksnark_pp>& keypair,
             const char* vkfile = NULL, const char* ekfile = NULL) {
     if (vkfile && *vkfile) {
         ofstream vk_data(vkfile);
-        vk_data << keypair.vk;
+        prettywrite(vk_data, keypair.vk);
+        //vk_data << keypair.vk;
         vk_data.close();
     }
     
@@ -326,68 +407,25 @@ void write_keys(const libsnark::r1cs_ppzksnark_keypair<libsnark::default_r1cs_pp
 
 
 %inline %{
-    
-#include <iostream>
-#include <fstream>
-
-//void prove(const libsnark::r1cs_constraint_system<libff::Fr<libsnark::default_r1cs_ppzksnark_pp>>& cs, const char* ekfile, const char* vkfile) {
-    
+        
 void write_proof(
-    const r1cs_ppzksnark_proof<libsnark::default_r1cs_ppzksnark_pp>& proof,
+    const libsnark::r1cs_ppzksnark_proof<libsnark::default_r1cs_ppzksnark_pp>& proof,
     const libsnark::r1cs_primary_input<libff::Fr<libsnark::default_r1cs_ppzksnark_pp>> pubvals,
     const char* logfile
 ) {
     ofstream prooffile(logfile);
 
-    prooffile << pubvals.size() << endl << endl;
-    for (auto &it: pubvals) prooffile << it << endl;
-    prooffile << endl;
+    prooffile << pubvals.size() << endl;
+    for (auto &it: pubvals) { prettywrite(prooffile, it); prooffile << endl; }
 
-    // formatting by https://github.com/christianlundkvist/libsnark-tutorial/blob/master/src/util.hpp
-
-    libff::G1<default_r1cs_ppzksnark_pp> A_g(proof.g_A.g);
-    A_g.to_affine_coordinates();
-    libff::G1<default_r1cs_ppzksnark_pp> A_h(proof.g_A.h);
-    A_h.to_affine_coordinates();
-
-    libff::G2<default_r1cs_ppzksnark_pp> B_g(proof.g_B.g);
-    B_g.to_affine_coordinates();
-    libff::G1<default_r1cs_ppzksnark_pp> B_h(proof.g_B.h);
-    B_h.to_affine_coordinates();
-
-    libff::G1<default_r1cs_ppzksnark_pp> C_g(proof.g_C.g);
-    C_g.to_affine_coordinates();
-    libff::G1<default_r1cs_ppzksnark_pp> C_h(proof.g_C.h);
-    C_h.to_affine_coordinates();
-
-    libff::G1<default_r1cs_ppzksnark_pp> H(proof.g_H);
-    H.to_affine_coordinates();
-    libff::G1<default_r1cs_ppzksnark_pp> K(proof.g_K);
-    K.to_affine_coordinates();
-
-    prooffile << A_g.X << endl;
-    prooffile << A_g.Y << endl;
-
-    prooffile << A_h.X << endl;
-    prooffile << A_h.Y << endl;
-
-    prooffile << B_g.X << endl;
-    prooffile << B_g.Y << endl;
-
-    prooffile << B_h.X << endl;
-    prooffile << B_h.Y << endl;
-
-    prooffile << C_g.X << endl;
-    prooffile << C_g.Y << endl;
-
-    prooffile << C_h.X << endl;
-    prooffile << C_h.Y << endl;
-
-    prooffile << H.X << endl;
-    prooffile << H.Y << endl;
-
-    prooffile << K.X << endl;
-    prooffile << K.Y << endl;
+    prettywrite(prooffile, proof.g_A.g);
+    prettywrite(prooffile, proof.g_A.h);
+    prettywrite(prooffile, proof.g_B.g);
+    prettywrite(prooffile, proof.g_B.h);
+    prettywrite(prooffile, proof.g_C.g);
+    prettywrite(prooffile, proof.g_C.h);
+    prettywrite(prooffile, proof.g_H);
+    prettywrite(prooffile, proof.g_K);
 
     prooffile.close();
 }
