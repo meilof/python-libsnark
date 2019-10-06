@@ -65,46 +65,32 @@ namespace libsnark {
 %template(Protoboard) libsnark::protoboard<Ft>;
 
 %include "protoboard_pub.cpp"
+
+%include "io.i"
     
 namespace libsnark {
 %include "r1cs_ppzksnark.i"
 }
-%template(zks_r1cs_ppzksnark_proof) libsnark::r1cs_ppzksnark_proof<libsnark::default_r1cs_ppzksnark_pp>;
-%template(zks_keypair) libsnark::r1cs_ppzksnark_keypair<libsnark::default_r1cs_ppzksnark_pp>;
-%template(zks_generator) libsnark::r1cs_ppzksnark_generator<libsnark::default_r1cs_ppzksnark_pp>;
-%template(zks_prover) libsnark::r1cs_ppzksnark_prover<libsnark::default_r1cs_ppzksnark_pp>;
-%template(zks_verifier_weak_IC) libsnark::r1cs_ppzksnark_verifier_weak_IC<libsnark::default_r1cs_ppzksnark_pp>;
-%template(zks_verifier_strong_IC) libsnark::r1cs_ppzksnark_verifier_strong_IC<libsnark::default_r1cs_ppzksnark_pp>;
-
+%template(ZKProof) libsnark::r1cs_ppzksnark_proof<libsnark::default_r1cs_ppzksnark_pp>;
+%template(ZKKeypair) libsnark::r1cs_ppzksnark_keypair<libsnark::default_r1cs_ppzksnark_pp>;
+%template(zk_generator) libsnark::r1cs_ppzksnark_generator<libsnark::default_r1cs_ppzksnark_pp>;
+%template(zk_prover) libsnark::r1cs_ppzksnark_prover<libsnark::default_r1cs_ppzksnark_pp>;
+%template(zk_verifier_weak_IC) libsnark::r1cs_ppzksnark_verifier_weak_IC<libsnark::default_r1cs_ppzksnark_pp>;
+%template(zk_verifier_strong_IC) libsnark::r1cs_ppzksnark_verifier_strong_IC<libsnark::default_r1cs_ppzksnark_pp>;
+%include "io_zk.i"
+    
 namespace libsnark {
 %include "r1cs_gg_ppzksnark.i"
 }
-%template(gg_r1cs_ppzksnark_proof) libsnark::r1cs_gg_ppzksnark_proof<libsnark::default_r1cs_gg_ppzksnark_pp>;
-%template(gg_keypair) libsnark::r1cs_gg_ppzksnark_keypair<libsnark::default_r1cs_gg_ppzksnark_pp>;
-%template(gg_generator) libsnark::r1cs_gg_ppzksnark_generator<libsnark::default_r1cs_gg_ppzksnark_pp>;
-%template(gg_prover) libsnark::r1cs_gg_ppzksnark_prover<libsnark::default_r1cs_gg_ppzksnark_pp>;
-%template(gg_verifier_weak_IC) libsnark::r1cs_gg_ppzksnark_verifier_weak_IC<libsnark::default_r1cs_gg_ppzksnark_pp>;
-%template(gg_verifier_strong_IC) libsnark::r1cs_gg_ppzksnark_verifier_strong_IC<libsnark::default_r1cs_gg_ppzksnark_pp>;
+%template(ZKGGProof) libsnark::r1cs_gg_ppzksnark_proof<libsnark::default_r1cs_gg_ppzksnark_pp>;
+%template(ZKGGKeypair) libsnark::r1cs_gg_ppzksnark_keypair<libsnark::default_r1cs_gg_ppzksnark_pp>;
+%template(zkgg_generator) libsnark::r1cs_gg_ppzksnark_generator<libsnark::default_r1cs_gg_ppzksnark_pp>;
+%template(zkgg_prover) libsnark::r1cs_gg_ppzksnark_prover<libsnark::default_r1cs_gg_ppzksnark_pp>;
+%template(zkgg_verifier_weak_IC) libsnark::r1cs_gg_ppzksnark_verifier_weak_IC<libsnark::default_r1cs_gg_ppzksnark_pp>;
+%template(zkgg_verifier_strong_IC) libsnark::r1cs_gg_ppzksnark_verifier_strong_IC<libsnark::default_r1cs_gg_ppzksnark_pp>;
+%include "io_zkgg.i"
     
-%include "io.cpp"
-    
 
-libsnark::r1cs_ppzksnark_keypair<libsnark::default_r1cs_ppzksnark_pp>* read_key
-    (const char* ekfile,
-     const libsnark::r1cs_constraint_system<Ft>* cs = NULL);
-    
-void write_keys(const libsnark::r1cs_ppzksnark_keypair<libsnark::default_r1cs_ppzksnark_pp>& keypair,
-            const char* vkfile = NULL, const char* ekfile = NULL);
-
-//libsnark::r1cs_ppzksnark_keypair<libsnark::default_r1cs_ppzksnark_pp> read_key_or_generate(const libsnark::r1cs_constraint_system<Ft>& cs, const char* ekfile, const char* vkfile);
-
-
-
-void write_proof(
-    const r1cs_ppzksnark_proof<libsnark::default_r1cs_ppzksnark_pp>& proof,
-    const libsnark::r1cs_primary_input<Ft> pubvals,
-    const char* logfile
-);
 
 
 %init %{
