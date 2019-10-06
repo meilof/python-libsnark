@@ -64,7 +64,7 @@ namespace libsnark {
 };
 %template(Protoboard) libsnark::protoboard<Ft>;
 
-%include "protoboard_pub.cpp"
+%include "protoboard_pub.i"
 
 %include "io.i"
     
