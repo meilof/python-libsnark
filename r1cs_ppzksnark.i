@@ -377,7 +377,7 @@ class r1cs_ppzksnark_proof {
 //r1cs_ppzksnark_keypair<ppT> r1cs_ppzksnark_generator(const r1cs_ppzksnark_constraint_system<ppT> &cs);
 
 template<typename ppT>
-r1cs_ppzksnark_keypair<ppT> r1cs_ppzksnark_generator(const r1cs_constraint_system<libff::Fr<ppT>> &cs);
+r1cs_ppzksnark_keypair<ppT> r1cs_ppzksnark_generator(const r1cs_constraint_system<Ft> &cs);
 
 //
 ///**
@@ -397,8 +397,8 @@ r1cs_ppzksnark_keypair<ppT> r1cs_ppzksnark_generator(const r1cs_constraint_syste
 
 template<typename ppT>
 r1cs_ppzksnark_proof<ppT> r1cs_ppzksnark_prover(const r1cs_ppzksnark_proving_key<ppT> &pk,
-                                                const r1cs_primary_input<libff::Fr<ppT>> &primary_input,
-                                                const r1cs_auxiliary_input<libff::Fr<ppT>> &auxiliary_input);
+                                                const r1cs_primary_input<Ft> &primary_input,
+                                                const r1cs_auxiliary_input<Ft> &auxiliary_input);
 
 //
 ///*
@@ -427,7 +427,7 @@ r1cs_ppzksnark_proof<ppT> r1cs_ppzksnark_prover(const r1cs_ppzksnark_proving_key
 
 template<typename ppT>
 bool r1cs_ppzksnark_verifier_weak_IC(const r1cs_ppzksnark_verification_key<ppT> &vk,
-                                     const r1cs_primary_input<libff::Fr<ppT>> &primary_input,
+                                     const r1cs_primary_input<Ft> &primary_input,
                                      const r1cs_ppzksnark_proof<ppT> &proof);
 //
 //
@@ -443,7 +443,7 @@ template<typename ppT>
 
 template<typename ppT>
 bool r1cs_ppzksnark_verifier_strong_IC(const r1cs_ppzksnark_verification_key<ppT> &vk,
-                                       const r1cs_primary_input<libff::Fr<ppT>> &primary_input,
+                                       const r1cs_primary_input<Ft> &primary_input,
                                        const r1cs_ppzksnark_proof<ppT> &proof);
 
 //

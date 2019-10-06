@@ -45,11 +45,11 @@
 ///**
 // * A variable represents a formal expression of the form "x_{index}".
 // */
-//template<typename FieldT>
-//class variable {
-//public:
-//
-//    var_index_t index;
+template<typename FieldT>
+class variable {
+public:
+
+    var_index_t index;
 //
 //    variable(const var_index_t index = 0) : index(index) {};
 //
@@ -62,7 +62,7 @@
 //    linear_term<FieldT> operator-() const;
 //
 //    bool operator==(const variable<FieldT> &other) const;
-//};
+};
 
 //template<typename FieldT>
 //linear_term<FieldT> operator*(const integer_coeff_t int_coeff, const variable<FieldT> &var);

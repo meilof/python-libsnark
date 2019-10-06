@@ -4,7 +4,7 @@ public:
     //pb_variable(const var_index_t index = 0) : variable<FieldT>(index) {};
     pb_variable() : variable<FieldT>(index) {};
 
-    void allocate(protoboard<FieldT> &pb, const std::string &annotation="");
+    void allocate(libsnark::protoboard<FieldT> &pb, const std::string &annotation="");
 };
 
 //template<typename FieldT>
