@@ -3,16 +3,16 @@
 template<mp_size_t n, const bigint<n>& modulus>
 void prettywrite(std::ostream &out, const Fp6_3over2_model<n, modulus> &el)
 {
-    prettywrite(out, el.c0);
-    prettywrite(out, el.c1);
+    prettywrite(out, el.c0); out << " ";
+    prettywrite(out, el.c1); out << " ";
     prettywrite(out, el.c2);
 }
     
 template<mp_size_t n, const bigint<n>& modulus>
 void prettywrite(std::ostream &out, const Fp12_2over3over2_model<n, modulus> &el)
 {
-    prettywrite(out, el.c0);
-    prettywrite(out, el.c1);
+    prettywrite(out, el.c0); out << " ";
+    prettywrite(out, el.c1); out << endl;
 }    
     
 template<typename ppT>
@@ -55,7 +55,11 @@ void zkgg_write_keys(const libsnark::r1cs_gg_ppzksnark_keypair<libsnark::default
     if (vkfile && *vkfile) {
         ofstream vk_data(vkfile);
         prettywrite(vk_data, keypair.vk);
-        //vk_data << keypair.vk;
+        
+        // snarkjs puts this in the ver key so for compatibility we do the same...
+        prettywrite(vk_data, keypair.pk.alpha_g1);
+        prettywrite(vk_data, keypair.pk.beta_g2);
+
         vk_data.close();
     }
     
