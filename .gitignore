@@ -11,3 +11,4 @@ examples/libsnark.py
 _libsnark.cpython-37m-darwin.so
 docs/_build/*
 libsnark/*
+__.SYMDEF

@@ -7699,6 +7699,7 @@ SWIG_init(void) {
   SWIG_InstallConstants(d,swig_const_table);
   
   
+  cerr << "Welcome" << endl;
   libff::alt_bn128_pp::init_public_params();
   libff::inhibit_profiling_info = true;
   

@@ -1,17 +1,12 @@
-Python3 bindings for libsnark. Minimal example:
+Python3 bindings for libsnark.
+
+Assumes libsnark is built with `-DBINARY_OUTPUT=ON -DMONTGOMERY_OUTPUT=ON -DUSE_PT_COMPRESSION=OFF` and installed.
+
+Install with:
 
 ```
-cd build
-cmake ..
-make 
-cp ../examples/test.py .
-python3 test.py
+python setup.py install
 ```
 
-Magical line for Mac OS
-
-```
-cmake -DCMAKE_PREFIX_PATH=/usr/local/Cellar/openssl/1.0.2t -DCMAKE_SHARED_LINKER_FLAGS=-L/usr/local/Cellar/openssl/1.0.2t/lib -DWITH_PROCPS=OFF -DWITH_SUPERCOP=OFF -DOPT_FLAGS=-std=c++11 -DPYTHON_EXECUTABLE=/usr/local/opt/python/bin/python3.7 ..
-```
-
+The wrapper is created using SWIG. To update the wrapper, use `swig -python -c++ -o alt_bn128_wrap.cpp libsnark.i`.
 
