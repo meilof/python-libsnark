@@ -14,3 +14,4 @@ libsnark/*
 __.SYMDEF
 python_libsnark.egg-info/*
 dist/*
+build.sh
