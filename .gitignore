@@ -12,3 +12,5 @@ _libsnark.cpython-37m-darwin.so
 docs/_build/*
 libsnark/*
 __.SYMDEF
+python_libsnark.egg-info/*
+dist/*
