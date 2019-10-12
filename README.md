@@ -8,7 +8,7 @@ Install from pip with
 pip install python-libsnark
 ```
 
-(binary available for Mac OS X currently)
+(binary available for Mac OS X currently), or download a [release](https://github.com/meilof/python-libsnark/releases).
 
 Install from source with:
 
