@@ -2,7 +2,15 @@ Python3 bindings for libsnark.
 
 Assumes [this libsnark branch](https://github.com/meilof/libsnark) is built with `cmake -DCURVE=ALT_BN128 -DUSE_PT_COMPRESSION=OFF -DWITH_PROCPS=OFF` and installed. If libsnark is built with different flags, `setup.py`'s `extra_compile_flags` should be adapted.
 
-Install with:
+Install from pip with
+
+```
+pip install python-libsnark
+```
+
+(binary available for Mac OS X currently)
+
+Install from source with:
 
 ```
 python setup.py install
