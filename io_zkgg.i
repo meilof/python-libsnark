@@ -23,7 +23,7 @@ void prettywrite(std::ostream &out, const r1cs_gg_ppzksnark_verification_key<ppT
     prettywrite(out, vk.gamma_ABC_g1);
 }
     
-libsnark::r1cs_gg_ppzksnark_keypair<libsnark::default_r1cs_gg_ppzksnark_pp>* zkgg_read_key(const char* ekfile, const libsnark::r1cs_constraint_system<Ft>* cs = NULL) {
+libsnark::r1cs_gg_ppzksnark_keypair<libff::alt_bn128_pp>* zkgg_read_key(const char* ekfile, const libsnark::r1cs_constraint_system<Ft>* cs = NULL) {
     // try reading from file
     
     ifstream ek_data(ekfile);
@@ -35,8 +35,8 @@ libsnark::r1cs_gg_ppzksnark_keypair<libsnark::default_r1cs_gg_ppzksnark_pp>* zkg
     // initial check to eliminate obvious non-matches
     if (cs!=NULL && (sz1!=cs->constraints.size())) return NULL;
         
-    libsnark::r1cs_gg_ppzksnark_keypair<libsnark::default_r1cs_gg_ppzksnark_pp>* keys = 
-        new libsnark::r1cs_gg_ppzksnark_keypair<libsnark::default_r1cs_gg_ppzksnark_pp>();
+    libsnark::r1cs_gg_ppzksnark_keypair<libff::alt_bn128_pp>* keys = 
+        new libsnark::r1cs_gg_ppzksnark_keypair<libff::alt_bn128_pp>();
     
     ek_data >> keys->pk;
     ek_data >> keys->vk;
@@ -50,7 +50,7 @@ libsnark::r1cs_gg_ppzksnark_keypair<libsnark::default_r1cs_gg_ppzksnark_pp>* zkg
     return keys;
 }
     
-void zkgg_write_keys(const libsnark::r1cs_gg_ppzksnark_keypair<libsnark::default_r1cs_gg_ppzksnark_pp>& keypair,
+void zkgg_write_keys(const libsnark::r1cs_gg_ppzksnark_keypair<libff::alt_bn128_pp>& keypair,
             const char* vkfile = NULL, const char* ekfile = NULL) {
     if (vkfile && *vkfile) {
         ofstream vk_data(vkfile);
@@ -73,7 +73,7 @@ void zkgg_write_keys(const libsnark::r1cs_gg_ppzksnark_keypair<libsnark::default
 }
     
 void zkgg_write_proof(
-    const libsnark::r1cs_gg_ppzksnark_proof<libsnark::default_r1cs_gg_ppzksnark_pp>& proof,
+    const libsnark::r1cs_gg_ppzksnark_proof<libff::alt_bn128_pp>& proof,
     const libsnark::r1cs_primary_input<Ft> pubvals,
     const char* logfile
 ) {

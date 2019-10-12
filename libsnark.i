@@ -1,9 +1,15 @@
-%module libsnark
+%module alt_bn128
+
+%feature("autodoc", "1");
+    
 %{
 
+//#include "libsnark/common/default_types/r1cs_ppzksnark_pp.hpp"
+//#include "libsnark/common/default_types/r1cs_gg_ppzksnark_pp.hpp"
+
+#include <libff/algebra/curves/alt_bn128/alt_bn128_pp.hpp>
+
 #include "libff/algebra/fields/field_utils.hpp"
-#include "libsnark/common/default_types/r1cs_ppzksnark_pp.hpp"
-#include "libsnark/common/default_types/r1cs_gg_ppzksnark_pp.hpp"
 #include "libsnark/gadgetlib1/protoboard.hpp"
 #include "libsnark/gadgetlib1/gadgets/hashes/knapsack/knapsack_gadget.hpp"
 #include "libsnark/relations/variable.hpp"
@@ -18,7 +24,7 @@ using namespace libff;
 %}
 
 %{
-typedef libff::Fr<libsnark::default_r1cs_ppzksnark_pp> Ft;
+typedef libff::Fr<libff::alt_bn128_pp> Ft;
 %}
 
 class Ft { };
@@ -71,29 +77,29 @@ namespace libsnark {
 namespace libsnark {
 %include "r1cs_ppzksnark.i"
 }
-%template(ZKProof) libsnark::r1cs_ppzksnark_proof<libsnark::default_r1cs_ppzksnark_pp>;
-%template(ZKKeypair) libsnark::r1cs_ppzksnark_keypair<libsnark::default_r1cs_ppzksnark_pp>;
-%template(zk_generator) libsnark::r1cs_ppzksnark_generator<libsnark::default_r1cs_ppzksnark_pp>;
-%template(zk_prover) libsnark::r1cs_ppzksnark_prover<libsnark::default_r1cs_ppzksnark_pp>;
-%template(zk_verifier_weak_IC) libsnark::r1cs_ppzksnark_verifier_weak_IC<libsnark::default_r1cs_ppzksnark_pp>;
-%template(zk_verifier_strong_IC) libsnark::r1cs_ppzksnark_verifier_strong_IC<libsnark::default_r1cs_ppzksnark_pp>;
+%template(ZKProof) libsnark::r1cs_ppzksnark_proof<libff::alt_bn128_pp>;
+%template(ZKKeypair) libsnark::r1cs_ppzksnark_keypair<libff::alt_bn128_pp>;
+%template(zk_generator) libsnark::r1cs_ppzksnark_generator<libff::alt_bn128_pp>;
+%template(zk_prover) libsnark::r1cs_ppzksnark_prover<libff::alt_bn128_pp>;
+%template(zk_verifier_weak_IC) libsnark::r1cs_ppzksnark_verifier_weak_IC<libff::alt_bn128_pp>;
+%template(zk_verifier_strong_IC) libsnark::r1cs_ppzksnark_verifier_strong_IC<libff::alt_bn128_pp>;
 %include "io_zk.i"
     
 namespace libsnark {
 %include "r1cs_gg_ppzksnark.i"
 }
-%template(ZKGGProof) libsnark::r1cs_gg_ppzksnark_proof<libsnark::default_r1cs_gg_ppzksnark_pp>;
-%template(ZKGGKeypair) libsnark::r1cs_gg_ppzksnark_keypair<libsnark::default_r1cs_gg_ppzksnark_pp>;
-%template(zkgg_generator) libsnark::r1cs_gg_ppzksnark_generator<libsnark::default_r1cs_gg_ppzksnark_pp>;
-%template(zkgg_prover) libsnark::r1cs_gg_ppzksnark_prover<libsnark::default_r1cs_gg_ppzksnark_pp>;
-%template(zkgg_verifier_weak_IC) libsnark::r1cs_gg_ppzksnark_verifier_weak_IC<libsnark::default_r1cs_gg_ppzksnark_pp>;
-%template(zkgg_verifier_strong_IC) libsnark::r1cs_gg_ppzksnark_verifier_strong_IC<libsnark::default_r1cs_gg_ppzksnark_pp>;
+%template(ZKGGProof) libsnark::r1cs_gg_ppzksnark_proof<libff::alt_bn128_pp>;
+%template(ZKGGKeypair) libsnark::r1cs_gg_ppzksnark_keypair<libff::alt_bn128_pp>;
+%template(zkgg_generator) libsnark::r1cs_gg_ppzksnark_generator<libff::alt_bn128_pp>;
+%template(zkgg_prover) libsnark::r1cs_gg_ppzksnark_prover<libff::alt_bn128_pp>;
+%template(zkgg_verifier_weak_IC) libsnark::r1cs_gg_ppzksnark_verifier_weak_IC<libff::alt_bn128_pp>;
+%template(zkgg_verifier_strong_IC) libsnark::r1cs_gg_ppzksnark_verifier_strong_IC<libff::alt_bn128_pp>;
 %include "io_zkgg.i"
     
 
 
 
 %init %{
-	default_r1cs_ppzksnark_pp::init_public_params();
+	libff::alt_bn128_pp::init_public_params();
 	libff::inhibit_profiling_info = true;
 %}

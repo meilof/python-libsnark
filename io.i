@@ -22,15 +22,15 @@ void prettywrite(std::ostream &strm, const Fp2_model<n, modulus> &el)
     
 // formatting by https://github.com/christianlundkvist/libsnark-tutorial/blob/master/src/util.hpp
 
-void prettywrite(ostream& strm, const libff::G1<default_r1cs_ppzksnark_pp>& pt) {
-    libff::G1<default_r1cs_ppzksnark_pp> pp(pt);
+void prettywrite(ostream& strm, const libff::G1<libff::alt_bn128_pp>& pt) {
+    libff::G1<libff::alt_bn128_pp> pp(pt);
     pp.to_affine_coordinates();
     prettywrite(strm, pp.X); strm << endl;
     prettywrite(strm, pp.Y); strm << endl;
 }
     
-void prettywrite(ostream& strm, const libff::G2<default_r1cs_ppzksnark_pp>& pt) {
-    libff::G2<default_r1cs_ppzksnark_pp> pp(pt);
+void prettywrite(ostream& strm, const libff::G2<libff::alt_bn128_pp>& pt) {
+    libff::G2<libff::alt_bn128_pp> pp(pt);
     pp.to_affine_coordinates();
     prettywrite(strm, pp.X); strm << endl;
     prettywrite(strm, pp.Y); strm << endl;
