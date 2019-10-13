@@ -1,4 +1,6 @@
-Python3 bindings for a minimal subset of libsnark.
+Python3 bindings for a minimal subset of libsnark. Currently supports Pinocchio and Groth proofs on the `alt_bn128` curve, compatible with snarkjs, websnark, Solidity pairings, etc.
+
+See [minimal examlple](https://github.com/meilof/python-libsnark/blob/master/examples/test.py) and [use in PySNARK](https://github.com/meilof/pysnark/blob/master/pysnark/libsnark/backend.py).
 
 Install from pip with
 
@@ -7,6 +9,48 @@ pip install python-libsnark
 ```
 
 Binary versions available at [PyPi](https://pypi.org/manage/project/python-libsnark/release/0.3.1/) for Linux (Python 3.5, 3.6, 3.7, 3.8) and Mac OS (Python 3.7).
+
+## Functionality
+
+The following classes of libsnark are currently wrapped:
+
+General:
+
+```
+typedef libff::Fr<libff::alt_bn128_pp> Ft;
+%template(Variable) libsnark::variable<Ft>;
+%template(PbVariable) libsnark::pb_variable<Ft>;
+%template(LinearCombination) libsnark::linear_combination<Ft>;
+%template(R1csConstraint) libsnark::r1cs_constraint<Ft>;
+%template(R1csConstraintSystem) libsnark::r1cs_constraint_system<Ft>;
+%template(R1csPrimaryInput) libsnark::r1cs_primary_input<Ft>;
+%template(R1csAuxiliaryInput) libsnark::r1cs_auxiliary_input<Ft>;
+%template(Protoboard) libsnark::protoboard<Ft>;
+```
+
+Pinocchio zk-SNARK (aka 8-point proofs):
+
+```
+%template(ZKProof) libsnark::r1cs_ppzksnark_proof<libff::alt_bn128_pp>;
+%template(ZKKeypair) libsnark::r1cs_ppzksnark_keypair<libff::alt_bn128_pp>;
+%template(zk_generator) libsnark::r1cs_ppzksnark_generator<libff::alt_bn128_pp>;
+%template(zk_prover) libsnark::r1cs_ppzksnark_prover<libff::alt_bn128_pp>;
+%template(zk_verifier_weak_IC) libsnark::r1cs_ppzksnark_verifier_weak_IC<libff::alt_bn128_pp>;
+%template(zk_verifier_strong_IC) libsnark::r1cs_ppzksnark_verifier_strong_IC<libff::alt_bn128_pp>;
+```
+
+Groth 3-point proof:
+
+```
+%template(ZKGGProof) libsnark::r1cs_gg_ppzksnark_proof<libff::alt_bn128_pp>;
+%template(ZKGGKeypair) libsnark::r1cs_gg_ppzksnark_keypair<libff::alt_bn128_pp>;
+%template(zkgg_generator) libsnark::r1cs_gg_ppzksnark_generator<libff::alt_bn128_pp>;
+%template(zkgg_prover) libsnark::r1cs_gg_ppzksnark_prover<libff::alt_bn128_pp>;
+%template(zkgg_verifier_weak_IC) libsnark::r1cs_gg_ppzksnark_verifier_weak_IC<libff::alt_bn128_pp>;
+%template(zkgg_verifier_strong_IC) libsnark::r1cs_gg_ppzksnark_verifier_strong_IC<libff::alt_bn128_pp>;
+```
+
+## Building from source
 
 When building from source it is assumed tht [this libsnark branch](https://github.com/meilof/libsnark) is built with `cmake -DCURVE=ALT_BN128 -DUSE_PT_COMPRESSION=OFF -DWITH_PROCPS=OFF` and installed. If libsnark is built with different flags, `setup.py`'s `extra_compile_flags` should be adapted.
 
