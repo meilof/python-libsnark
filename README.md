@@ -50,6 +50,10 @@ Groth 3-point proof:
 %template(zkgg_verifier_strong_IC) libsnark::r1cs_gg_ppzksnark_verifier_strong_IC<libff::alt_bn128_pp>;
 ```
 
+## Known issues
+
+* Evaluation keys are not compatible between 32-bit and 64-bit versions of the module because of the use of Montgomery representations. Verification keys should be OK. This may be fixed in future versions. For the same reason, evaluation keys generated using the 32-bit version probably cannot be converted into snarkjs (a la [PySNARK](https://github.com/meilof/pysnark/blob/master/pysnark/libsnark/tosnarkjs.py)) since also snarkjs works with 64-bit Montgomery representations.
+
 ## Building from source
 
 When building from source it is assumed tht [this libsnark branch](https://github.com/meilof/libsnark) is built with `cmake -DCURVE=ALT_BN128 -DUSE_PT_COMPRESSION=OFF -DWITH_PROCPS=OFF` and installed. If libsnark is built with different flags, `setup.py`'s `extra_compile_flags` should be adapted.
