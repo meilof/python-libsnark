@@ -69,3 +69,11 @@ sudo make install
 For Mac OS, flags like `-DCMAKE_PREFIX_PATH=/usr/local/Cellar/openssl/1.0.2t -DCMAKE_SHARED_LINKER_FLAGS=-L/usr/local/Cellar/openssl/1.0.2t/lib` can be added.
 
 The wrapper is created using SWIG. To update the wrapper, use `swig -python -c++ -o alt_bn128_wrap.cpp libsnark.i`.
+
+### Mac OS X
+
+To compile libsnark, use:
+
+```
+sudo cmake -DCMAKE_PREFIX_PATH=/usr/local/Cellar/openssl/1.0.2t -DCMAKE_SHARED_LINKER_FLAGS=-L/usr/local/Cellar/openssl/1.0.2t/lib -DWITH_PROCPS=OFF -DWITH_SUPERCOP=OFF -DOPT_FLAGS=-std=c++11 -DCURVE=ALT_BN128 ..
+```

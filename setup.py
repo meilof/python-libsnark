@@ -12,7 +12,7 @@ print("* To update the wrapper, use swig -python -c++ -o alt_bn128_wrap.cpp libs
 # , extra_link_args=['-static'] on macos makes sense?
 
 setup(name = "python-libsnark",
-      version = "0.3.1",
+      version = "0.3.2",
       description='Python bindings for a restricted subset of libsnark',
       author='Meilof Veeningen',
       author_email='meilof@gmail.com',
