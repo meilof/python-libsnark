@@ -52,7 +52,7 @@ Groth 3-point proof:
 
 ## Known issues
 
-* Evaluation keys are not compatible between 32-bit and 64-bit versions of the module because of the use of Montgomery representations. Verification keys should be OK. This may be fixed in future versions. For the same reason, evaluation keys generated using the 32-bit version probably cannot be converted into snarkjs (a la [PySNARK](https://github.com/meilof/pysnark/blob/master/pysnark/libsnark/tosnarkjs.py)) since also snarkjs works with 64-bit Montgomery representations.
+* Evaluation keys are not compatible between 32-bit and 64-bit versions of the module because of the use of Montgomery representations. Verification keys should be OK. This may be fixed in future versions.
 
 ## Building from source
 
