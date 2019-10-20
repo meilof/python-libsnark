@@ -33,6 +33,18 @@
     $result = PyLong_FromString(ss.str().c_str(), NULL, 10);    
 }
 
+%typemap(out, precedence=3000) Fqt {
+    stringstream ss;
+    
+    mpz_t t;
+    mpz_init(t);
+    $1.as_bigint().to_mpz(t);
+    ss << t;
+    mpz_clear(t);
+    
+    $result = PyLong_FromString(ss.str().c_str(), NULL, 10);    
+}
+
 %typemap(out, precedence=3001) libff::bigint<Ft::num_limbs> {
     stringstream ss;
     

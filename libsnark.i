@@ -25,11 +25,20 @@ using namespace libff;
 
 %{
 typedef libff::Fr<libff::alt_bn128_pp> Ft;
+typedef libff::alt_bn128_Fq Fqt;
+typedef libff::alt_bn128_Fq2 Fq2t;
 %}
 
 class Ft { };
+class Fqt { };
 
 %include "swigtypes.i"
+
+class Fq2t {  };
+%extend Fq2t {
+Fqt Fq2t::getc0() { return $self->c0; }
+Fqt Fq2t::getc1() { return $self->c1; }
+};
 
 %inline %{ 
 Ft fieldinverse(const Ft& val) {
@@ -40,6 +49,20 @@ libff::bigint<Ft::num_limbs> get_modulus() {
     return Ft::mod;
 }    
 %}
+
+%include "alt_bn128_g1.i"
+%include "alt_bn128_g2.i"
+namespace libff {
+%template(G1) libff::G1<libff::alt_bn128_pp>;
+%template(G2) libff::G2<libff::alt_bn128_pp>;
+}
+
+%include "knowledge_commitment.i"
+namespace libsnark {
+%template(KnowledgeCommitmentG1G1) libsnark::knowledge_commitment<libff::G1<libff::alt_bn128_pp>,libff::G1<libff::alt_bn128_pp>>;
+%template(KnowledgeCommitmentG2G1) libsnark::knowledge_commitment<libff::G2<libff::alt_bn128_pp>,libff::G1<libff::alt_bn128_pp>>;
+}
+
 
 namespace libsnark {
 %include "variable.i"
@@ -79,6 +102,7 @@ namespace libsnark {
 }
 %template(ZKProof) libsnark::r1cs_ppzksnark_proof<libff::alt_bn128_pp>;
 %template(ZKKeypair) libsnark::r1cs_ppzksnark_keypair<libff::alt_bn128_pp>;
+%template(ZKVerificationKey) libsnark::r1cs_ppzksnark_verification_key<libff::alt_bn128_pp>;
 %template(zk_generator) libsnark::r1cs_ppzksnark_generator<libff::alt_bn128_pp>;
 %template(zk_prover) libsnark::r1cs_ppzksnark_prover<libff::alt_bn128_pp>;
 %template(zk_verifier_weak_IC) libsnark::r1cs_ppzksnark_verifier_weak_IC<libff::alt_bn128_pp>;

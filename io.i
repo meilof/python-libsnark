@@ -27,6 +27,7 @@ void prettywrite(ostream& strm, const libff::G1<libff::alt_bn128_pp>& pt) {
     pp.to_affine_coordinates();
     prettywrite(strm, pp.X); strm << endl;
     prettywrite(strm, pp.Y); strm << endl;
+    prettywrite(strm, pp.Z); strm << endl;
 }
     
 void prettywrite(ostream& strm, const libff::G2<libff::alt_bn128_pp>& pt) {
@@ -34,6 +35,7 @@ void prettywrite(ostream& strm, const libff::G2<libff::alt_bn128_pp>& pt) {
     pp.to_affine_coordinates();
     prettywrite(strm, pp.X); strm << endl;
     prettywrite(strm, pp.Y); strm << endl;
+    prettywrite(strm, pp.Z); strm << endl;
 }
 
 template<typename T>

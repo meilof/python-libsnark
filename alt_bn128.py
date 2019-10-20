@@ -75,6 +75,42 @@ class Ft(object):
 # Register Ft in _alt_bn128:
 _alt_bn128.Ft_swigregister(Ft)
 
+class Fqt(object):
+    r"""Proxy of C++ Fqt class."""
+
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    __repr__ = _swig_repr
+
+    def __init__(self):
+        r"""__init__(Fqt self) -> Fqt"""
+        _alt_bn128.Fqt_swiginit(self, _alt_bn128.new_Fqt())
+    __swig_destroy__ = _alt_bn128.delete_Fqt
+
+# Register Fqt in _alt_bn128:
+_alt_bn128.Fqt_swigregister(Fqt)
+
+class Fq2t(object):
+    r"""Proxy of C++ Fq2t class."""
+
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    __repr__ = _swig_repr
+
+    def getc0(self):
+        r"""getc0(Fq2t self) -> Fqt"""
+        return _alt_bn128.Fq2t_getc0(self)
+
+    def getc1(self):
+        r"""getc1(Fq2t self) -> Fqt"""
+        return _alt_bn128.Fq2t_getc1(self)
+
+    def __init__(self):
+        r"""__init__(Fq2t self) -> Fq2t"""
+        _alt_bn128.Fq2t_swiginit(self, _alt_bn128.new_Fq2t())
+    __swig_destroy__ = _alt_bn128.delete_Fq2t
+
+# Register Fq2t in _alt_bn128:
+_alt_bn128.Fq2t_swigregister(Fq2t)
+
 
 def fieldinverse(val):
     r"""fieldinverse(Ft val) -> Ft"""
@@ -83,6 +119,91 @@ def fieldinverse(val):
 def get_modulus():
     r"""get_modulus() -> libff::bigint< Ft::num_limbs >"""
     return _alt_bn128.get_modulus()
+class G1(object):
+    r"""
+    Proxy of C++ libff::G1< libff::alt_bn128_pp > class.
+    Proxy of C++ libff::G1< libff::alt_bn128_pp > class.
+    """
+
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    __repr__ = _swig_repr
+
+    def to_affine_coordinates(self):
+        r"""to_affine_coordinates(G1 self)"""
+        return _alt_bn128.G1_to_affine_coordinates(self)
+
+    def getx(self):
+        r"""getx(G1 self) -> Fqt"""
+        return _alt_bn128.G1_getx(self)
+
+    def gety(self):
+        r"""gety(G1 self) -> Fqt"""
+        return _alt_bn128.G1_gety(self)
+
+    def getz(self):
+        r"""getz(G1 self) -> Fqt"""
+        return _alt_bn128.G1_getz(self)
+
+    def __init__(self):
+        r"""__init__(G1 self) -> G1"""
+        _alt_bn128.G1_swiginit(self, _alt_bn128.new_G1())
+    __swig_destroy__ = _alt_bn128.delete_G1
+
+# Register G1 in _alt_bn128:
+_alt_bn128.G1_swigregister(G1)
+
+class G2(object):
+    r"""
+    Proxy of C++ libff::G2< libff::alt_bn128_pp > class.
+    Proxy of C++ libff::G2< libff::alt_bn128_pp > class.
+    """
+
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    __repr__ = _swig_repr
+    X = property(_alt_bn128.G2_X_get, _alt_bn128.G2_X_set, doc=r"""X : Fq2t""")
+    Y = property(_alt_bn128.G2_Y_get, _alt_bn128.G2_Y_set, doc=r"""Y : Fq2t""")
+    Z = property(_alt_bn128.G2_Z_get, _alt_bn128.G2_Z_set, doc=r"""Z : Fq2t""")
+
+    def __init__(self):
+        r"""__init__(G2 self) -> G2"""
+        _alt_bn128.G2_swiginit(self, _alt_bn128.new_G2())
+    __swig_destroy__ = _alt_bn128.delete_G2
+
+# Register G2 in _alt_bn128:
+_alt_bn128.G2_swigregister(G2)
+
+class KnowledgeCommitmentG1G1(object):
+    r"""Proxy of C++ libsnark::knowledge_commitment< libff::G1< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > class."""
+
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    __repr__ = _swig_repr
+    g = property(_alt_bn128.KnowledgeCommitmentG1G1_g_get, _alt_bn128.KnowledgeCommitmentG1G1_g_set, doc=r"""g : libff::G1<(libff::alt_bn128_pp)>""")
+    h = property(_alt_bn128.KnowledgeCommitmentG1G1_h_get, _alt_bn128.KnowledgeCommitmentG1G1_h_set, doc=r"""h : libff::G1<(libff::alt_bn128_pp)>""")
+
+    def __init__(self):
+        r"""__init__(KnowledgeCommitmentG1G1 self) -> KnowledgeCommitmentG1G1"""
+        _alt_bn128.KnowledgeCommitmentG1G1_swiginit(self, _alt_bn128.new_KnowledgeCommitmentG1G1())
+    __swig_destroy__ = _alt_bn128.delete_KnowledgeCommitmentG1G1
+
+# Register KnowledgeCommitmentG1G1 in _alt_bn128:
+_alt_bn128.KnowledgeCommitmentG1G1_swigregister(KnowledgeCommitmentG1G1)
+
+class KnowledgeCommitmentG2G1(object):
+    r"""Proxy of C++ libsnark::knowledge_commitment< libff::G2< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > class."""
+
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    __repr__ = _swig_repr
+    g = property(_alt_bn128.KnowledgeCommitmentG2G1_g_get, _alt_bn128.KnowledgeCommitmentG2G1_g_set, doc=r"""g : libff::G2<(libff::alt_bn128_pp)>""")
+    h = property(_alt_bn128.KnowledgeCommitmentG2G1_h_get, _alt_bn128.KnowledgeCommitmentG2G1_h_set, doc=r"""h : libff::G1<(libff::alt_bn128_pp)>""")
+
+    def __init__(self):
+        r"""__init__(KnowledgeCommitmentG2G1 self) -> KnowledgeCommitmentG2G1"""
+        _alt_bn128.KnowledgeCommitmentG2G1_swiginit(self, _alt_bn128.new_KnowledgeCommitmentG2G1())
+    __swig_destroy__ = _alt_bn128.delete_KnowledgeCommitmentG2G1
+
+# Register KnowledgeCommitmentG2G1 in _alt_bn128:
+_alt_bn128.KnowledgeCommitmentG2G1_swigregister(KnowledgeCommitmentG2G1)
+
 class Variable(object):
     r"""Proxy of C++ libsnark::variable< Ft > class."""
 
@@ -322,6 +443,11 @@ class ZKProof(object):
 
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
+    g_A = property(_alt_bn128.ZKProof_g_A_get, _alt_bn128.ZKProof_g_A_set, doc=r"""g_A : libsnark::knowledge_commitment<(libff::G1<(libff::alt_bn128_pp)>,libff::G1<(libff::alt_bn128_pp)>)>""")
+    g_B = property(_alt_bn128.ZKProof_g_B_get, _alt_bn128.ZKProof_g_B_set, doc=r"""g_B : libsnark::knowledge_commitment<(libff::G2<(libff::alt_bn128_pp)>,libff::G1<(libff::alt_bn128_pp)>)>""")
+    g_C = property(_alt_bn128.ZKProof_g_C_get, _alt_bn128.ZKProof_g_C_set, doc=r"""g_C : libsnark::knowledge_commitment<(libff::G1<(libff::alt_bn128_pp)>,libff::G1<(libff::alt_bn128_pp)>)>""")
+    g_H = property(_alt_bn128.ZKProof_g_H_get, _alt_bn128.ZKProof_g_H_set, doc=r"""g_H : libff::G1<(libff::alt_bn128_pp)>""")
+    g_K = property(_alt_bn128.ZKProof_g_K_get, _alt_bn128.ZKProof_g_K_set, doc=r"""g_K : libff::G1<(libff::alt_bn128_pp)>""")
 
     def __init__(self):
         r"""__init__(ZKProof self) -> ZKProof"""
@@ -347,6 +473,35 @@ class ZKKeypair(object):
 # Register ZKKeypair in _alt_bn128:
 _alt_bn128.ZKKeypair_swigregister(ZKKeypair)
 
+class ZKVerificationKey(object):
+    r"""Proxy of C++ libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > class."""
+
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    __repr__ = _swig_repr
+    alphaA_g2 = property(_alt_bn128.ZKVerificationKey_alphaA_g2_get, _alt_bn128.ZKVerificationKey_alphaA_g2_set, doc=r"""alphaA_g2 : libff::G2<(libff::alt_bn128_pp)>""")
+    alphaB_g1 = property(_alt_bn128.ZKVerificationKey_alphaB_g1_get, _alt_bn128.ZKVerificationKey_alphaB_g1_set, doc=r"""alphaB_g1 : libff::G1<(libff::alt_bn128_pp)>""")
+    alphaC_g2 = property(_alt_bn128.ZKVerificationKey_alphaC_g2_get, _alt_bn128.ZKVerificationKey_alphaC_g2_set, doc=r"""alphaC_g2 : libff::G2<(libff::alt_bn128_pp)>""")
+    gamma_g2 = property(_alt_bn128.ZKVerificationKey_gamma_g2_get, _alt_bn128.ZKVerificationKey_gamma_g2_set, doc=r"""gamma_g2 : libff::G2<(libff::alt_bn128_pp)>""")
+    gamma_beta_g1 = property(_alt_bn128.ZKVerificationKey_gamma_beta_g1_get, _alt_bn128.ZKVerificationKey_gamma_beta_g1_set, doc=r"""gamma_beta_g1 : libff::G1<(libff::alt_bn128_pp)>""")
+    gamma_beta_g2 = property(_alt_bn128.ZKVerificationKey_gamma_beta_g2_get, _alt_bn128.ZKVerificationKey_gamma_beta_g2_set, doc=r"""gamma_beta_g2 : libff::G2<(libff::alt_bn128_pp)>""")
+    rC_Z_g2 = property(_alt_bn128.ZKVerificationKey_rC_Z_g2_get, _alt_bn128.ZKVerificationKey_rC_Z_g2_set, doc=r"""rC_Z_g2 : libff::G2<(libff::alt_bn128_pp)>""")
+
+    def encoded_IC_query_size(self):
+        r"""encoded_IC_query_size(ZKVerificationKey self) -> int"""
+        return _alt_bn128.ZKVerificationKey_encoded_IC_query_size(self)
+
+    def encoded_IC_query(self, ix):
+        r"""encoded_IC_query(ZKVerificationKey self, int ix) -> G1"""
+        return _alt_bn128.ZKVerificationKey_encoded_IC_query(self, ix)
+
+    def __init__(self):
+        r"""__init__(ZKVerificationKey self) -> ZKVerificationKey"""
+        _alt_bn128.ZKVerificationKey_swiginit(self, _alt_bn128.new_ZKVerificationKey())
+    __swig_destroy__ = _alt_bn128.delete_ZKVerificationKey
+
+# Register ZKVerificationKey in _alt_bn128:
+_alt_bn128.ZKVerificationKey_swigregister(ZKVerificationKey)
+
 
 def zk_generator(cs):
     r"""zk_generator(R1csConstraintSystem cs) -> ZKKeypair"""
@@ -357,11 +512,11 @@ def zk_prover(pk, primary_input, auxiliary_input):
     return _alt_bn128.zk_prover(pk, primary_input, auxiliary_input)
 
 def zk_verifier_weak_IC(vk, primary_input, proof):
-    r"""zk_verifier_weak_IC(libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > const & vk, R1csPrimaryInput primary_input, ZKProof proof) -> bool"""
+    r"""zk_verifier_weak_IC(ZKVerificationKey vk, R1csPrimaryInput primary_input, ZKProof proof) -> bool"""
     return _alt_bn128.zk_verifier_weak_IC(vk, primary_input, proof)
 
 def zk_verifier_strong_IC(vk, primary_input, proof):
-    r"""zk_verifier_strong_IC(libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > const & vk, R1csPrimaryInput primary_input, ZKProof proof) -> bool"""
+    r"""zk_verifier_strong_IC(ZKVerificationKey vk, R1csPrimaryInput primary_input, ZKProof proof) -> bool"""
     return _alt_bn128.zk_verifier_strong_IC(vk, primary_input, proof)
 
 def zk_read_key(ekfile, cs=None):

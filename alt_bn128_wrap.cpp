@@ -2657,29 +2657,35 @@ SWIGINTERN PyObject *SWIG_PyStaticMethod_New(PyObject *SWIGUNUSEDPARM(self), PyO
 
 /* -------- TYPES TABLE (BEGIN) -------- */
 
-#define SWIGTYPE_p_Ft swig_types[0]
-#define SWIGTYPE_p_ProtoboardPub swig_types[1]
-#define SWIGTYPE_p_char swig_types[2]
-#define SWIGTYPE_p_libsnark__linear_combinationT_Ft_t swig_types[3]
-#define SWIGTYPE_p_libsnark__pb_variableT_Ft_t swig_types[4]
-#define SWIGTYPE_p_libsnark__protoboardT_Ft_t swig_types[5]
-#define SWIGTYPE_p_libsnark__r1cs_auxiliary_inputT_Ft_t swig_types[6]
-#define SWIGTYPE_p_libsnark__r1cs_constraintT_Ft_t swig_types[7]
-#define SWIGTYPE_p_libsnark__r1cs_constraint_systemT_Ft_t swig_types[8]
-#define SWIGTYPE_p_libsnark__r1cs_gg_ppzksnark_keypairT_libff__alt_bn128_pp_t swig_types[9]
-#define SWIGTYPE_p_libsnark__r1cs_gg_ppzksnark_proofT_libff__alt_bn128_pp_t swig_types[10]
-#define SWIGTYPE_p_libsnark__r1cs_gg_ppzksnark_proving_keyT_libff__alt_bn128_pp_t swig_types[11]
-#define SWIGTYPE_p_libsnark__r1cs_gg_ppzksnark_verification_keyT_libff__alt_bn128_pp_t swig_types[12]
-#define SWIGTYPE_p_libsnark__r1cs_ppzksnark_keypairT_libff__alt_bn128_pp_t swig_types[13]
-#define SWIGTYPE_p_libsnark__r1cs_ppzksnark_proofT_libff__alt_bn128_pp_t swig_types[14]
-#define SWIGTYPE_p_libsnark__r1cs_ppzksnark_proving_keyT_libff__alt_bn128_pp_t swig_types[15]
-#define SWIGTYPE_p_libsnark__r1cs_ppzksnark_verification_keyT_libff__alt_bn128_pp_t swig_types[16]
-#define SWIGTYPE_p_libsnark__r1cs_primary_inputT_Ft_t swig_types[17]
-#define SWIGTYPE_p_libsnark__variableT_Ft_t swig_types[18]
-#define SWIGTYPE_p_std__string swig_types[19]
-#define SWIGTYPE_p_var_index_t swig_types[20]
-static swig_type_info *swig_types[22];
-static swig_module_info swig_module = {swig_types, 21, 0, 0, 0, 0};
+#define SWIGTYPE_p_Fq2t swig_types[0]
+#define SWIGTYPE_p_Fqt swig_types[1]
+#define SWIGTYPE_p_Ft swig_types[2]
+#define SWIGTYPE_p_ProtoboardPub swig_types[3]
+#define SWIGTYPE_p_char swig_types[4]
+#define SWIGTYPE_p_libff__G1T_libff__alt_bn128_pp_t swig_types[5]
+#define SWIGTYPE_p_libff__G2T_libff__alt_bn128_pp_t swig_types[6]
+#define SWIGTYPE_p_libsnark__knowledge_commitmentT_libff__G1T_libff__alt_bn128_pp_t_libff__G1T_libff__alt_bn128_pp_t_t swig_types[7]
+#define SWIGTYPE_p_libsnark__knowledge_commitmentT_libff__G2T_libff__alt_bn128_pp_t_libff__G1T_libff__alt_bn128_pp_t_t swig_types[8]
+#define SWIGTYPE_p_libsnark__linear_combinationT_Ft_t swig_types[9]
+#define SWIGTYPE_p_libsnark__pb_variableT_Ft_t swig_types[10]
+#define SWIGTYPE_p_libsnark__protoboardT_Ft_t swig_types[11]
+#define SWIGTYPE_p_libsnark__r1cs_auxiliary_inputT_Ft_t swig_types[12]
+#define SWIGTYPE_p_libsnark__r1cs_constraintT_Ft_t swig_types[13]
+#define SWIGTYPE_p_libsnark__r1cs_constraint_systemT_Ft_t swig_types[14]
+#define SWIGTYPE_p_libsnark__r1cs_gg_ppzksnark_keypairT_libff__alt_bn128_pp_t swig_types[15]
+#define SWIGTYPE_p_libsnark__r1cs_gg_ppzksnark_proofT_libff__alt_bn128_pp_t swig_types[16]
+#define SWIGTYPE_p_libsnark__r1cs_gg_ppzksnark_proving_keyT_libff__alt_bn128_pp_t swig_types[17]
+#define SWIGTYPE_p_libsnark__r1cs_gg_ppzksnark_verification_keyT_libff__alt_bn128_pp_t swig_types[18]
+#define SWIGTYPE_p_libsnark__r1cs_ppzksnark_keypairT_libff__alt_bn128_pp_t swig_types[19]
+#define SWIGTYPE_p_libsnark__r1cs_ppzksnark_proofT_libff__alt_bn128_pp_t swig_types[20]
+#define SWIGTYPE_p_libsnark__r1cs_ppzksnark_proving_keyT_libff__alt_bn128_pp_t swig_types[21]
+#define SWIGTYPE_p_libsnark__r1cs_ppzksnark_verification_keyT_libff__alt_bn128_pp_t swig_types[22]
+#define SWIGTYPE_p_libsnark__r1cs_primary_inputT_Ft_t swig_types[23]
+#define SWIGTYPE_p_libsnark__variableT_Ft_t swig_types[24]
+#define SWIGTYPE_p_std__string swig_types[25]
+#define SWIGTYPE_p_var_index_t swig_types[26]
+static swig_type_info *swig_types[28];
+static swig_module_info swig_module = {swig_types, 27, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -2804,7 +2810,11 @@ using namespace libff;
 
 
 typedef libff::Fr<libff::alt_bn128_pp> Ft;
+typedef libff::alt_bn128_Fq Fqt;
+typedef libff::alt_bn128_Fq2 Fq2t;
 
+SWIGINTERN Fqt Fq2t_getc0(Fq2t *self){ return self->c0; }
+SWIGINTERN Fqt Fq2t_getc1(Fq2t *self){ return self->c1; }
  
 Ft fieldinverse(const Ft& val) {
     return val.inverse();
@@ -2814,6 +2824,9 @@ libff::bigint<Ft::num_limbs> get_modulus() {
     return Ft::mod;
 }    
 
+SWIGINTERN Fqt libff_G1_Sl_libff_alt_bn128_pp_Sg__getx(libff::G1< libff::alt_bn128_pp > *self){ return self->X; }
+SWIGINTERN Fqt libff_G1_Sl_libff_alt_bn128_pp_Sg__gety(libff::G1< libff::alt_bn128_pp > *self){ return self->Y; }
+SWIGINTERN Fqt libff_G1_Sl_libff_alt_bn128_pp_Sg__getz(libff::G1< libff::alt_bn128_pp > *self){ return self->Z; }
 
 SWIGINTERNINLINE PyObject*
   SWIG_From_int  (int value)
@@ -3241,6 +3254,7 @@ void prettywrite(ostream& strm, const libff::G1<libff::alt_bn128_pp>& pt) {
     pp.to_affine_coordinates();
     prettywrite(strm, pp.X); strm << endl;
     prettywrite(strm, pp.Y); strm << endl;
+    prettywrite(strm, pp.Z); strm << endl;
 }
     
 void prettywrite(ostream& strm, const libff::G2<libff::alt_bn128_pp>& pt) {
@@ -3248,6 +3262,7 @@ void prettywrite(ostream& strm, const libff::G2<libff::alt_bn128_pp>& pt) {
     pp.to_affine_coordinates();
     prettywrite(strm, pp.X); strm << endl;
     prettywrite(strm, pp.Y); strm << endl;
+    prettywrite(strm, pp.Z); strm << endl;
 }
 
 template<typename T>
@@ -3291,6 +3306,15 @@ bool cseq(
 }
     
 
+SWIGINTERN int libsnark_r1cs_ppzksnark_verification_key_Sl_libff_alt_bn128_pp_Sg__encoded_IC_query_size(libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *self){
+      return 1+self->encoded_IC_query.rest.size();
+  }
+SWIGINTERN libff::G1< libff::alt_bn128_pp > libsnark_r1cs_ppzksnark_verification_key_Sl_libff_alt_bn128_pp_Sg__encoded_IC_query(libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *self,int ix){
+      if (ix==0)
+          return self->encoded_IC_query.first;
+      else
+          return self->encoded_IC_query.rest.values.at(ix-1);
+  }
 
     
 template<typename ppT>
@@ -3639,6 +3663,164 @@ SWIGINTERN PyObject *Ft_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args)
   return SWIG_Python_InitShadowInstance(args);
 }
 
+SWIGINTERN PyObject *_wrap_new_Fqt(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  Fqt *result = 0 ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "new_Fqt", 0, 0, 0)) SWIG_fail;
+  result = (Fqt *)new Fqt();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Fqt, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_Fqt(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  Fqt *arg1 = (Fqt *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Fqt, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_Fqt" "', argument " "1"" of type '" "Fqt *""'"); 
+  }
+  arg1 = reinterpret_cast< Fqt * >(argp1);
+  delete arg1;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *Fqt_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!SWIG_Python_UnpackTuple(args, "swigregister", 1, 1, &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_Fqt, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *Fqt_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  return SWIG_Python_InitShadowInstance(args);
+}
+
+SWIGINTERN PyObject *_wrap_Fq2t_getc0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  Fq2t *arg1 = (Fq2t *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  Fqt result;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Fq2t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Fq2t_getc0" "', argument " "1"" of type '" "Fq2t *""'"); 
+  }
+  arg1 = reinterpret_cast< Fq2t * >(argp1);
+  result = Fq2t_getc0(arg1);
+  {
+    stringstream ss;
+    
+    mpz_t t;
+    mpz_init(t);
+    (&result)->as_bigint().to_mpz(t);
+    ss << t;
+    mpz_clear(t);
+    
+    resultobj = PyLong_FromString(ss.str().c_str(), NULL, 10);    
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Fq2t_getc1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  Fq2t *arg1 = (Fq2t *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  Fqt result;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Fq2t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Fq2t_getc1" "', argument " "1"" of type '" "Fq2t *""'"); 
+  }
+  arg1 = reinterpret_cast< Fq2t * >(argp1);
+  result = Fq2t_getc1(arg1);
+  {
+    stringstream ss;
+    
+    mpz_t t;
+    mpz_init(t);
+    (&result)->as_bigint().to_mpz(t);
+    ss << t;
+    mpz_clear(t);
+    
+    resultobj = PyLong_FromString(ss.str().c_str(), NULL, 10);    
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_Fq2t(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  Fq2t *result = 0 ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "new_Fq2t", 0, 0, 0)) SWIG_fail;
+  result = (Fq2t *)new Fq2t();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Fq2t, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_Fq2t(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  Fq2t *arg1 = (Fq2t *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Fq2t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_Fq2t" "', argument " "1"" of type '" "Fq2t *""'"); 
+  }
+  arg1 = reinterpret_cast< Fq2t * >(argp1);
+  delete arg1;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *Fq2t_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!SWIG_Python_UnpackTuple(args, "swigregister", 1, 1, &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_Fq2t, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *Fq2t_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  return SWIG_Python_InitShadowInstance(args);
+}
+
 SWIGINTERN PyObject *_wrap_fieldinverse(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   Ft *arg1 = 0 ;
@@ -3689,7 +3871,7 @@ fail:
 
 SWIGINTERN PyObject *_wrap_get_modulus(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  libff::bigint< Ft::num_limbs > result;
+  SwigValueWrapper< libff::bigint< Ft::num_limbs > > result;
   
   if (!SWIG_Python_UnpackTuple(args, "get_modulus", 0, 0, 0)) SWIG_fail;
   result = get_modulus();
@@ -3709,6 +3891,675 @@ fail:
   return NULL;
 }
 
+
+SWIGINTERN PyObject *_wrap_G1_to_affine_coordinates(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libff::G1< libff::alt_bn128_pp > *arg1 = (libff::G1< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libff__G1T_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "G1_to_affine_coordinates" "', argument " "1"" of type '" "libff::G1< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libff::G1< libff::alt_bn128_pp > * >(argp1);
+  (arg1)->to_affine_coordinates();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_G1_getx(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libff::G1< libff::alt_bn128_pp > *arg1 = (libff::G1< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  Fqt result;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libff__G1T_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "G1_getx" "', argument " "1"" of type '" "libff::G1< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libff::G1< libff::alt_bn128_pp > * >(argp1);
+  result = libff_G1_Sl_libff_alt_bn128_pp_Sg__getx(arg1);
+  {
+    stringstream ss;
+    
+    mpz_t t;
+    mpz_init(t);
+    (&result)->as_bigint().to_mpz(t);
+    ss << t;
+    mpz_clear(t);
+    
+    resultobj = PyLong_FromString(ss.str().c_str(), NULL, 10);    
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_G1_gety(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libff::G1< libff::alt_bn128_pp > *arg1 = (libff::G1< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  Fqt result;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libff__G1T_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "G1_gety" "', argument " "1"" of type '" "libff::G1< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libff::G1< libff::alt_bn128_pp > * >(argp1);
+  result = libff_G1_Sl_libff_alt_bn128_pp_Sg__gety(arg1);
+  {
+    stringstream ss;
+    
+    mpz_t t;
+    mpz_init(t);
+    (&result)->as_bigint().to_mpz(t);
+    ss << t;
+    mpz_clear(t);
+    
+    resultobj = PyLong_FromString(ss.str().c_str(), NULL, 10);    
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_G1_getz(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libff::G1< libff::alt_bn128_pp > *arg1 = (libff::G1< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  Fqt result;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libff__G1T_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "G1_getz" "', argument " "1"" of type '" "libff::G1< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libff::G1< libff::alt_bn128_pp > * >(argp1);
+  result = libff_G1_Sl_libff_alt_bn128_pp_Sg__getz(arg1);
+  {
+    stringstream ss;
+    
+    mpz_t t;
+    mpz_init(t);
+    (&result)->as_bigint().to_mpz(t);
+    ss << t;
+    mpz_clear(t);
+    
+    resultobj = PyLong_FromString(ss.str().c_str(), NULL, 10);    
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_G1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libff::G1< libff::alt_bn128_pp > *result = 0 ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "new_G1", 0, 0, 0)) SWIG_fail;
+  result = (libff::G1< libff::alt_bn128_pp > *)new libff::G1< libff::alt_bn128_pp >();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libff__G1T_libff__alt_bn128_pp_t, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_G1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libff::G1< libff::alt_bn128_pp > *arg1 = (libff::G1< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libff__G1T_libff__alt_bn128_pp_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_G1" "', argument " "1"" of type '" "libff::G1< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libff::G1< libff::alt_bn128_pp > * >(argp1);
+  delete arg1;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *G1_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!SWIG_Python_UnpackTuple(args, "swigregister", 1, 1, &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_libff__G1T_libff__alt_bn128_pp_t, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *G1_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  return SWIG_Python_InitShadowInstance(args);
+}
+
+SWIGINTERN PyObject *_wrap_G2_X_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libff::G2< libff::alt_bn128_pp > *arg1 = (libff::G2< libff::alt_bn128_pp > *) 0 ;
+  Fq2t *arg2 = (Fq2t *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "G2_X_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libff__G2T_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "G2_X_set" "', argument " "1"" of type '" "libff::G2< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libff::G2< libff::alt_bn128_pp > * >(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_Fq2t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "G2_X_set" "', argument " "2"" of type '" "Fq2t *""'"); 
+  }
+  arg2 = reinterpret_cast< Fq2t * >(argp2);
+  if (arg1) (arg1)->X = *arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_G2_X_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libff::G2< libff::alt_bn128_pp > *arg1 = (libff::G2< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  Fq2t *result = 0 ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libff__G2T_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "G2_X_get" "', argument " "1"" of type '" "libff::G2< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libff::G2< libff::alt_bn128_pp > * >(argp1);
+  result = (Fq2t *)& ((arg1)->X);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Fq2t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_G2_Y_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libff::G2< libff::alt_bn128_pp > *arg1 = (libff::G2< libff::alt_bn128_pp > *) 0 ;
+  Fq2t *arg2 = (Fq2t *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "G2_Y_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libff__G2T_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "G2_Y_set" "', argument " "1"" of type '" "libff::G2< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libff::G2< libff::alt_bn128_pp > * >(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_Fq2t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "G2_Y_set" "', argument " "2"" of type '" "Fq2t *""'"); 
+  }
+  arg2 = reinterpret_cast< Fq2t * >(argp2);
+  if (arg1) (arg1)->Y = *arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_G2_Y_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libff::G2< libff::alt_bn128_pp > *arg1 = (libff::G2< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  Fq2t *result = 0 ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libff__G2T_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "G2_Y_get" "', argument " "1"" of type '" "libff::G2< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libff::G2< libff::alt_bn128_pp > * >(argp1);
+  result = (Fq2t *)& ((arg1)->Y);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Fq2t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_G2_Z_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libff::G2< libff::alt_bn128_pp > *arg1 = (libff::G2< libff::alt_bn128_pp > *) 0 ;
+  Fq2t *arg2 = (Fq2t *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "G2_Z_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libff__G2T_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "G2_Z_set" "', argument " "1"" of type '" "libff::G2< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libff::G2< libff::alt_bn128_pp > * >(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_Fq2t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "G2_Z_set" "', argument " "2"" of type '" "Fq2t *""'"); 
+  }
+  arg2 = reinterpret_cast< Fq2t * >(argp2);
+  if (arg1) (arg1)->Z = *arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_G2_Z_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libff::G2< libff::alt_bn128_pp > *arg1 = (libff::G2< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  Fq2t *result = 0 ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libff__G2T_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "G2_Z_get" "', argument " "1"" of type '" "libff::G2< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libff::G2< libff::alt_bn128_pp > * >(argp1);
+  result = (Fq2t *)& ((arg1)->Z);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Fq2t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_G2(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libff::G2< libff::alt_bn128_pp > *result = 0 ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "new_G2", 0, 0, 0)) SWIG_fail;
+  result = (libff::G2< libff::alt_bn128_pp > *)new libff::G2< libff::alt_bn128_pp >();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libff__G2T_libff__alt_bn128_pp_t, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_G2(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libff::G2< libff::alt_bn128_pp > *arg1 = (libff::G2< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libff__G2T_libff__alt_bn128_pp_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_G2" "', argument " "1"" of type '" "libff::G2< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libff::G2< libff::alt_bn128_pp > * >(argp1);
+  delete arg1;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *G2_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!SWIG_Python_UnpackTuple(args, "swigregister", 1, 1, &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_libff__G2T_libff__alt_bn128_pp_t, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *G2_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  return SWIG_Python_InitShadowInstance(args);
+}
+
+SWIGINTERN PyObject *_wrap_KnowledgeCommitmentG1G1_g_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::knowledge_commitment< libff::G1< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *arg1 = (libsnark::knowledge_commitment< libff::G1< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *) 0 ;
+  libff::G1< libff::alt_bn128_pp > *arg2 = (libff::G1< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "KnowledgeCommitmentG1G1_g_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__knowledge_commitmentT_libff__G1T_libff__alt_bn128_pp_t_libff__G1T_libff__alt_bn128_pp_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KnowledgeCommitmentG1G1_g_set" "', argument " "1"" of type '" "libsnark::knowledge_commitment< libff::G1< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::knowledge_commitment< libff::G1< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > * >(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_libff__G1T_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "KnowledgeCommitmentG1G1_g_set" "', argument " "2"" of type '" "libff::G1< libff::alt_bn128_pp > *""'"); 
+  }
+  arg2 = reinterpret_cast< libff::G1< libff::alt_bn128_pp > * >(argp2);
+  if (arg1) (arg1)->g = *arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_KnowledgeCommitmentG1G1_g_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::knowledge_commitment< libff::G1< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *arg1 = (libsnark::knowledge_commitment< libff::G1< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  libff::G1< libff::alt_bn128_pp > *result = 0 ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__knowledge_commitmentT_libff__G1T_libff__alt_bn128_pp_t_libff__G1T_libff__alt_bn128_pp_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KnowledgeCommitmentG1G1_g_get" "', argument " "1"" of type '" "libsnark::knowledge_commitment< libff::G1< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::knowledge_commitment< libff::G1< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > * >(argp1);
+  result = (libff::G1< libff::alt_bn128_pp > *)& ((arg1)->g);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libff__G1T_libff__alt_bn128_pp_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_KnowledgeCommitmentG1G1_h_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::knowledge_commitment< libff::G1< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *arg1 = (libsnark::knowledge_commitment< libff::G1< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *) 0 ;
+  libff::G1< libff::alt_bn128_pp > *arg2 = (libff::G1< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "KnowledgeCommitmentG1G1_h_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__knowledge_commitmentT_libff__G1T_libff__alt_bn128_pp_t_libff__G1T_libff__alt_bn128_pp_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KnowledgeCommitmentG1G1_h_set" "', argument " "1"" of type '" "libsnark::knowledge_commitment< libff::G1< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::knowledge_commitment< libff::G1< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > * >(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_libff__G1T_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "KnowledgeCommitmentG1G1_h_set" "', argument " "2"" of type '" "libff::G1< libff::alt_bn128_pp > *""'"); 
+  }
+  arg2 = reinterpret_cast< libff::G1< libff::alt_bn128_pp > * >(argp2);
+  if (arg1) (arg1)->h = *arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_KnowledgeCommitmentG1G1_h_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::knowledge_commitment< libff::G1< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *arg1 = (libsnark::knowledge_commitment< libff::G1< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  libff::G1< libff::alt_bn128_pp > *result = 0 ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__knowledge_commitmentT_libff__G1T_libff__alt_bn128_pp_t_libff__G1T_libff__alt_bn128_pp_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KnowledgeCommitmentG1G1_h_get" "', argument " "1"" of type '" "libsnark::knowledge_commitment< libff::G1< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::knowledge_commitment< libff::G1< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > * >(argp1);
+  result = (libff::G1< libff::alt_bn128_pp > *)& ((arg1)->h);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libff__G1T_libff__alt_bn128_pp_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_KnowledgeCommitmentG1G1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::knowledge_commitment< libff::G1< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *result = 0 ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "new_KnowledgeCommitmentG1G1", 0, 0, 0)) SWIG_fail;
+  result = (libsnark::knowledge_commitment< libff::G1< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *)new libsnark::knowledge_commitment< libff::G1< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > >();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libsnark__knowledge_commitmentT_libff__G1T_libff__alt_bn128_pp_t_libff__G1T_libff__alt_bn128_pp_t_t, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_KnowledgeCommitmentG1G1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::knowledge_commitment< libff::G1< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *arg1 = (libsnark::knowledge_commitment< libff::G1< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__knowledge_commitmentT_libff__G1T_libff__alt_bn128_pp_t_libff__G1T_libff__alt_bn128_pp_t_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_KnowledgeCommitmentG1G1" "', argument " "1"" of type '" "libsnark::knowledge_commitment< libff::G1< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::knowledge_commitment< libff::G1< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > * >(argp1);
+  delete arg1;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *KnowledgeCommitmentG1G1_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!SWIG_Python_UnpackTuple(args, "swigregister", 1, 1, &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_libsnark__knowledge_commitmentT_libff__G1T_libff__alt_bn128_pp_t_libff__G1T_libff__alt_bn128_pp_t_t, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *KnowledgeCommitmentG1G1_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  return SWIG_Python_InitShadowInstance(args);
+}
+
+SWIGINTERN PyObject *_wrap_KnowledgeCommitmentG2G1_g_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::knowledge_commitment< libff::G2< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *arg1 = (libsnark::knowledge_commitment< libff::G2< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *) 0 ;
+  libff::G2< libff::alt_bn128_pp > *arg2 = (libff::G2< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "KnowledgeCommitmentG2G1_g_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__knowledge_commitmentT_libff__G2T_libff__alt_bn128_pp_t_libff__G1T_libff__alt_bn128_pp_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KnowledgeCommitmentG2G1_g_set" "', argument " "1"" of type '" "libsnark::knowledge_commitment< libff::G2< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::knowledge_commitment< libff::G2< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > * >(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_libff__G2T_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "KnowledgeCommitmentG2G1_g_set" "', argument " "2"" of type '" "libff::G2< libff::alt_bn128_pp > *""'"); 
+  }
+  arg2 = reinterpret_cast< libff::G2< libff::alt_bn128_pp > * >(argp2);
+  if (arg1) (arg1)->g = *arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_KnowledgeCommitmentG2G1_g_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::knowledge_commitment< libff::G2< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *arg1 = (libsnark::knowledge_commitment< libff::G2< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  libff::G2< libff::alt_bn128_pp > *result = 0 ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__knowledge_commitmentT_libff__G2T_libff__alt_bn128_pp_t_libff__G1T_libff__alt_bn128_pp_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KnowledgeCommitmentG2G1_g_get" "', argument " "1"" of type '" "libsnark::knowledge_commitment< libff::G2< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::knowledge_commitment< libff::G2< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > * >(argp1);
+  result = (libff::G2< libff::alt_bn128_pp > *)& ((arg1)->g);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libff__G2T_libff__alt_bn128_pp_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_KnowledgeCommitmentG2G1_h_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::knowledge_commitment< libff::G2< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *arg1 = (libsnark::knowledge_commitment< libff::G2< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *) 0 ;
+  libff::G1< libff::alt_bn128_pp > *arg2 = (libff::G1< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "KnowledgeCommitmentG2G1_h_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__knowledge_commitmentT_libff__G2T_libff__alt_bn128_pp_t_libff__G1T_libff__alt_bn128_pp_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KnowledgeCommitmentG2G1_h_set" "', argument " "1"" of type '" "libsnark::knowledge_commitment< libff::G2< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::knowledge_commitment< libff::G2< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > * >(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_libff__G1T_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "KnowledgeCommitmentG2G1_h_set" "', argument " "2"" of type '" "libff::G1< libff::alt_bn128_pp > *""'"); 
+  }
+  arg2 = reinterpret_cast< libff::G1< libff::alt_bn128_pp > * >(argp2);
+  if (arg1) (arg1)->h = *arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_KnowledgeCommitmentG2G1_h_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::knowledge_commitment< libff::G2< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *arg1 = (libsnark::knowledge_commitment< libff::G2< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  libff::G1< libff::alt_bn128_pp > *result = 0 ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__knowledge_commitmentT_libff__G2T_libff__alt_bn128_pp_t_libff__G1T_libff__alt_bn128_pp_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KnowledgeCommitmentG2G1_h_get" "', argument " "1"" of type '" "libsnark::knowledge_commitment< libff::G2< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::knowledge_commitment< libff::G2< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > * >(argp1);
+  result = (libff::G1< libff::alt_bn128_pp > *)& ((arg1)->h);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libff__G1T_libff__alt_bn128_pp_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_KnowledgeCommitmentG2G1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::knowledge_commitment< libff::G2< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *result = 0 ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "new_KnowledgeCommitmentG2G1", 0, 0, 0)) SWIG_fail;
+  result = (libsnark::knowledge_commitment< libff::G2< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *)new libsnark::knowledge_commitment< libff::G2< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > >();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libsnark__knowledge_commitmentT_libff__G2T_libff__alt_bn128_pp_t_libff__G1T_libff__alt_bn128_pp_t_t, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_KnowledgeCommitmentG2G1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::knowledge_commitment< libff::G2< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *arg1 = (libsnark::knowledge_commitment< libff::G2< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__knowledge_commitmentT_libff__G2T_libff__alt_bn128_pp_t_libff__G1T_libff__alt_bn128_pp_t_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_KnowledgeCommitmentG2G1" "', argument " "1"" of type '" "libsnark::knowledge_commitment< libff::G2< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::knowledge_commitment< libff::G2< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > * >(argp1);
+  delete arg1;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *KnowledgeCommitmentG2G1_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!SWIG_Python_UnpackTuple(args, "swigregister", 1, 1, &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_libsnark__knowledge_commitmentT_libff__G2T_libff__alt_bn128_pp_t_libff__G1T_libff__alt_bn128_pp_t_t, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *KnowledgeCommitmentG2G1_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  return SWIG_Python_InitShadowInstance(args);
+}
 
 SWIGINTERN PyObject *_wrap_Variable_index_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
@@ -5386,6 +6237,266 @@ SWIGINTERN PyObject *ProtoboardPub_swiginit(PyObject *SWIGUNUSEDPARM(self), PyOb
   return SWIG_Python_InitShadowInstance(args);
 }
 
+SWIGINTERN PyObject *_wrap_ZKProof_g_A_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *arg1 = (libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *) 0 ;
+  libsnark::knowledge_commitment< libff::G1< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *arg2 = (libsnark::knowledge_commitment< libff::G1< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "ZKProof_g_A_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_ppzksnark_proofT_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZKProof_g_A_set" "', argument " "1"" of type '" "libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > * >(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_libsnark__knowledge_commitmentT_libff__G1T_libff__alt_bn128_pp_t_libff__G1T_libff__alt_bn128_pp_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ZKProof_g_A_set" "', argument " "2"" of type '" "libsnark::knowledge_commitment< libff::G1< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *""'"); 
+  }
+  arg2 = reinterpret_cast< libsnark::knowledge_commitment< libff::G1< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > * >(argp2);
+  if (arg1) (arg1)->g_A = *arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKProof_g_A_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *arg1 = (libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  libsnark::knowledge_commitment< libff::G1< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *result = 0 ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_ppzksnark_proofT_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZKProof_g_A_get" "', argument " "1"" of type '" "libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > * >(argp1);
+  result = (libsnark::knowledge_commitment< libff::G1< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *)& ((arg1)->g_A);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libsnark__knowledge_commitmentT_libff__G1T_libff__alt_bn128_pp_t_libff__G1T_libff__alt_bn128_pp_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKProof_g_B_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *arg1 = (libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *) 0 ;
+  libsnark::knowledge_commitment< libff::G2< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *arg2 = (libsnark::knowledge_commitment< libff::G2< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "ZKProof_g_B_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_ppzksnark_proofT_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZKProof_g_B_set" "', argument " "1"" of type '" "libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > * >(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_libsnark__knowledge_commitmentT_libff__G2T_libff__alt_bn128_pp_t_libff__G1T_libff__alt_bn128_pp_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ZKProof_g_B_set" "', argument " "2"" of type '" "libsnark::knowledge_commitment< libff::G2< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *""'"); 
+  }
+  arg2 = reinterpret_cast< libsnark::knowledge_commitment< libff::G2< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > * >(argp2);
+  if (arg1) (arg1)->g_B = *arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKProof_g_B_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *arg1 = (libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  libsnark::knowledge_commitment< libff::G2< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *result = 0 ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_ppzksnark_proofT_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZKProof_g_B_get" "', argument " "1"" of type '" "libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > * >(argp1);
+  result = (libsnark::knowledge_commitment< libff::G2< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *)& ((arg1)->g_B);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libsnark__knowledge_commitmentT_libff__G2T_libff__alt_bn128_pp_t_libff__G1T_libff__alt_bn128_pp_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKProof_g_C_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *arg1 = (libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *) 0 ;
+  libsnark::knowledge_commitment< libff::G1< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *arg2 = (libsnark::knowledge_commitment< libff::G1< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "ZKProof_g_C_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_ppzksnark_proofT_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZKProof_g_C_set" "', argument " "1"" of type '" "libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > * >(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_libsnark__knowledge_commitmentT_libff__G1T_libff__alt_bn128_pp_t_libff__G1T_libff__alt_bn128_pp_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ZKProof_g_C_set" "', argument " "2"" of type '" "libsnark::knowledge_commitment< libff::G1< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *""'"); 
+  }
+  arg2 = reinterpret_cast< libsnark::knowledge_commitment< libff::G1< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > * >(argp2);
+  if (arg1) (arg1)->g_C = *arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKProof_g_C_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *arg1 = (libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  libsnark::knowledge_commitment< libff::G1< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *result = 0 ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_ppzksnark_proofT_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZKProof_g_C_get" "', argument " "1"" of type '" "libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > * >(argp1);
+  result = (libsnark::knowledge_commitment< libff::G1< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *)& ((arg1)->g_C);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libsnark__knowledge_commitmentT_libff__G1T_libff__alt_bn128_pp_t_libff__G1T_libff__alt_bn128_pp_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKProof_g_H_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *arg1 = (libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *) 0 ;
+  libff::G1< libff::alt_bn128_pp > *arg2 = (libff::G1< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "ZKProof_g_H_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_ppzksnark_proofT_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZKProof_g_H_set" "', argument " "1"" of type '" "libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > * >(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_libff__G1T_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ZKProof_g_H_set" "', argument " "2"" of type '" "libff::G1< libff::alt_bn128_pp > *""'"); 
+  }
+  arg2 = reinterpret_cast< libff::G1< libff::alt_bn128_pp > * >(argp2);
+  if (arg1) (arg1)->g_H = *arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKProof_g_H_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *arg1 = (libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  libff::G1< libff::alt_bn128_pp > *result = 0 ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_ppzksnark_proofT_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZKProof_g_H_get" "', argument " "1"" of type '" "libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > * >(argp1);
+  result = (libff::G1< libff::alt_bn128_pp > *)& ((arg1)->g_H);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libff__G1T_libff__alt_bn128_pp_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKProof_g_K_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *arg1 = (libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *) 0 ;
+  libff::G1< libff::alt_bn128_pp > *arg2 = (libff::G1< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "ZKProof_g_K_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_ppzksnark_proofT_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZKProof_g_K_set" "', argument " "1"" of type '" "libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > * >(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_libff__G1T_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ZKProof_g_K_set" "', argument " "2"" of type '" "libff::G1< libff::alt_bn128_pp > *""'"); 
+  }
+  arg2 = reinterpret_cast< libff::G1< libff::alt_bn128_pp > * >(argp2);
+  if (arg1) (arg1)->g_K = *arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKProof_g_K_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *arg1 = (libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  libff::G1< libff::alt_bn128_pp > *result = 0 ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_ppzksnark_proofT_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZKProof_g_K_get" "', argument " "1"" of type '" "libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > * >(argp1);
+  result = (libff::G1< libff::alt_bn128_pp > *)& ((arg1)->g_K);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libff__G1T_libff__alt_bn128_pp_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_new_ZKProof(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *result = 0 ;
@@ -5592,6 +6703,469 @@ SWIGINTERN PyObject *ZKKeypair_swigregister(PyObject *SWIGUNUSEDPARM(self), PyOb
 }
 
 SWIGINTERN PyObject *ZKKeypair_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  return SWIG_Python_InitShadowInstance(args);
+}
+
+SWIGINTERN PyObject *_wrap_ZKVerificationKey_alphaA_g2_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *arg1 = (libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *) 0 ;
+  libff::G2< libff::alt_bn128_pp > *arg2 = (libff::G2< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "ZKVerificationKey_alphaA_g2_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_ppzksnark_verification_keyT_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZKVerificationKey_alphaA_g2_set" "', argument " "1"" of type '" "libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > * >(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_libff__G2T_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ZKVerificationKey_alphaA_g2_set" "', argument " "2"" of type '" "libff::G2< libff::alt_bn128_pp > *""'"); 
+  }
+  arg2 = reinterpret_cast< libff::G2< libff::alt_bn128_pp > * >(argp2);
+  if (arg1) (arg1)->alphaA_g2 = *arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKVerificationKey_alphaA_g2_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *arg1 = (libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  libff::G2< libff::alt_bn128_pp > *result = 0 ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_ppzksnark_verification_keyT_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZKVerificationKey_alphaA_g2_get" "', argument " "1"" of type '" "libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > * >(argp1);
+  result = (libff::G2< libff::alt_bn128_pp > *)& ((arg1)->alphaA_g2);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libff__G2T_libff__alt_bn128_pp_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKVerificationKey_alphaB_g1_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *arg1 = (libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *) 0 ;
+  libff::G1< libff::alt_bn128_pp > *arg2 = (libff::G1< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "ZKVerificationKey_alphaB_g1_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_ppzksnark_verification_keyT_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZKVerificationKey_alphaB_g1_set" "', argument " "1"" of type '" "libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > * >(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_libff__G1T_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ZKVerificationKey_alphaB_g1_set" "', argument " "2"" of type '" "libff::G1< libff::alt_bn128_pp > *""'"); 
+  }
+  arg2 = reinterpret_cast< libff::G1< libff::alt_bn128_pp > * >(argp2);
+  if (arg1) (arg1)->alphaB_g1 = *arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKVerificationKey_alphaB_g1_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *arg1 = (libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  libff::G1< libff::alt_bn128_pp > *result = 0 ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_ppzksnark_verification_keyT_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZKVerificationKey_alphaB_g1_get" "', argument " "1"" of type '" "libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > * >(argp1);
+  result = (libff::G1< libff::alt_bn128_pp > *)& ((arg1)->alphaB_g1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libff__G1T_libff__alt_bn128_pp_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKVerificationKey_alphaC_g2_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *arg1 = (libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *) 0 ;
+  libff::G2< libff::alt_bn128_pp > *arg2 = (libff::G2< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "ZKVerificationKey_alphaC_g2_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_ppzksnark_verification_keyT_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZKVerificationKey_alphaC_g2_set" "', argument " "1"" of type '" "libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > * >(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_libff__G2T_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ZKVerificationKey_alphaC_g2_set" "', argument " "2"" of type '" "libff::G2< libff::alt_bn128_pp > *""'"); 
+  }
+  arg2 = reinterpret_cast< libff::G2< libff::alt_bn128_pp > * >(argp2);
+  if (arg1) (arg1)->alphaC_g2 = *arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKVerificationKey_alphaC_g2_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *arg1 = (libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  libff::G2< libff::alt_bn128_pp > *result = 0 ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_ppzksnark_verification_keyT_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZKVerificationKey_alphaC_g2_get" "', argument " "1"" of type '" "libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > * >(argp1);
+  result = (libff::G2< libff::alt_bn128_pp > *)& ((arg1)->alphaC_g2);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libff__G2T_libff__alt_bn128_pp_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKVerificationKey_gamma_g2_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *arg1 = (libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *) 0 ;
+  libff::G2< libff::alt_bn128_pp > *arg2 = (libff::G2< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "ZKVerificationKey_gamma_g2_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_ppzksnark_verification_keyT_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZKVerificationKey_gamma_g2_set" "', argument " "1"" of type '" "libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > * >(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_libff__G2T_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ZKVerificationKey_gamma_g2_set" "', argument " "2"" of type '" "libff::G2< libff::alt_bn128_pp > *""'"); 
+  }
+  arg2 = reinterpret_cast< libff::G2< libff::alt_bn128_pp > * >(argp2);
+  if (arg1) (arg1)->gamma_g2 = *arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKVerificationKey_gamma_g2_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *arg1 = (libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  libff::G2< libff::alt_bn128_pp > *result = 0 ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_ppzksnark_verification_keyT_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZKVerificationKey_gamma_g2_get" "', argument " "1"" of type '" "libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > * >(argp1);
+  result = (libff::G2< libff::alt_bn128_pp > *)& ((arg1)->gamma_g2);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libff__G2T_libff__alt_bn128_pp_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKVerificationKey_gamma_beta_g1_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *arg1 = (libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *) 0 ;
+  libff::G1< libff::alt_bn128_pp > *arg2 = (libff::G1< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "ZKVerificationKey_gamma_beta_g1_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_ppzksnark_verification_keyT_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZKVerificationKey_gamma_beta_g1_set" "', argument " "1"" of type '" "libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > * >(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_libff__G1T_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ZKVerificationKey_gamma_beta_g1_set" "', argument " "2"" of type '" "libff::G1< libff::alt_bn128_pp > *""'"); 
+  }
+  arg2 = reinterpret_cast< libff::G1< libff::alt_bn128_pp > * >(argp2);
+  if (arg1) (arg1)->gamma_beta_g1 = *arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKVerificationKey_gamma_beta_g1_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *arg1 = (libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  libff::G1< libff::alt_bn128_pp > *result = 0 ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_ppzksnark_verification_keyT_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZKVerificationKey_gamma_beta_g1_get" "', argument " "1"" of type '" "libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > * >(argp1);
+  result = (libff::G1< libff::alt_bn128_pp > *)& ((arg1)->gamma_beta_g1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libff__G1T_libff__alt_bn128_pp_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKVerificationKey_gamma_beta_g2_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *arg1 = (libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *) 0 ;
+  libff::G2< libff::alt_bn128_pp > *arg2 = (libff::G2< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "ZKVerificationKey_gamma_beta_g2_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_ppzksnark_verification_keyT_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZKVerificationKey_gamma_beta_g2_set" "', argument " "1"" of type '" "libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > * >(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_libff__G2T_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ZKVerificationKey_gamma_beta_g2_set" "', argument " "2"" of type '" "libff::G2< libff::alt_bn128_pp > *""'"); 
+  }
+  arg2 = reinterpret_cast< libff::G2< libff::alt_bn128_pp > * >(argp2);
+  if (arg1) (arg1)->gamma_beta_g2 = *arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKVerificationKey_gamma_beta_g2_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *arg1 = (libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  libff::G2< libff::alt_bn128_pp > *result = 0 ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_ppzksnark_verification_keyT_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZKVerificationKey_gamma_beta_g2_get" "', argument " "1"" of type '" "libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > * >(argp1);
+  result = (libff::G2< libff::alt_bn128_pp > *)& ((arg1)->gamma_beta_g2);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libff__G2T_libff__alt_bn128_pp_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKVerificationKey_rC_Z_g2_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *arg1 = (libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *) 0 ;
+  libff::G2< libff::alt_bn128_pp > *arg2 = (libff::G2< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "ZKVerificationKey_rC_Z_g2_set", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_ppzksnark_verification_keyT_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZKVerificationKey_rC_Z_g2_set" "', argument " "1"" of type '" "libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > * >(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_libff__G2T_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ZKVerificationKey_rC_Z_g2_set" "', argument " "2"" of type '" "libff::G2< libff::alt_bn128_pp > *""'"); 
+  }
+  arg2 = reinterpret_cast< libff::G2< libff::alt_bn128_pp > * >(argp2);
+  if (arg1) (arg1)->rC_Z_g2 = *arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKVerificationKey_rC_Z_g2_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *arg1 = (libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  libff::G2< libff::alt_bn128_pp > *result = 0 ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_ppzksnark_verification_keyT_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZKVerificationKey_rC_Z_g2_get" "', argument " "1"" of type '" "libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > * >(argp1);
+  result = (libff::G2< libff::alt_bn128_pp > *)& ((arg1)->rC_Z_g2);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libff__G2T_libff__alt_bn128_pp_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKVerificationKey_encoded_IC_query_size(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *arg1 = (libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  int result;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_ppzksnark_verification_keyT_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZKVerificationKey_encoded_IC_query_size" "', argument " "1"" of type '" "libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > * >(argp1);
+  result = (int)libsnark_r1cs_ppzksnark_verification_key_Sl_libff_alt_bn128_pp_Sg__encoded_IC_query_size(arg1);
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKVerificationKey_encoded_IC_query(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *arg1 = (libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject *swig_obj[2] ;
+  libff::G1< libff::alt_bn128_pp > result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "ZKVerificationKey_encoded_IC_query", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_ppzksnark_verification_keyT_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZKVerificationKey_encoded_IC_query" "', argument " "1"" of type '" "libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > * >(argp1);
+  ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "ZKVerificationKey_encoded_IC_query" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  result = libsnark_r1cs_ppzksnark_verification_key_Sl_libff_alt_bn128_pp_Sg__encoded_IC_query(arg1,arg2);
+  resultobj = SWIG_NewPointerObj((new libff::G1< libff::alt_bn128_pp >(static_cast< const libff::G1< libff::alt_bn128_pp >& >(result))), SWIGTYPE_p_libff__G1T_libff__alt_bn128_pp_t, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_ZKVerificationKey(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *result = 0 ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "new_ZKVerificationKey", 0, 0, 0)) SWIG_fail;
+  result = (libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *)new libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp >();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libsnark__r1cs_ppzksnark_verification_keyT_libff__alt_bn128_pp_t, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_ZKVerificationKey(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *arg1 = (libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_ppzksnark_verification_keyT_libff__alt_bn128_pp_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_ZKVerificationKey" "', argument " "1"" of type '" "libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > * >(argp1);
+  delete arg1;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *ZKVerificationKey_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!SWIG_Python_UnpackTuple(args, "swigregister", 1, 1, &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_libsnark__r1cs_ppzksnark_verification_keyT_libff__alt_bn128_pp_t, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *ZKVerificationKey_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   return SWIG_Python_InitShadowInstance(args);
 }
 
@@ -6750,8 +8324,52 @@ static PyMethodDef SwigMethods[] = {
 	 { "delete_Ft", _wrap_delete_Ft, METH_O, "delete_Ft(Ft self)"},
 	 { "Ft_swigregister", Ft_swigregister, METH_O, NULL},
 	 { "Ft_swiginit", Ft_swiginit, METH_VARARGS, NULL},
+	 { "new_Fqt", _wrap_new_Fqt, METH_NOARGS, "new_Fqt() -> Fqt"},
+	 { "delete_Fqt", _wrap_delete_Fqt, METH_O, "delete_Fqt(Fqt self)"},
+	 { "Fqt_swigregister", Fqt_swigregister, METH_O, NULL},
+	 { "Fqt_swiginit", Fqt_swiginit, METH_VARARGS, NULL},
+	 { "Fq2t_getc0", _wrap_Fq2t_getc0, METH_O, "Fq2t_getc0(Fq2t self) -> Fqt"},
+	 { "Fq2t_getc1", _wrap_Fq2t_getc1, METH_O, "Fq2t_getc1(Fq2t self) -> Fqt"},
+	 { "new_Fq2t", _wrap_new_Fq2t, METH_NOARGS, "new_Fq2t() -> Fq2t"},
+	 { "delete_Fq2t", _wrap_delete_Fq2t, METH_O, "delete_Fq2t(Fq2t self)"},
+	 { "Fq2t_swigregister", Fq2t_swigregister, METH_O, NULL},
+	 { "Fq2t_swiginit", Fq2t_swiginit, METH_VARARGS, NULL},
 	 { "fieldinverse", _wrap_fieldinverse, METH_O, "fieldinverse(Ft val) -> Ft"},
 	 { "get_modulus", _wrap_get_modulus, METH_NOARGS, "get_modulus() -> libff::bigint< Ft::num_limbs >"},
+	 { "G1_to_affine_coordinates", _wrap_G1_to_affine_coordinates, METH_O, "G1_to_affine_coordinates(G1 self)"},
+	 { "G1_getx", _wrap_G1_getx, METH_O, "G1_getx(G1 self) -> Fqt"},
+	 { "G1_gety", _wrap_G1_gety, METH_O, "G1_gety(G1 self) -> Fqt"},
+	 { "G1_getz", _wrap_G1_getz, METH_O, "G1_getz(G1 self) -> Fqt"},
+	 { "new_G1", _wrap_new_G1, METH_NOARGS, "new_G1() -> G1"},
+	 { "delete_G1", _wrap_delete_G1, METH_O, "delete_G1(G1 self)"},
+	 { "G1_swigregister", G1_swigregister, METH_O, NULL},
+	 { "G1_swiginit", G1_swiginit, METH_VARARGS, NULL},
+	 { "G2_X_set", _wrap_G2_X_set, METH_VARARGS, "G2_X_set(G2 self, Fq2t X)"},
+	 { "G2_X_get", _wrap_G2_X_get, METH_O, "G2_X_get(G2 self) -> Fq2t"},
+	 { "G2_Y_set", _wrap_G2_Y_set, METH_VARARGS, "G2_Y_set(G2 self, Fq2t Y)"},
+	 { "G2_Y_get", _wrap_G2_Y_get, METH_O, "G2_Y_get(G2 self) -> Fq2t"},
+	 { "G2_Z_set", _wrap_G2_Z_set, METH_VARARGS, "G2_Z_set(G2 self, Fq2t Z)"},
+	 { "G2_Z_get", _wrap_G2_Z_get, METH_O, "G2_Z_get(G2 self) -> Fq2t"},
+	 { "new_G2", _wrap_new_G2, METH_NOARGS, "new_G2() -> G2"},
+	 { "delete_G2", _wrap_delete_G2, METH_O, "delete_G2(G2 self)"},
+	 { "G2_swigregister", G2_swigregister, METH_O, NULL},
+	 { "G2_swiginit", G2_swiginit, METH_VARARGS, NULL},
+	 { "KnowledgeCommitmentG1G1_g_set", _wrap_KnowledgeCommitmentG1G1_g_set, METH_VARARGS, "KnowledgeCommitmentG1G1_g_set(KnowledgeCommitmentG1G1 self, G1 g)"},
+	 { "KnowledgeCommitmentG1G1_g_get", _wrap_KnowledgeCommitmentG1G1_g_get, METH_O, "KnowledgeCommitmentG1G1_g_get(KnowledgeCommitmentG1G1 self) -> G1"},
+	 { "KnowledgeCommitmentG1G1_h_set", _wrap_KnowledgeCommitmentG1G1_h_set, METH_VARARGS, "KnowledgeCommitmentG1G1_h_set(KnowledgeCommitmentG1G1 self, G1 h)"},
+	 { "KnowledgeCommitmentG1G1_h_get", _wrap_KnowledgeCommitmentG1G1_h_get, METH_O, "KnowledgeCommitmentG1G1_h_get(KnowledgeCommitmentG1G1 self) -> G1"},
+	 { "new_KnowledgeCommitmentG1G1", _wrap_new_KnowledgeCommitmentG1G1, METH_NOARGS, "new_KnowledgeCommitmentG1G1() -> KnowledgeCommitmentG1G1"},
+	 { "delete_KnowledgeCommitmentG1G1", _wrap_delete_KnowledgeCommitmentG1G1, METH_O, "delete_KnowledgeCommitmentG1G1(KnowledgeCommitmentG1G1 self)"},
+	 { "KnowledgeCommitmentG1G1_swigregister", KnowledgeCommitmentG1G1_swigregister, METH_O, NULL},
+	 { "KnowledgeCommitmentG1G1_swiginit", KnowledgeCommitmentG1G1_swiginit, METH_VARARGS, NULL},
+	 { "KnowledgeCommitmentG2G1_g_set", _wrap_KnowledgeCommitmentG2G1_g_set, METH_VARARGS, "KnowledgeCommitmentG2G1_g_set(KnowledgeCommitmentG2G1 self, G2 g)"},
+	 { "KnowledgeCommitmentG2G1_g_get", _wrap_KnowledgeCommitmentG2G1_g_get, METH_O, "KnowledgeCommitmentG2G1_g_get(KnowledgeCommitmentG2G1 self) -> G2"},
+	 { "KnowledgeCommitmentG2G1_h_set", _wrap_KnowledgeCommitmentG2G1_h_set, METH_VARARGS, "KnowledgeCommitmentG2G1_h_set(KnowledgeCommitmentG2G1 self, G1 h)"},
+	 { "KnowledgeCommitmentG2G1_h_get", _wrap_KnowledgeCommitmentG2G1_h_get, METH_O, "KnowledgeCommitmentG2G1_h_get(KnowledgeCommitmentG2G1 self) -> G1"},
+	 { "new_KnowledgeCommitmentG2G1", _wrap_new_KnowledgeCommitmentG2G1, METH_NOARGS, "new_KnowledgeCommitmentG2G1() -> KnowledgeCommitmentG2G1"},
+	 { "delete_KnowledgeCommitmentG2G1", _wrap_delete_KnowledgeCommitmentG2G1, METH_O, "delete_KnowledgeCommitmentG2G1(KnowledgeCommitmentG2G1 self)"},
+	 { "KnowledgeCommitmentG2G1_swigregister", KnowledgeCommitmentG2G1_swigregister, METH_O, NULL},
+	 { "KnowledgeCommitmentG2G1_swiginit", KnowledgeCommitmentG2G1_swiginit, METH_VARARGS, NULL},
 	 { "Variable_index_set", _wrap_Variable_index_set, METH_VARARGS, "Variable_index_set(Variable self, var_index_t index)"},
 	 { "Variable_index_get", _wrap_Variable_index_get, METH_O, "Variable_index_get(Variable self) -> var_index_t"},
 	 { "new_Variable", _wrap_new_Variable, METH_NOARGS, "new_Variable() -> Variable"},
@@ -6825,22 +8443,52 @@ static PyMethodDef SwigMethods[] = {
 	 { "delete_ProtoboardPub", _wrap_delete_ProtoboardPub, METH_O, "delete_ProtoboardPub(ProtoboardPub self)"},
 	 { "ProtoboardPub_swigregister", ProtoboardPub_swigregister, METH_O, NULL},
 	 { "ProtoboardPub_swiginit", ProtoboardPub_swiginit, METH_VARARGS, NULL},
+	 { "ZKProof_g_A_set", _wrap_ZKProof_g_A_set, METH_VARARGS, "ZKProof_g_A_set(ZKProof self, KnowledgeCommitmentG1G1 g_A)"},
+	 { "ZKProof_g_A_get", _wrap_ZKProof_g_A_get, METH_O, "ZKProof_g_A_get(ZKProof self) -> KnowledgeCommitmentG1G1"},
+	 { "ZKProof_g_B_set", _wrap_ZKProof_g_B_set, METH_VARARGS, "ZKProof_g_B_set(ZKProof self, KnowledgeCommitmentG2G1 g_B)"},
+	 { "ZKProof_g_B_get", _wrap_ZKProof_g_B_get, METH_O, "ZKProof_g_B_get(ZKProof self) -> KnowledgeCommitmentG2G1"},
+	 { "ZKProof_g_C_set", _wrap_ZKProof_g_C_set, METH_VARARGS, "ZKProof_g_C_set(ZKProof self, KnowledgeCommitmentG1G1 g_C)"},
+	 { "ZKProof_g_C_get", _wrap_ZKProof_g_C_get, METH_O, "ZKProof_g_C_get(ZKProof self) -> KnowledgeCommitmentG1G1"},
+	 { "ZKProof_g_H_set", _wrap_ZKProof_g_H_set, METH_VARARGS, "ZKProof_g_H_set(ZKProof self, G1 g_H)"},
+	 { "ZKProof_g_H_get", _wrap_ZKProof_g_H_get, METH_O, "ZKProof_g_H_get(ZKProof self) -> G1"},
+	 { "ZKProof_g_K_set", _wrap_ZKProof_g_K_set, METH_VARARGS, "ZKProof_g_K_set(ZKProof self, G1 g_K)"},
+	 { "ZKProof_g_K_get", _wrap_ZKProof_g_K_get, METH_O, "ZKProof_g_K_get(ZKProof self) -> G1"},
 	 { "new_ZKProof", _wrap_new_ZKProof, METH_NOARGS, "new_ZKProof() -> ZKProof"},
 	 { "delete_ZKProof", _wrap_delete_ZKProof, METH_O, "delete_ZKProof(ZKProof self)"},
 	 { "ZKProof_swigregister", ZKProof_swigregister, METH_O, NULL},
 	 { "ZKProof_swiginit", ZKProof_swiginit, METH_VARARGS, NULL},
 	 { "ZKKeypair_pk_set", _wrap_ZKKeypair_pk_set, METH_VARARGS, "ZKKeypair_pk_set(ZKKeypair self, libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp > * pk)"},
 	 { "ZKKeypair_pk_get", _wrap_ZKKeypair_pk_get, METH_O, "ZKKeypair_pk_get(ZKKeypair self) -> libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp > *"},
-	 { "ZKKeypair_vk_set", _wrap_ZKKeypair_vk_set, METH_VARARGS, "ZKKeypair_vk_set(ZKKeypair self, libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > * vk)"},
-	 { "ZKKeypair_vk_get", _wrap_ZKKeypair_vk_get, METH_O, "ZKKeypair_vk_get(ZKKeypair self) -> libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *"},
+	 { "ZKKeypair_vk_set", _wrap_ZKKeypair_vk_set, METH_VARARGS, "ZKKeypair_vk_set(ZKKeypair self, ZKVerificationKey vk)"},
+	 { "ZKKeypair_vk_get", _wrap_ZKKeypair_vk_get, METH_O, "ZKKeypair_vk_get(ZKKeypair self) -> ZKVerificationKey"},
 	 { "new_ZKKeypair", _wrap_new_ZKKeypair, METH_O, "new_ZKKeypair(ZKKeypair other) -> ZKKeypair"},
 	 { "delete_ZKKeypair", _wrap_delete_ZKKeypair, METH_O, "delete_ZKKeypair(ZKKeypair self)"},
 	 { "ZKKeypair_swigregister", ZKKeypair_swigregister, METH_O, NULL},
 	 { "ZKKeypair_swiginit", ZKKeypair_swiginit, METH_VARARGS, NULL},
+	 { "ZKVerificationKey_alphaA_g2_set", _wrap_ZKVerificationKey_alphaA_g2_set, METH_VARARGS, "ZKVerificationKey_alphaA_g2_set(ZKVerificationKey self, G2 alphaA_g2)"},
+	 { "ZKVerificationKey_alphaA_g2_get", _wrap_ZKVerificationKey_alphaA_g2_get, METH_O, "ZKVerificationKey_alphaA_g2_get(ZKVerificationKey self) -> G2"},
+	 { "ZKVerificationKey_alphaB_g1_set", _wrap_ZKVerificationKey_alphaB_g1_set, METH_VARARGS, "ZKVerificationKey_alphaB_g1_set(ZKVerificationKey self, G1 alphaB_g1)"},
+	 { "ZKVerificationKey_alphaB_g1_get", _wrap_ZKVerificationKey_alphaB_g1_get, METH_O, "ZKVerificationKey_alphaB_g1_get(ZKVerificationKey self) -> G1"},
+	 { "ZKVerificationKey_alphaC_g2_set", _wrap_ZKVerificationKey_alphaC_g2_set, METH_VARARGS, "ZKVerificationKey_alphaC_g2_set(ZKVerificationKey self, G2 alphaC_g2)"},
+	 { "ZKVerificationKey_alphaC_g2_get", _wrap_ZKVerificationKey_alphaC_g2_get, METH_O, "ZKVerificationKey_alphaC_g2_get(ZKVerificationKey self) -> G2"},
+	 { "ZKVerificationKey_gamma_g2_set", _wrap_ZKVerificationKey_gamma_g2_set, METH_VARARGS, "ZKVerificationKey_gamma_g2_set(ZKVerificationKey self, G2 gamma_g2)"},
+	 { "ZKVerificationKey_gamma_g2_get", _wrap_ZKVerificationKey_gamma_g2_get, METH_O, "ZKVerificationKey_gamma_g2_get(ZKVerificationKey self) -> G2"},
+	 { "ZKVerificationKey_gamma_beta_g1_set", _wrap_ZKVerificationKey_gamma_beta_g1_set, METH_VARARGS, "ZKVerificationKey_gamma_beta_g1_set(ZKVerificationKey self, G1 gamma_beta_g1)"},
+	 { "ZKVerificationKey_gamma_beta_g1_get", _wrap_ZKVerificationKey_gamma_beta_g1_get, METH_O, "ZKVerificationKey_gamma_beta_g1_get(ZKVerificationKey self) -> G1"},
+	 { "ZKVerificationKey_gamma_beta_g2_set", _wrap_ZKVerificationKey_gamma_beta_g2_set, METH_VARARGS, "ZKVerificationKey_gamma_beta_g2_set(ZKVerificationKey self, G2 gamma_beta_g2)"},
+	 { "ZKVerificationKey_gamma_beta_g2_get", _wrap_ZKVerificationKey_gamma_beta_g2_get, METH_O, "ZKVerificationKey_gamma_beta_g2_get(ZKVerificationKey self) -> G2"},
+	 { "ZKVerificationKey_rC_Z_g2_set", _wrap_ZKVerificationKey_rC_Z_g2_set, METH_VARARGS, "ZKVerificationKey_rC_Z_g2_set(ZKVerificationKey self, G2 rC_Z_g2)"},
+	 { "ZKVerificationKey_rC_Z_g2_get", _wrap_ZKVerificationKey_rC_Z_g2_get, METH_O, "ZKVerificationKey_rC_Z_g2_get(ZKVerificationKey self) -> G2"},
+	 { "ZKVerificationKey_encoded_IC_query_size", _wrap_ZKVerificationKey_encoded_IC_query_size, METH_O, "ZKVerificationKey_encoded_IC_query_size(ZKVerificationKey self) -> int"},
+	 { "ZKVerificationKey_encoded_IC_query", _wrap_ZKVerificationKey_encoded_IC_query, METH_VARARGS, "ZKVerificationKey_encoded_IC_query(ZKVerificationKey self, int ix) -> G1"},
+	 { "new_ZKVerificationKey", _wrap_new_ZKVerificationKey, METH_NOARGS, "new_ZKVerificationKey() -> ZKVerificationKey"},
+	 { "delete_ZKVerificationKey", _wrap_delete_ZKVerificationKey, METH_O, "delete_ZKVerificationKey(ZKVerificationKey self)"},
+	 { "ZKVerificationKey_swigregister", ZKVerificationKey_swigregister, METH_O, NULL},
+	 { "ZKVerificationKey_swiginit", ZKVerificationKey_swiginit, METH_VARARGS, NULL},
 	 { "zk_generator", _wrap_zk_generator, METH_O, "zk_generator(R1csConstraintSystem cs) -> ZKKeypair"},
 	 { "zk_prover", _wrap_zk_prover, METH_VARARGS, "zk_prover(libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp > const & pk, R1csPrimaryInput primary_input, R1csAuxiliaryInput auxiliary_input) -> ZKProof"},
-	 { "zk_verifier_weak_IC", _wrap_zk_verifier_weak_IC, METH_VARARGS, "zk_verifier_weak_IC(libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > const & vk, R1csPrimaryInput primary_input, ZKProof proof) -> bool"},
-	 { "zk_verifier_strong_IC", _wrap_zk_verifier_strong_IC, METH_VARARGS, "zk_verifier_strong_IC(libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > const & vk, R1csPrimaryInput primary_input, ZKProof proof) -> bool"},
+	 { "zk_verifier_weak_IC", _wrap_zk_verifier_weak_IC, METH_VARARGS, "zk_verifier_weak_IC(ZKVerificationKey vk, R1csPrimaryInput primary_input, ZKProof proof) -> bool"},
+	 { "zk_verifier_strong_IC", _wrap_zk_verifier_strong_IC, METH_VARARGS, "zk_verifier_strong_IC(ZKVerificationKey vk, R1csPrimaryInput primary_input, ZKProof proof) -> bool"},
 	 { "zk_read_key", _wrap_zk_read_key, METH_VARARGS, "zk_read_key(char const * ekfile, R1csConstraintSystem cs=None) -> ZKKeypair"},
 	 { "zk_write_keys", _wrap_zk_write_keys, METH_VARARGS, "zk_write_keys(ZKKeypair keypair, char const * vkfile=None, char const * ekfile=None)"},
 	 { "zk_write_proof", _wrap_zk_write_proof, METH_VARARGS, "zk_write_proof(ZKProof proof, R1csPrimaryInput pubvals, char const * logfile)"},
@@ -6879,9 +8527,15 @@ static void *_p_ProtoboardPubTo_p_libsnark__protoboardT_Ft_t(void *x, int *SWIGU
 static void *_p_libsnark__pb_variableT_Ft_tTo_p_libsnark__variableT_Ft_t(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((libsnark::variable< Ft > *)  ((libsnark::pb_variable< Ft > *) x));
 }
+static swig_type_info _swigt__p_Fq2t = {"_p_Fq2t", "Fq2t *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_Fqt = {"_p_Fqt", "Fqt *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Ft = {"_p_Ft", "Ft *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_ProtoboardPub = {"_p_ProtoboardPub", "ProtoboardPub *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_char = {"_p_char", "char *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_libff__G1T_libff__alt_bn128_pp_t = {"_p_libff__G1T_libff__alt_bn128_pp_t", "libff::G1< libff::alt_bn128_pp > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_libff__G2T_libff__alt_bn128_pp_t = {"_p_libff__G2T_libff__alt_bn128_pp_t", "libff::G2< libff::alt_bn128_pp > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_libsnark__knowledge_commitmentT_libff__G1T_libff__alt_bn128_pp_t_libff__G1T_libff__alt_bn128_pp_t_t = {"_p_libsnark__knowledge_commitmentT_libff__G1T_libff__alt_bn128_pp_t_libff__G1T_libff__alt_bn128_pp_t_t", "libsnark::knowledge_commitment< libff::G1< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_libsnark__knowledge_commitmentT_libff__G2T_libff__alt_bn128_pp_t_libff__G1T_libff__alt_bn128_pp_t_t = {"_p_libsnark__knowledge_commitmentT_libff__G2T_libff__alt_bn128_pp_t_libff__G1T_libff__alt_bn128_pp_t_t", "libsnark::knowledge_commitment< libff::G2< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_libsnark__linear_combinationT_Ft_t = {"_p_libsnark__linear_combinationT_Ft_t", "libsnark::linear_combination< Ft > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_libsnark__pb_variableT_Ft_t = {"_p_libsnark__pb_variableT_Ft_t", "libsnark::pb_variable< Ft > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_libsnark__protoboardT_Ft_t = {"_p_libsnark__protoboardT_Ft_t", "libsnark::protoboard< Ft > *", 0, 0, (void*)0, 0};
@@ -6902,9 +8556,15 @@ static swig_type_info _swigt__p_std__string = {"_p_std__string", "std::string *"
 static swig_type_info _swigt__p_var_index_t = {"_p_var_index_t", "var_index_t *", 0, 0, (void*)0, 0};
 
 static swig_type_info *swig_type_initial[] = {
+  &_swigt__p_Fq2t,
+  &_swigt__p_Fqt,
   &_swigt__p_Ft,
   &_swigt__p_ProtoboardPub,
   &_swigt__p_char,
+  &_swigt__p_libff__G1T_libff__alt_bn128_pp_t,
+  &_swigt__p_libff__G2T_libff__alt_bn128_pp_t,
+  &_swigt__p_libsnark__knowledge_commitmentT_libff__G1T_libff__alt_bn128_pp_t_libff__G1T_libff__alt_bn128_pp_t_t,
+  &_swigt__p_libsnark__knowledge_commitmentT_libff__G2T_libff__alt_bn128_pp_t_libff__G1T_libff__alt_bn128_pp_t_t,
   &_swigt__p_libsnark__linear_combinationT_Ft_t,
   &_swigt__p_libsnark__pb_variableT_Ft_t,
   &_swigt__p_libsnark__protoboardT_Ft_t,
@@ -6925,9 +8585,15 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_var_index_t,
 };
 
+static swig_cast_info _swigc__p_Fq2t[] = {  {&_swigt__p_Fq2t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_Fqt[] = {  {&_swigt__p_Fqt, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Ft[] = {  {&_swigt__p_Ft, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_ProtoboardPub[] = {  {&_swigt__p_ProtoboardPub, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_char[] = {  {&_swigt__p_char, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_libff__G1T_libff__alt_bn128_pp_t[] = {  {&_swigt__p_libff__G1T_libff__alt_bn128_pp_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_libff__G2T_libff__alt_bn128_pp_t[] = {  {&_swigt__p_libff__G2T_libff__alt_bn128_pp_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_libsnark__knowledge_commitmentT_libff__G1T_libff__alt_bn128_pp_t_libff__G1T_libff__alt_bn128_pp_t_t[] = {  {&_swigt__p_libsnark__knowledge_commitmentT_libff__G1T_libff__alt_bn128_pp_t_libff__G1T_libff__alt_bn128_pp_t_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_libsnark__knowledge_commitmentT_libff__G2T_libff__alt_bn128_pp_t_libff__G1T_libff__alt_bn128_pp_t_t[] = {  {&_swigt__p_libsnark__knowledge_commitmentT_libff__G2T_libff__alt_bn128_pp_t_libff__G1T_libff__alt_bn128_pp_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_libsnark__linear_combinationT_Ft_t[] = {  {&_swigt__p_libsnark__linear_combinationT_Ft_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_libsnark__pb_variableT_Ft_t[] = {  {&_swigt__p_libsnark__pb_variableT_Ft_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_libsnark__protoboardT_Ft_t[] = {  {&_swigt__p_libsnark__protoboardT_Ft_t, 0, 0, 0},  {&_swigt__p_ProtoboardPub, _p_ProtoboardPubTo_p_libsnark__protoboardT_Ft_t, 0, 0},{0, 0, 0, 0}};
@@ -6948,9 +8614,15 @@ static swig_cast_info _swigc__p_std__string[] = {  {&_swigt__p_std__string, 0, 0
 static swig_cast_info _swigc__p_var_index_t[] = {  {&_swigt__p_var_index_t, 0, 0, 0},{0, 0, 0, 0}};
 
 static swig_cast_info *swig_cast_initial[] = {
+  _swigc__p_Fq2t,
+  _swigc__p_Fqt,
   _swigc__p_Ft,
   _swigc__p_ProtoboardPub,
   _swigc__p_char,
+  _swigc__p_libff__G1T_libff__alt_bn128_pp_t,
+  _swigc__p_libff__G2T_libff__alt_bn128_pp_t,
+  _swigc__p_libsnark__knowledge_commitmentT_libff__G1T_libff__alt_bn128_pp_t_libff__G1T_libff__alt_bn128_pp_t_t,
+  _swigc__p_libsnark__knowledge_commitmentT_libff__G2T_libff__alt_bn128_pp_t_libff__G1T_libff__alt_bn128_pp_t_t,
   _swigc__p_libsnark__linear_combinationT_Ft_t,
   _swigc__p_libsnark__pb_variableT_Ft_t,
   _swigc__p_libsnark__protoboardT_Ft_t,

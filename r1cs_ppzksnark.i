@@ -156,14 +156,14 @@ class r1cs_ppzksnark_proving_key {
 // */
 template<typename ppT>
 class r1cs_ppzksnark_verification_key {
-//public:
-//    libff::G2<ppT> alphaA_g2;
-//    libff::G1<ppT> alphaB_g1;
-//    libff::G2<ppT> alphaC_g2;
-//    libff::G2<ppT> gamma_g2;
-//    libff::G1<ppT> gamma_beta_g1;
-//    libff::G2<ppT> gamma_beta_g2;
-//    libff::G2<ppT> rC_Z_g2;
+public:
+    libff::G2<ppT> alphaA_g2;
+    libff::G1<ppT> alphaB_g1;
+    libff::G2<ppT> alphaC_g2;
+    libff::G2<ppT> gamma_g2;
+    libff::G1<ppT> gamma_beta_g1;
+    libff::G2<ppT> gamma_beta_g2;
+    libff::G2<ppT> rC_Z_g2;
 //
 //    accumulation_vector<libff::G1<ppT> > encoded_IC_query;
 //
@@ -213,6 +213,19 @@ class r1cs_ppzksnark_verification_key {
 //    friend std::istream& operator>> <ppT>(std::istream &in, r1cs_ppzksnark_verification_key<ppT> &vk);
 //
 //    static r1cs_ppzksnark_verification_key<ppT> dummy_verification_key(const size_t input_size);
+};
+
+%extend r1cs_ppzksnark_verification_key<libff::alt_bn128_pp> {
+  int r1cs_ppzksnark_verification_key<libff::alt_bn128_pp>::encoded_IC_query_size() {
+      return 1+$self->encoded_IC_query.rest.size();
+  }
+    
+  libff::G1<libff::alt_bn128_pp> r1cs_ppzksnark_verification_key<libff::alt_bn128_pp>::encoded_IC_query(int ix) {
+      if (ix==0)
+          return $self->encoded_IC_query.first;
+      else
+          return $self->encoded_IC_query.rest.values.at(ix-1);
+  } 
 };
 //
 //
@@ -297,12 +310,12 @@ public:
 // */
 template<typename ppT>
 class r1cs_ppzksnark_proof {
-//public:
-//    knowledge_commitment<libff::G1<ppT>, libff::G1<ppT> > g_A;
-//    knowledge_commitment<libff::G2<ppT>, libff::G1<ppT> > g_B;
-//    knowledge_commitment<libff::G1<ppT>, libff::G1<ppT> > g_C;
-//    libff::G1<ppT> g_H;
-//    libff::G1<ppT> g_K;
+public:
+    knowledge_commitment<libff::G1<ppT>, libff::G1<ppT> > g_A;
+    knowledge_commitment<libff::G2<ppT>, libff::G1<ppT> > g_B;
+    knowledge_commitment<libff::G1<ppT>, libff::G1<ppT> > g_C;
+    libff::G1<ppT> g_H;
+    libff::G1<ppT> g_K;
 //
 //    r1cs_ppzksnark_proof()
 //    {
