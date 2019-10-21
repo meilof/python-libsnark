@@ -23,6 +23,9 @@ using namespace libff;
 
 %}
 
+%include "profiling.i"
+%include "serialization.i"
+
 %{
 typedef libff::Fr<libff::alt_bn128_pp> Ft;
 typedef libff::alt_bn128_Fq Fqt;
@@ -33,6 +36,9 @@ class Ft { };
 class Fqt { };
 
 %include "swigtypes.i"
+    
+// somehow doing it here instead of after the definion of the objects prevents errors...
+%include "synthesis.i"
 
 class Fq2t {  };
 %extend Fq2t {
@@ -103,12 +109,14 @@ namespace libsnark {
 %template(ZKProof) libsnark::r1cs_ppzksnark_proof<libff::alt_bn128_pp>;
 %template(ZKKeypair) libsnark::r1cs_ppzksnark_keypair<libff::alt_bn128_pp>;
 %template(ZKVerificationKey) libsnark::r1cs_ppzksnark_verification_key<libff::alt_bn128_pp>;
+%template(ZKProvingKey) libsnark::r1cs_ppzksnark_proving_key<libff::alt_bn128_pp>;
 %template(zk_generator) libsnark::r1cs_ppzksnark_generator<libff::alt_bn128_pp>;
 %template(zk_prover) libsnark::r1cs_ppzksnark_prover<libff::alt_bn128_pp>;
 %template(zk_verifier_weak_IC) libsnark::r1cs_ppzksnark_verifier_weak_IC<libff::alt_bn128_pp>;
 %template(zk_verifier_strong_IC) libsnark::r1cs_ppzksnark_verifier_strong_IC<libff::alt_bn128_pp>;
 %include "io_zk.i"
     
+
 namespace libsnark {
 %include "r1cs_gg_ppzksnark.i"
 }

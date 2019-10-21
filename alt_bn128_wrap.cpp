@@ -2682,10 +2682,9 @@ SWIGINTERN PyObject *SWIG_PyStaticMethod_New(PyObject *SWIGUNUSEDPARM(self), PyO
 #define SWIGTYPE_p_libsnark__r1cs_ppzksnark_verification_keyT_libff__alt_bn128_pp_t swig_types[22]
 #define SWIGTYPE_p_libsnark__r1cs_primary_inputT_Ft_t swig_types[23]
 #define SWIGTYPE_p_libsnark__variableT_Ft_t swig_types[24]
-#define SWIGTYPE_p_std__string swig_types[25]
-#define SWIGTYPE_p_var_index_t swig_types[26]
-static swig_type_info *swig_types[28];
-static swig_module_info swig_module = {swig_types, 27, 0, 0, 0, 0};
+#define SWIGTYPE_p_var_index_t swig_types[25]
+static swig_type_info *swig_types[27];
+static swig_module_info swig_module = {swig_types, 26, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -2807,42 +2806,6 @@ using namespace libsnark;
 using namespace std;
 using namespace libff;
 
-
-
-typedef libff::Fr<libff::alt_bn128_pp> Ft;
-typedef libff::alt_bn128_Fq Fqt;
-typedef libff::alt_bn128_Fq2 Fq2t;
-
-SWIGINTERN Fqt Fq2t_getc0(Fq2t *self){ return self->c0; }
-SWIGINTERN Fqt Fq2t_getc1(Fq2t *self){ return self->c1; }
- 
-Ft fieldinverse(const Ft& val) {
-    return val.inverse();
-}
- 
-libff::bigint<Ft::num_limbs> get_modulus() {
-    return Ft::mod;
-}    
-
-SWIGINTERN Fqt libff_G1_Sl_libff_alt_bn128_pp_Sg__getx(libff::G1< libff::alt_bn128_pp > *self){ return self->X; }
-SWIGINTERN Fqt libff_G1_Sl_libff_alt_bn128_pp_Sg__gety(libff::G1< libff::alt_bn128_pp > *self){ return self->Y; }
-SWIGINTERN Fqt libff_G1_Sl_libff_alt_bn128_pp_Sg__getz(libff::G1< libff::alt_bn128_pp > *self){ return self->Z; }
-
-SWIGINTERNINLINE PyObject*
-  SWIG_From_int  (int value)
-{
-  return PyInt_FromLong((long) value);
-}
-
-
-#include <limits.h>
-#if !defined(SWIG_NO_LLONG_MAX)
-# if !defined(LLONG_MAX) && defined(__GNUC__) && defined (__LONG_LONG_MAX__)
-#   define LLONG_MAX __LONG_LONG_MAX__
-#   define LLONG_MIN (-LLONG_MAX - 1LL)
-#   define ULLONG_MAX (LLONG_MAX * 2ULL + 1ULL)
-# endif
-#endif
 
 
 SWIGINTERN int
@@ -2971,6 +2934,442 @@ SWIG_AsVal_long (PyObject *obj, long* val)
 
 
 SWIGINTERN int
+SWIG_AsVal_bool (PyObject *obj, bool *val)
+{
+  int r;
+  if (!PyBool_Check(obj))
+    return SWIG_ERROR;
+  r = PyObject_IsTrue(obj);
+  if (r == -1)
+    return SWIG_ERROR;
+  if (val) *val = r ? true : false;
+  return SWIG_OK;
+}
+
+
+SWIGINTERNINLINE PyObject*
+  SWIG_From_bool  (bool value)
+{
+  return PyBool_FromLong(value ? 1 : 0);
+}
+
+
+typedef libff::Fr<libff::alt_bn128_pp> Ft;
+typedef libff::alt_bn128_Fq Fqt;
+typedef libff::alt_bn128_Fq2 Fq2t;
+
+
+#include <string>
+
+SWIGINTERN Fqt Fq2t_getc0(Fq2t *self){ return self->c0; }
+SWIGINTERN Fqt Fq2t_getc1(Fq2t *self){ return self->c1; }
+ 
+Ft fieldinverse(const Ft& val) {
+    return val.inverse();
+}
+ 
+libff::bigint<Ft::num_limbs> get_modulus() {
+    return Ft::mod;
+}    
+
+
+#include <stdio.h>
+#include <memory>
+#include <boost/iostreams/stream.hpp>
+#include <boost/iostreams/device/file_descriptor.hpp>
+using boost_ofd_stream = boost::iostreams::stream<boost::iostreams::file_descriptor_sink>;
+using boost_ifd_stream = boost::iostreams::stream<boost::iostreams::file_descriptor_source>;
+
+SWIGINTERN void libff_G1_Sl_libff_alt_bn128_pp_Sg__write__SWIG_0(libff::G1< libff::alt_bn128_pp > *self,std::ostream &str=std::cout){
+      str << *self;
+  }
+SWIGINTERN libff::G1< libff::alt_bn128_pp > *libff_G1_Sl_libff_alt_bn128_pp_Sg__read__SWIG_0(std::istream &str=std::cin){
+      libff::G1<libff::alt_bn128_pp>* ret = new libff::G1<libff::alt_bn128_pp>();
+      str >> *ret;
+      return ret;
+  }
+SWIGINTERN std::string libff_G1_Sl_libff_alt_bn128_pp_Sg__str(libff::G1< libff::alt_bn128_pp > *self){
+    bool old_binary_output = libff::binary_output; libff::binary_output = false;
+    bool old_montgomery_output = libff::montgomery_output; libff::montgomery_output = false;
+    bool old_no_pt_compression = libff::no_pt_compression; libff::no_pt_compression = false;
+    
+    stringstream ss;
+    ss << *self;
+      
+    libff::binary_output = old_binary_output;
+    libff::montgomery_output = old_montgomery_output;
+    libff::no_pt_compression = old_no_pt_compression;      
+      
+    return ss.str();
+  }
+
+SWIGINTERN swig_type_info*
+SWIG_pchar_descriptor(void)
+{
+  static int init = 0;
+  static swig_type_info* info = 0;
+  if (!init) {
+    info = SWIG_TypeQuery("_p_char");
+    init = 1;
+  }
+  return info;
+}
+
+
+SWIGINTERNINLINE PyObject *
+SWIG_FromCharPtrAndSize(const char* carray, size_t size)
+{
+  if (carray) {
+    if (size > INT_MAX) {
+      swig_type_info* pchar_descriptor = SWIG_pchar_descriptor();
+      return pchar_descriptor ? 
+	SWIG_InternalNewPointerObj(const_cast< char * >(carray), pchar_descriptor, 0) : SWIG_Py_Void();
+    } else {
+#if PY_VERSION_HEX >= 0x03000000
+#if defined(SWIG_PYTHON_STRICT_BYTE_CHAR)
+      return PyBytes_FromStringAndSize(carray, static_cast< Py_ssize_t >(size));
+#else
+      return PyUnicode_DecodeUTF8(carray, static_cast< Py_ssize_t >(size), "surrogateescape");
+#endif
+#else
+      return PyString_FromStringAndSize(carray, static_cast< Py_ssize_t >(size));
+#endif
+    }
+  } else {
+    return SWIG_Py_Void();
+  }
+}
+
+
+SWIGINTERNINLINE PyObject *
+SWIG_From_std_string  (const std::string& s)
+{
+  return SWIG_FromCharPtrAndSize(s.data(), s.size());
+}
+
+
+SWIGINTERN int
+SWIG_AsCharPtrAndSize(PyObject *obj, char** cptr, size_t* psize, int *alloc)
+{
+#if PY_VERSION_HEX>=0x03000000
+#if defined(SWIG_PYTHON_STRICT_BYTE_CHAR)
+  if (PyBytes_Check(obj))
+#else
+  if (PyUnicode_Check(obj))
+#endif
+#else  
+  if (PyString_Check(obj))
+#endif
+  {
+    char *cstr; Py_ssize_t len;
+    int ret = SWIG_OK;
+#if PY_VERSION_HEX>=0x03000000
+#if !defined(SWIG_PYTHON_STRICT_BYTE_CHAR)
+    if (!alloc && cptr) {
+        /* We can't allow converting without allocation, since the internal
+           representation of string in Python 3 is UCS-2/UCS-4 but we require
+           a UTF-8 representation.
+           TODO(bhy) More detailed explanation */
+        return SWIG_RuntimeError;
+    }
+    obj = PyUnicode_AsUTF8String(obj);
+    if (!obj)
+      return SWIG_TypeError;
+    if (alloc)
+      *alloc = SWIG_NEWOBJ;
+#endif
+    PyBytes_AsStringAndSize(obj, &cstr, &len);
+#else
+    PyString_AsStringAndSize(obj, &cstr, &len);
+#endif
+    if (cptr) {
+      if (alloc) {
+	if (*alloc == SWIG_NEWOBJ) {
+	  *cptr = reinterpret_cast< char* >(memcpy(new char[len + 1], cstr, sizeof(char)*(len + 1)));
+	  *alloc = SWIG_NEWOBJ;
+	} else {
+	  *cptr = cstr;
+	  *alloc = SWIG_OLDOBJ;
+	}
+      } else {
+#if PY_VERSION_HEX>=0x03000000
+#if defined(SWIG_PYTHON_STRICT_BYTE_CHAR)
+	*cptr = PyBytes_AsString(obj);
+#else
+	assert(0); /* Should never reach here with Unicode strings in Python 3 */
+#endif
+#else
+	*cptr = SWIG_Python_str_AsChar(obj);
+        if (!*cptr)
+          ret = SWIG_TypeError;
+#endif
+      }
+    }
+    if (psize) *psize = len + 1;
+#if PY_VERSION_HEX>=0x03000000 && !defined(SWIG_PYTHON_STRICT_BYTE_CHAR)
+    Py_XDECREF(obj);
+#endif
+    return ret;
+  } else {
+#if defined(SWIG_PYTHON_2_UNICODE)
+#if defined(SWIG_PYTHON_STRICT_BYTE_CHAR)
+#error "Cannot use both SWIG_PYTHON_2_UNICODE and SWIG_PYTHON_STRICT_BYTE_CHAR at once"
+#endif
+#if PY_VERSION_HEX<0x03000000
+    if (PyUnicode_Check(obj)) {
+      char *cstr; Py_ssize_t len;
+      if (!alloc && cptr) {
+        return SWIG_RuntimeError;
+      }
+      obj = PyUnicode_AsUTF8String(obj);
+      if (!obj)
+        return SWIG_TypeError;
+      if (PyString_AsStringAndSize(obj, &cstr, &len) != -1) {
+        if (cptr) {
+          if (alloc) *alloc = SWIG_NEWOBJ;
+          *cptr = reinterpret_cast< char* >(memcpy(new char[len + 1], cstr, sizeof(char)*(len + 1)));
+        }
+        if (psize) *psize = len + 1;
+
+        Py_XDECREF(obj);
+        return SWIG_OK;
+      } else {
+        Py_XDECREF(obj);
+      }
+    }
+#endif
+#endif
+
+    swig_type_info* pchar_descriptor = SWIG_pchar_descriptor();
+    if (pchar_descriptor) {
+      void* vptr = 0;
+      if (SWIG_ConvertPtr(obj, &vptr, pchar_descriptor, 0) == SWIG_OK) {
+	if (cptr) *cptr = (char *) vptr;
+	if (psize) *psize = vptr ? (strlen((char *)vptr) + 1) : 0;
+	if (alloc) *alloc = SWIG_OLDOBJ;
+	return SWIG_OK;
+      }
+    }
+  }
+  return SWIG_TypeError;
+}
+
+
+SWIGINTERN int
+SWIG_AsPtr_std_string (PyObject * obj, std::string **val) 
+{
+  char* buf = 0 ; size_t size = 0; int alloc = SWIG_OLDOBJ;
+  if (SWIG_IsOK((SWIG_AsCharPtrAndSize(obj, &buf, &size, &alloc)))) {
+    if (buf) {
+      if (val) *val = new std::string(buf, size - 1);
+      if (alloc == SWIG_NEWOBJ) delete[] buf;
+      return SWIG_NEWOBJ;
+    } else {
+      if (val) *val = 0;
+      return SWIG_OLDOBJ;
+    }
+  } else {
+    static int init = 0;
+    static swig_type_info* descriptor = 0;
+    if (!init) {
+      descriptor = SWIG_TypeQuery("std::string" " *");
+      init = 1;
+    }
+    if (descriptor) {
+      std::string *vptr;
+      int res = SWIG_ConvertPtr(obj, (void**)&vptr, descriptor, 0);
+      if (SWIG_IsOK(res) && val) *val = vptr;
+      return res;
+    }
+  }
+  return SWIG_ERROR;
+}
+
+SWIGINTERN libff::G1< libff::alt_bn128_pp > *libff_G1_Sl_libff_alt_bn128_pp_Sg__fromstr(std::string const &str){
+    bool old_binary_output = libff::binary_output; libff::binary_output = false;
+    bool old_montgomery_output = libff::montgomery_output; libff::montgomery_output = false;
+    bool old_no_pt_compression = libff::no_pt_compression; libff::no_pt_compression = false;
+    
+    stringstream ss(str);
+    libff::G1<libff::alt_bn128_pp>* ret = new libff::G1<libff::alt_bn128_pp>();
+    ss >> *ret;
+      
+    libff::binary_output = old_binary_output;
+    libff::montgomery_output = old_montgomery_output;
+    libff::no_pt_compression = old_no_pt_compression;      
+      
+    return ret;      
+  }
+SWIGINTERN Fqt libff_G1_Sl_libff_alt_bn128_pp_Sg__getx(libff::G1< libff::alt_bn128_pp > *self){ return self->X; }
+SWIGINTERN Fqt libff_G1_Sl_libff_alt_bn128_pp_Sg__gety(libff::G1< libff::alt_bn128_pp > *self){ return self->Y; }
+SWIGINTERN Fqt libff_G1_Sl_libff_alt_bn128_pp_Sg__getz(libff::G1< libff::alt_bn128_pp > *self){ return self->Z; }
+SWIGINTERN void libff_G2_Sl_libff_alt_bn128_pp_Sg__write__SWIG_0(libff::G2< libff::alt_bn128_pp > *self,std::ostream &str=std::cout){
+      str << *self;
+  }
+SWIGINTERN libff::G2< libff::alt_bn128_pp > *libff_G2_Sl_libff_alt_bn128_pp_Sg__read__SWIG_0(std::istream &str=std::cin){
+      libff::G2<libff::alt_bn128_pp>* ret = new libff::G2<libff::alt_bn128_pp>();
+      str >> *ret;
+      return ret;
+  }
+SWIGINTERN std::string libff_G2_Sl_libff_alt_bn128_pp_Sg__str(libff::G2< libff::alt_bn128_pp > *self){
+    bool old_binary_output = libff::binary_output; libff::binary_output = false;
+    bool old_montgomery_output = libff::montgomery_output; libff::montgomery_output = false;
+    bool old_no_pt_compression = libff::no_pt_compression; libff::no_pt_compression = false;
+    
+    stringstream ss;
+    ss << *self;
+      
+    libff::binary_output = old_binary_output;
+    libff::montgomery_output = old_montgomery_output;
+    libff::no_pt_compression = old_no_pt_compression;      
+      
+    return ss.str();
+  }
+SWIGINTERN libff::G2< libff::alt_bn128_pp > *libff_G2_Sl_libff_alt_bn128_pp_Sg__fromstr(std::string const &str){
+    bool old_binary_output = libff::binary_output; libff::binary_output = false;
+    bool old_montgomery_output = libff::montgomery_output; libff::montgomery_output = false;
+    bool old_no_pt_compression = libff::no_pt_compression; libff::no_pt_compression = false;
+    
+    stringstream ss(str);
+    libff::G2<libff::alt_bn128_pp>* ret = new libff::G2<libff::alt_bn128_pp>();
+    ss >> *ret;
+      
+    libff::binary_output = old_binary_output;
+    libff::montgomery_output = old_montgomery_output;
+    libff::no_pt_compression = old_no_pt_compression;      
+      
+    return ret;      
+  }
+SWIGINTERN void libsnark_linear_combination_Sl_Ft_Sg__write__SWIG_0(libsnark::linear_combination< Ft > *self,std::ostream &str=std::cout){
+      str << *self;
+  }
+SWIGINTERN libsnark::linear_combination< Ft > *libsnark_linear_combination_Sl_Ft_Sg__read__SWIG_0(std::istream &str=std::cin){
+      libsnark::linear_combination<Ft>* ret = new libsnark::linear_combination<Ft>();
+      str >> *ret;
+      return ret;
+  }
+SWIGINTERN std::string libsnark_linear_combination_Sl_Ft_Sg__str(libsnark::linear_combination< Ft > *self){
+    bool old_binary_output = libff::binary_output; libff::binary_output = false;
+    bool old_montgomery_output = libff::montgomery_output; libff::montgomery_output = false;
+    bool old_no_pt_compression = libff::no_pt_compression; libff::no_pt_compression = false;
+    
+    stringstream ss;
+    ss << *self;
+      
+    libff::binary_output = old_binary_output;
+    libff::montgomery_output = old_montgomery_output;
+    libff::no_pt_compression = old_no_pt_compression;      
+      
+    return ss.str();
+  }
+SWIGINTERN libsnark::linear_combination< Ft > *libsnark_linear_combination_Sl_Ft_Sg__fromstr(std::string const &str){
+    bool old_binary_output = libff::binary_output; libff::binary_output = false;
+    bool old_montgomery_output = libff::montgomery_output; libff::montgomery_output = false;
+    bool old_no_pt_compression = libff::no_pt_compression; libff::no_pt_compression = false;
+    
+    stringstream ss(str);
+    libsnark::linear_combination<Ft>* ret = new libsnark::linear_combination<Ft>();
+    ss >> *ret;
+      
+    libff::binary_output = old_binary_output;
+    libff::montgomery_output = old_montgomery_output;
+    libff::no_pt_compression = old_no_pt_compression;      
+      
+    return ret;      
+  }
+SWIGINTERN void libsnark_r1cs_constraint_Sl_Ft_Sg__write__SWIG_0(libsnark::r1cs_constraint< Ft > *self,std::ostream &str=std::cout){
+      str << *self;
+  }
+SWIGINTERN libsnark::r1cs_constraint< Ft > *libsnark_r1cs_constraint_Sl_Ft_Sg__read__SWIG_0(std::istream &str=std::cin){
+      libsnark::r1cs_constraint<Ft>* ret = new libsnark::r1cs_constraint<Ft>();
+      str >> *ret;
+      return ret;
+  }
+SWIGINTERN std::string libsnark_r1cs_constraint_Sl_Ft_Sg__str(libsnark::r1cs_constraint< Ft > *self){
+    bool old_binary_output = libff::binary_output; libff::binary_output = false;
+    bool old_montgomery_output = libff::montgomery_output; libff::montgomery_output = false;
+    bool old_no_pt_compression = libff::no_pt_compression; libff::no_pt_compression = false;
+    
+    stringstream ss;
+    ss << *self;
+      
+    libff::binary_output = old_binary_output;
+    libff::montgomery_output = old_montgomery_output;
+    libff::no_pt_compression = old_no_pt_compression;      
+      
+    return ss.str();
+  }
+SWIGINTERN libsnark::r1cs_constraint< Ft > *libsnark_r1cs_constraint_Sl_Ft_Sg__fromstr(std::string const &str){
+    bool old_binary_output = libff::binary_output; libff::binary_output = false;
+    bool old_montgomery_output = libff::montgomery_output; libff::montgomery_output = false;
+    bool old_no_pt_compression = libff::no_pt_compression; libff::no_pt_compression = false;
+    
+    stringstream ss(str);
+    libsnark::r1cs_constraint<Ft>* ret = new libsnark::r1cs_constraint<Ft>();
+    ss >> *ret;
+      
+    libff::binary_output = old_binary_output;
+    libff::montgomery_output = old_montgomery_output;
+    libff::no_pt_compression = old_no_pt_compression;      
+      
+    return ret;      
+  }
+SWIGINTERN void libsnark_r1cs_constraint_system_Sl_Ft_Sg__write__SWIG_0(libsnark::r1cs_constraint_system< Ft > *self,std::ostream &str=std::cout){
+      str << *self;
+  }
+SWIGINTERN libsnark::r1cs_constraint_system< Ft > *libsnark_r1cs_constraint_system_Sl_Ft_Sg__read__SWIG_0(std::istream &str=std::cin){
+      libsnark::r1cs_constraint_system<Ft>* ret = new libsnark::r1cs_constraint_system<Ft>();
+      str >> *ret;
+      return ret;
+  }
+SWIGINTERN std::string libsnark_r1cs_constraint_system_Sl_Ft_Sg__str(libsnark::r1cs_constraint_system< Ft > *self){
+    bool old_binary_output = libff::binary_output; libff::binary_output = false;
+    bool old_montgomery_output = libff::montgomery_output; libff::montgomery_output = false;
+    bool old_no_pt_compression = libff::no_pt_compression; libff::no_pt_compression = false;
+    
+    stringstream ss;
+    ss << *self;
+      
+    libff::binary_output = old_binary_output;
+    libff::montgomery_output = old_montgomery_output;
+    libff::no_pt_compression = old_no_pt_compression;      
+      
+    return ss.str();
+  }
+SWIGINTERN libsnark::r1cs_constraint_system< Ft > *libsnark_r1cs_constraint_system_Sl_Ft_Sg__fromstr(std::string const &str){
+    bool old_binary_output = libff::binary_output; libff::binary_output = false;
+    bool old_montgomery_output = libff::montgomery_output; libff::montgomery_output = false;
+    bool old_no_pt_compression = libff::no_pt_compression; libff::no_pt_compression = false;
+    
+    stringstream ss(str);
+    libsnark::r1cs_constraint_system<Ft>* ret = new libsnark::r1cs_constraint_system<Ft>();
+    ss >> *ret;
+      
+    libff::binary_output = old_binary_output;
+    libff::montgomery_output = old_montgomery_output;
+    libff::no_pt_compression = old_no_pt_compression;      
+      
+    return ret;      
+  }
+
+SWIGINTERNINLINE PyObject*
+  SWIG_From_int  (int value)
+{
+  return PyInt_FromLong((long) value);
+}
+
+
+#include <limits.h>
+#if !defined(SWIG_NO_LLONG_MAX)
+# if !defined(LLONG_MAX) && defined(__GNUC__) && defined (__LONG_LONG_MAX__)
+#   define LLONG_MAX __LONG_LONG_MAX__
+#   define LLONG_MIN (-LLONG_MAX - 1LL)
+#   define ULLONG_MAX (LLONG_MAX * 2ULL + 1ULL)
+# endif
+#endif
+
+
+SWIGINTERN int
 SWIG_AsVal_int (PyObject * obj, int *val)
 {
   long v;
@@ -2985,13 +3384,80 @@ SWIG_AsVal_int (PyObject * obj, int *val)
   return res;
 }
 
-
-SWIGINTERNINLINE PyObject*
-  SWIG_From_bool  (bool value)
-{
-  return PyBool_FromLong(value ? 1 : 0);
-}
-
+SWIGINTERN void libsnark_r1cs_primary_input_Sl_Ft_Sg__write__SWIG_0(libsnark::r1cs_primary_input< Ft > *self,std::ostream &str=std::cout){
+      str << *self;
+  }
+SWIGINTERN libsnark::r1cs_primary_input< Ft > *libsnark_r1cs_primary_input_Sl_Ft_Sg__read__SWIG_0(std::istream &str=std::cin){
+      libsnark::r1cs_primary_input<Ft>* ret = new libsnark::r1cs_primary_input<Ft>();
+      str >> *ret;
+      return ret;
+  }
+SWIGINTERN std::string libsnark_r1cs_primary_input_Sl_Ft_Sg__str(libsnark::r1cs_primary_input< Ft > *self){
+    bool old_binary_output = libff::binary_output; libff::binary_output = false;
+    bool old_montgomery_output = libff::montgomery_output; libff::montgomery_output = false;
+    bool old_no_pt_compression = libff::no_pt_compression; libff::no_pt_compression = false;
+    
+    stringstream ss;
+    ss << *self;
+      
+    libff::binary_output = old_binary_output;
+    libff::montgomery_output = old_montgomery_output;
+    libff::no_pt_compression = old_no_pt_compression;      
+      
+    return ss.str();
+  }
+SWIGINTERN libsnark::r1cs_primary_input< Ft > *libsnark_r1cs_primary_input_Sl_Ft_Sg__fromstr(std::string const &str){
+    bool old_binary_output = libff::binary_output; libff::binary_output = false;
+    bool old_montgomery_output = libff::montgomery_output; libff::montgomery_output = false;
+    bool old_no_pt_compression = libff::no_pt_compression; libff::no_pt_compression = false;
+    
+    stringstream ss(str);
+    libsnark::r1cs_primary_input<Ft>* ret = new libsnark::r1cs_primary_input<Ft>();
+    ss >> *ret;
+      
+    libff::binary_output = old_binary_output;
+    libff::montgomery_output = old_montgomery_output;
+    libff::no_pt_compression = old_no_pt_compression;      
+      
+    return ret;      
+  }
+SWIGINTERN void libsnark_r1cs_auxiliary_input_Sl_Ft_Sg__write__SWIG_0(libsnark::r1cs_auxiliary_input< Ft > *self,std::ostream &str=std::cout){
+      str << *self;
+  }
+SWIGINTERN libsnark::r1cs_auxiliary_input< Ft > *libsnark_r1cs_auxiliary_input_Sl_Ft_Sg__read__SWIG_0(std::istream &str=std::cin){
+      libsnark::r1cs_auxiliary_input<Ft>* ret = new libsnark::r1cs_auxiliary_input<Ft>();
+      str >> *ret;
+      return ret;
+  }
+SWIGINTERN std::string libsnark_r1cs_auxiliary_input_Sl_Ft_Sg__str(libsnark::r1cs_auxiliary_input< Ft > *self){
+    bool old_binary_output = libff::binary_output; libff::binary_output = false;
+    bool old_montgomery_output = libff::montgomery_output; libff::montgomery_output = false;
+    bool old_no_pt_compression = libff::no_pt_compression; libff::no_pt_compression = false;
+    
+    stringstream ss;
+    ss << *self;
+      
+    libff::binary_output = old_binary_output;
+    libff::montgomery_output = old_montgomery_output;
+    libff::no_pt_compression = old_no_pt_compression;      
+      
+    return ss.str();
+  }
+SWIGINTERN libsnark::r1cs_auxiliary_input< Ft > *libsnark_r1cs_auxiliary_input_Sl_Ft_Sg__fromstr(std::string const &str){
+    bool old_binary_output = libff::binary_output; libff::binary_output = false;
+    bool old_montgomery_output = libff::montgomery_output; libff::montgomery_output = false;
+    bool old_no_pt_compression = libff::no_pt_compression; libff::no_pt_compression = false;
+    
+    stringstream ss(str);
+    libsnark::r1cs_auxiliary_input<Ft>* ret = new libsnark::r1cs_auxiliary_input<Ft>();
+    ss >> *ret;
+      
+    libff::binary_output = old_binary_output;
+    libff::montgomery_output = old_montgomery_output;
+    libff::no_pt_compression = old_no_pt_compression;      
+      
+    return ret;      
+  }
 
   #define SWIG_From_long   PyInt_FromLong 
 
@@ -3306,6 +3772,80 @@ bool cseq(
 }
     
 
+SWIGINTERN void libsnark_r1cs_ppzksnark_proof_Sl_libff_alt_bn128_pp_Sg__write__SWIG_0(libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *self,std::ostream &str=std::cout){
+      str << *self;
+  }
+SWIGINTERN libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *libsnark_r1cs_ppzksnark_proof_Sl_libff_alt_bn128_pp_Sg__read__SWIG_0(std::istream &str=std::cin){
+      libsnark::r1cs_ppzksnark_proof<libff::alt_bn128_pp>* ret = new libsnark::r1cs_ppzksnark_proof<libff::alt_bn128_pp>();
+      str >> *ret;
+      return ret;
+  }
+SWIGINTERN std::string libsnark_r1cs_ppzksnark_proof_Sl_libff_alt_bn128_pp_Sg__str(libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *self){
+    bool old_binary_output = libff::binary_output; libff::binary_output = false;
+    bool old_montgomery_output = libff::montgomery_output; libff::montgomery_output = false;
+    bool old_no_pt_compression = libff::no_pt_compression; libff::no_pt_compression = false;
+    
+    stringstream ss;
+    ss << *self;
+      
+    libff::binary_output = old_binary_output;
+    libff::montgomery_output = old_montgomery_output;
+    libff::no_pt_compression = old_no_pt_compression;      
+      
+    return ss.str();
+  }
+SWIGINTERN libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *libsnark_r1cs_ppzksnark_proof_Sl_libff_alt_bn128_pp_Sg__fromstr(std::string const &str){
+    bool old_binary_output = libff::binary_output; libff::binary_output = false;
+    bool old_montgomery_output = libff::montgomery_output; libff::montgomery_output = false;
+    bool old_no_pt_compression = libff::no_pt_compression; libff::no_pt_compression = false;
+    
+    stringstream ss(str);
+    libsnark::r1cs_ppzksnark_proof<libff::alt_bn128_pp>* ret = new libsnark::r1cs_ppzksnark_proof<libff::alt_bn128_pp>();
+    ss >> *ret;
+      
+    libff::binary_output = old_binary_output;
+    libff::montgomery_output = old_montgomery_output;
+    libff::no_pt_compression = old_no_pt_compression;      
+      
+    return ret;      
+  }
+SWIGINTERN void libsnark_r1cs_ppzksnark_verification_key_Sl_libff_alt_bn128_pp_Sg__write__SWIG_0(libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *self,std::ostream &str=std::cout){
+      str << *self;
+  }
+SWIGINTERN libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *libsnark_r1cs_ppzksnark_verification_key_Sl_libff_alt_bn128_pp_Sg__read__SWIG_0(std::istream &str=std::cin){
+      libsnark::r1cs_ppzksnark_verification_key<libff::alt_bn128_pp>* ret = new libsnark::r1cs_ppzksnark_verification_key<libff::alt_bn128_pp>();
+      str >> *ret;
+      return ret;
+  }
+SWIGINTERN std::string libsnark_r1cs_ppzksnark_verification_key_Sl_libff_alt_bn128_pp_Sg__str(libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *self){
+    bool old_binary_output = libff::binary_output; libff::binary_output = false;
+    bool old_montgomery_output = libff::montgomery_output; libff::montgomery_output = false;
+    bool old_no_pt_compression = libff::no_pt_compression; libff::no_pt_compression = false;
+    
+    stringstream ss;
+    ss << *self;
+      
+    libff::binary_output = old_binary_output;
+    libff::montgomery_output = old_montgomery_output;
+    libff::no_pt_compression = old_no_pt_compression;      
+      
+    return ss.str();
+  }
+SWIGINTERN libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *libsnark_r1cs_ppzksnark_verification_key_Sl_libff_alt_bn128_pp_Sg__fromstr(std::string const &str){
+    bool old_binary_output = libff::binary_output; libff::binary_output = false;
+    bool old_montgomery_output = libff::montgomery_output; libff::montgomery_output = false;
+    bool old_no_pt_compression = libff::no_pt_compression; libff::no_pt_compression = false;
+    
+    stringstream ss(str);
+    libsnark::r1cs_ppzksnark_verification_key<libff::alt_bn128_pp>* ret = new libsnark::r1cs_ppzksnark_verification_key<libff::alt_bn128_pp>();
+    ss >> *ret;
+      
+    libff::binary_output = old_binary_output;
+    libff::montgomery_output = old_montgomery_output;
+    libff::no_pt_compression = old_no_pt_compression;      
+      
+    return ret;      
+  }
 SWIGINTERN int libsnark_r1cs_ppzksnark_verification_key_Sl_libff_alt_bn128_pp_Sg__encoded_IC_query_size(libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *self){
       return 1+self->encoded_IC_query.rest.size();
   }
@@ -3314,6 +3854,43 @@ SWIGINTERN libff::G1< libff::alt_bn128_pp > libsnark_r1cs_ppzksnark_verification
           return self->encoded_IC_query.first;
       else
           return self->encoded_IC_query.rest.values.at(ix-1);
+  }
+SWIGINTERN void libsnark_r1cs_ppzksnark_proving_key_Sl_libff_alt_bn128_pp_Sg__write__SWIG_0(libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp > *self,std::ostream &str=std::cout){
+      str << *self;
+  }
+SWIGINTERN libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp > *libsnark_r1cs_ppzksnark_proving_key_Sl_libff_alt_bn128_pp_Sg__read__SWIG_0(std::istream &str=std::cin){
+      libsnark::r1cs_ppzksnark_proving_key<libff::alt_bn128_pp>* ret = new libsnark::r1cs_ppzksnark_proving_key<libff::alt_bn128_pp>();
+      str >> *ret;
+      return ret;
+  }
+SWIGINTERN std::string libsnark_r1cs_ppzksnark_proving_key_Sl_libff_alt_bn128_pp_Sg__str(libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp > *self){
+    bool old_binary_output = libff::binary_output; libff::binary_output = false;
+    bool old_montgomery_output = libff::montgomery_output; libff::montgomery_output = false;
+    bool old_no_pt_compression = libff::no_pt_compression; libff::no_pt_compression = false;
+    
+    stringstream ss;
+    ss << *self;
+      
+    libff::binary_output = old_binary_output;
+    libff::montgomery_output = old_montgomery_output;
+    libff::no_pt_compression = old_no_pt_compression;      
+      
+    return ss.str();
+  }
+SWIGINTERN libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp > *libsnark_r1cs_ppzksnark_proving_key_Sl_libff_alt_bn128_pp_Sg__fromstr(std::string const &str){
+    bool old_binary_output = libff::binary_output; libff::binary_output = false;
+    bool old_montgomery_output = libff::montgomery_output; libff::montgomery_output = false;
+    bool old_no_pt_compression = libff::no_pt_compression; libff::no_pt_compression = false;
+    
+    stringstream ss(str);
+    libsnark::r1cs_ppzksnark_proving_key<libff::alt_bn128_pp>* ret = new libsnark::r1cs_ppzksnark_proving_key<libff::alt_bn128_pp>();
+    ss >> *ret;
+      
+    libff::binary_output = old_binary_output;
+    libff::montgomery_output = old_montgomery_output;
+    libff::no_pt_compression = old_no_pt_compression;      
+      
+    return ret;      
   }
 
     
@@ -3397,126 +3974,6 @@ void zk_write_proof(
 }
 
 
-
-
-SWIGINTERN swig_type_info*
-SWIG_pchar_descriptor(void)
-{
-  static int init = 0;
-  static swig_type_info* info = 0;
-  if (!init) {
-    info = SWIG_TypeQuery("_p_char");
-    init = 1;
-  }
-  return info;
-}
-
-
-SWIGINTERN int
-SWIG_AsCharPtrAndSize(PyObject *obj, char** cptr, size_t* psize, int *alloc)
-{
-#if PY_VERSION_HEX>=0x03000000
-#if defined(SWIG_PYTHON_STRICT_BYTE_CHAR)
-  if (PyBytes_Check(obj))
-#else
-  if (PyUnicode_Check(obj))
-#endif
-#else  
-  if (PyString_Check(obj))
-#endif
-  {
-    char *cstr; Py_ssize_t len;
-    int ret = SWIG_OK;
-#if PY_VERSION_HEX>=0x03000000
-#if !defined(SWIG_PYTHON_STRICT_BYTE_CHAR)
-    if (!alloc && cptr) {
-        /* We can't allow converting without allocation, since the internal
-           representation of string in Python 3 is UCS-2/UCS-4 but we require
-           a UTF-8 representation.
-           TODO(bhy) More detailed explanation */
-        return SWIG_RuntimeError;
-    }
-    obj = PyUnicode_AsUTF8String(obj);
-    if (!obj)
-      return SWIG_TypeError;
-    if (alloc)
-      *alloc = SWIG_NEWOBJ;
-#endif
-    PyBytes_AsStringAndSize(obj, &cstr, &len);
-#else
-    PyString_AsStringAndSize(obj, &cstr, &len);
-#endif
-    if (cptr) {
-      if (alloc) {
-	if (*alloc == SWIG_NEWOBJ) {
-	  *cptr = reinterpret_cast< char* >(memcpy(new char[len + 1], cstr, sizeof(char)*(len + 1)));
-	  *alloc = SWIG_NEWOBJ;
-	} else {
-	  *cptr = cstr;
-	  *alloc = SWIG_OLDOBJ;
-	}
-      } else {
-#if PY_VERSION_HEX>=0x03000000
-#if defined(SWIG_PYTHON_STRICT_BYTE_CHAR)
-	*cptr = PyBytes_AsString(obj);
-#else
-	assert(0); /* Should never reach here with Unicode strings in Python 3 */
-#endif
-#else
-	*cptr = SWIG_Python_str_AsChar(obj);
-        if (!*cptr)
-          ret = SWIG_TypeError;
-#endif
-      }
-    }
-    if (psize) *psize = len + 1;
-#if PY_VERSION_HEX>=0x03000000 && !defined(SWIG_PYTHON_STRICT_BYTE_CHAR)
-    Py_XDECREF(obj);
-#endif
-    return ret;
-  } else {
-#if defined(SWIG_PYTHON_2_UNICODE)
-#if defined(SWIG_PYTHON_STRICT_BYTE_CHAR)
-#error "Cannot use both SWIG_PYTHON_2_UNICODE and SWIG_PYTHON_STRICT_BYTE_CHAR at once"
-#endif
-#if PY_VERSION_HEX<0x03000000
-    if (PyUnicode_Check(obj)) {
-      char *cstr; Py_ssize_t len;
-      if (!alloc && cptr) {
-        return SWIG_RuntimeError;
-      }
-      obj = PyUnicode_AsUTF8String(obj);
-      if (!obj)
-        return SWIG_TypeError;
-      if (PyString_AsStringAndSize(obj, &cstr, &len) != -1) {
-        if (cptr) {
-          if (alloc) *alloc = SWIG_NEWOBJ;
-          *cptr = reinterpret_cast< char* >(memcpy(new char[len + 1], cstr, sizeof(char)*(len + 1)));
-        }
-        if (psize) *psize = len + 1;
-
-        Py_XDECREF(obj);
-        return SWIG_OK;
-      } else {
-        Py_XDECREF(obj);
-      }
-    }
-#endif
-#endif
-
-    swig_type_info* pchar_descriptor = SWIG_pchar_descriptor();
-    if (pchar_descriptor) {
-      void* vptr = 0;
-      if (SWIG_ConvertPtr(obj, &vptr, pchar_descriptor, 0) == SWIG_OK) {
-	if (cptr) *cptr = (char *) vptr;
-	if (psize) *psize = vptr ? (strlen((char *)vptr) + 1) : 0;
-	if (alloc) *alloc = SWIG_OLDOBJ;
-	return SWIG_OK;
-      }
-    }
-  }
-  return SWIG_TypeError;
-}
 
 
 
@@ -3617,6 +4074,98 @@ void zkgg_write_proof(
 #ifdef __cplusplus
 extern "C" {
 #endif
+SWIGINTERN int Swig_var_inhibit_profiling_info_set(PyObject *_val) {
+  {
+    bool val;
+    int res = SWIG_AsVal_bool(_val, &val);
+    if (!SWIG_IsOK(res)) {
+      SWIG_exception_fail(SWIG_ArgError(res), "in variable '""libff::inhibit_profiling_info""' of type '""bool""'");
+    }
+    libff::inhibit_profiling_info = static_cast< bool >(val);
+  }
+  return 0;
+fail:
+  return 1;
+}
+
+
+SWIGINTERN PyObject *Swig_var_inhibit_profiling_info_get(void) {
+  PyObject *pyobj = 0;
+  
+  pyobj = SWIG_From_bool(static_cast< bool >(libff::inhibit_profiling_info));
+  return pyobj;
+}
+
+
+SWIGINTERN int Swig_var_binary_output_set(PyObject *_val) {
+  {
+    bool val;
+    int res = SWIG_AsVal_bool(_val, &val);
+    if (!SWIG_IsOK(res)) {
+      SWIG_exception_fail(SWIG_ArgError(res), "in variable '""libff::binary_output""' of type '""bool""'");
+    }
+    libff::binary_output = static_cast< bool >(val);
+  }
+  return 0;
+fail:
+  return 1;
+}
+
+
+SWIGINTERN PyObject *Swig_var_binary_output_get(void) {
+  PyObject *pyobj = 0;
+  
+  pyobj = SWIG_From_bool(static_cast< bool >(libff::binary_output));
+  return pyobj;
+}
+
+
+SWIGINTERN int Swig_var_montgomery_output_set(PyObject *_val) {
+  {
+    bool val;
+    int res = SWIG_AsVal_bool(_val, &val);
+    if (!SWIG_IsOK(res)) {
+      SWIG_exception_fail(SWIG_ArgError(res), "in variable '""libff::montgomery_output""' of type '""bool""'");
+    }
+    libff::montgomery_output = static_cast< bool >(val);
+  }
+  return 0;
+fail:
+  return 1;
+}
+
+
+SWIGINTERN PyObject *Swig_var_montgomery_output_get(void) {
+  PyObject *pyobj = 0;
+  
+  pyobj = SWIG_From_bool(static_cast< bool >(libff::montgomery_output));
+  return pyobj;
+}
+
+
+SWIGINTERN int Swig_var_no_pt_compression_set(PyObject *_val) {
+  {
+    bool val;
+    int res = SWIG_AsVal_bool(_val, &val);
+    if (!SWIG_IsOK(res)) {
+      SWIG_exception_fail(SWIG_ArgError(res), "in variable '""libff::no_pt_compression""' of type '""bool""'");
+    }
+    libff::no_pt_compression = static_cast< bool >(val);
+  }
+  return 0;
+fail:
+  return 1;
+}
+
+
+SWIGINTERN PyObject *Swig_var_no_pt_compression_get(void) {
+  PyObject *pyobj = 0;
+  
+  pyobj = SWIG_From_bool(static_cast< bool >(libff::no_pt_compression));
+  return pyobj;
+}
+
+
 SWIGINTERN PyObject *_wrap_new_Ft(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   Ft *result = 0 ;
@@ -3910,6 +4459,226 @@ SWIGINTERN PyObject *_wrap_G1_to_affine_coordinates(PyObject *SWIGUNUSEDPARM(sel
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_G1_write__SWIG_0(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  libff::G1< libff::alt_bn128_pp > *arg1 = (libff::G1< libff::alt_bn128_pp > *) 0 ;
+  std::ostream *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  std::unique_ptr< boost_ofd_stream > stream2 ;
+  
+  if ((nobjs < 2) || (nobjs > 2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libff__G1T_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "G1_write" "', argument " "1"" of type '" "libff::G1< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libff::G1< libff::alt_bn128_pp > * >(argp1);
+  {
+    PyObject *flush_result = PyObject_CallMethod(swig_obj[1], const_cast<char*>("flush"), nullptr);
+    if (flush_result) Py_DECREF(flush_result);
+#if PY_VERSION_HEX < 0x03000000
+    int fd = fileno(PyFile_AsFile(swig_obj[1]));
+#else
+    int fd = PyObject_AsFileDescriptor(swig_obj[1]);
+#endif
+    if (fd < 0) {
+      SWIG_Error(SWIG_TypeError, "File object expected."); SWIG_fail; 
+    }
+    stream2 = std::make_unique<boost_ofd_stream>(fd, boost::iostreams::never_close_handle);
+    arg2 = stream2.get();
+  }
+  libff_G1_Sl_libff_alt_bn128_pp_Sg__write__SWIG_0(arg1,*arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_G1_write__SWIG_1(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  libff::G1< libff::alt_bn128_pp > *arg1 = (libff::G1< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libff__G1T_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "G1_write" "', argument " "1"" of type '" "libff::G1< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libff::G1< libff::alt_bn128_pp > * >(argp1);
+  libff_G1_Sl_libff_alt_bn128_pp_Sg__write__SWIG_0(arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_G1_write(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[3] = {
+    0
+  };
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args, "G1_write", 0, 2, argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_libff__G1T_libff__alt_bn128_pp_t, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_G1_write__SWIG_1(self, argc, argv);
+    }
+  }
+  if (argc == 2) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_libff__G1T_libff__alt_bn128_pp_t, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      {
+        _v = (PyObject_AsFileDescriptor(argv[1])>=0);
+      }
+      if (_v) {
+        return _wrap_G1_write__SWIG_0(self, argc, argv);
+      }
+    }
+  }
+  
+fail:
+  SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'G1_write'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    libff::G1< libff::alt_bn128_pp >::write(std::ostream &)\n"
+    "    libff::G1< libff::alt_bn128_pp >::write()\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_G1_read__SWIG_0(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  std::istream *arg1 = 0 ;
+  std::unique_ptr< boost_ifd_stream > stream1 ;
+  libff::G1< libff::alt_bn128_pp > *result = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  {
+#if PY_VERSION_HEX < 0x03000000
+    int fd = fileno(PyFile_AsFile(swig_obj[0]));
+#else
+    int fd = PyObject_AsFileDescriptor(swig_obj[0]);
+#endif
+    if (fd < 0) {
+      SWIG_Error(SWIG_TypeError, "File object expected.");  SWIG_fail; 
+    }
+    stream1 = std::make_unique<boost_ifd_stream>(fd, boost::iostreams::never_close_handle);
+    arg1 = stream1.get();
+  }
+  result = (libff::G1< libff::alt_bn128_pp > *)libff_G1_Sl_libff_alt_bn128_pp_Sg__read__SWIG_0(*arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libff__G1T_libff__alt_bn128_pp_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_G1_read__SWIG_1(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **SWIGUNUSEDPARM(swig_obj)) {
+  PyObject *resultobj = 0;
+  libff::G1< libff::alt_bn128_pp > *result = 0 ;
+  
+  if ((nobjs < 0) || (nobjs > 0)) SWIG_fail;
+  result = (libff::G1< libff::alt_bn128_pp > *)libff_G1_Sl_libff_alt_bn128_pp_Sg__read__SWIG_0();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libff__G1T_libff__alt_bn128_pp_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_G1_read(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[2] = {
+    0
+  };
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args, "G1_read", 0, 1, argv))) SWIG_fail;
+  --argc;
+  if (argc == 0) {
+    return _wrap_G1_read__SWIG_1(self, argc, argv);
+  }
+  if (argc == 1) {
+    int _v;
+    {
+      _v = (PyObject_AsFileDescriptor(argv[0])>=0);
+    }
+    if (_v) {
+      return _wrap_G1_read__SWIG_0(self, argc, argv);
+    }
+  }
+  
+fail:
+  SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'G1_read'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    libff::G1< libff::alt_bn128_pp >::read(std::istream &)\n"
+    "    libff::G1< libff::alt_bn128_pp >::libff_G1_Sl_libff_alt_bn128_pp_Sg__read__SWIG_0()\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_G1_str(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libff::G1< libff::alt_bn128_pp > *arg1 = (libff::G1< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  std::string result;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libff__G1T_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "G1_str" "', argument " "1"" of type '" "libff::G1< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libff::G1< libff::alt_bn128_pp > * >(argp1);
+  result = libff_G1_Sl_libff_alt_bn128_pp_Sg__str(arg1);
+  resultobj = SWIG_From_std_string(static_cast< std::string >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_G1_fromstr(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  std::string *arg1 = 0 ;
+  int res1 = SWIG_OLDOBJ ;
+  PyObject *swig_obj[1] ;
+  libff::G1< libff::alt_bn128_pp > *result = 0 ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  {
+    std::string *ptr = (std::string *)0;
+    res1 = SWIG_AsPtr_std_string(swig_obj[0], &ptr);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "G1_fromstr" "', argument " "1"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "G1_fromstr" "', argument " "1"" of type '" "std::string const &""'"); 
+    }
+    arg1 = ptr;
+  }
+  result = (libff::G1< libff::alt_bn128_pp > *)libff_G1_Sl_libff_alt_bn128_pp_Sg__fromstr((std::string const &)*arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libff__G1T_libff__alt_bn128_pp_t, 0 |  0 );
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res1)) delete arg1;
   return NULL;
 }
 
@@ -4211,6 +4980,226 @@ SWIGINTERN PyObject *_wrap_G2_Z_get(PyObject *SWIGUNUSEDPARM(self), PyObject *ar
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Fq2t, 0 |  0 );
   return resultobj;
 fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_G2_write__SWIG_0(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  libff::G2< libff::alt_bn128_pp > *arg1 = (libff::G2< libff::alt_bn128_pp > *) 0 ;
+  std::ostream *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  std::unique_ptr< boost_ofd_stream > stream2 ;
+  
+  if ((nobjs < 2) || (nobjs > 2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libff__G2T_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "G2_write" "', argument " "1"" of type '" "libff::G2< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libff::G2< libff::alt_bn128_pp > * >(argp1);
+  {
+    PyObject *flush_result = PyObject_CallMethod(swig_obj[1], const_cast<char*>("flush"), nullptr);
+    if (flush_result) Py_DECREF(flush_result);
+#if PY_VERSION_HEX < 0x03000000
+    int fd = fileno(PyFile_AsFile(swig_obj[1]));
+#else
+    int fd = PyObject_AsFileDescriptor(swig_obj[1]);
+#endif
+    if (fd < 0) {
+      SWIG_Error(SWIG_TypeError, "File object expected."); SWIG_fail; 
+    }
+    stream2 = std::make_unique<boost_ofd_stream>(fd, boost::iostreams::never_close_handle);
+    arg2 = stream2.get();
+  }
+  libff_G2_Sl_libff_alt_bn128_pp_Sg__write__SWIG_0(arg1,*arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_G2_write__SWIG_1(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  libff::G2< libff::alt_bn128_pp > *arg1 = (libff::G2< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libff__G2T_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "G2_write" "', argument " "1"" of type '" "libff::G2< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libff::G2< libff::alt_bn128_pp > * >(argp1);
+  libff_G2_Sl_libff_alt_bn128_pp_Sg__write__SWIG_0(arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_G2_write(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[3] = {
+    0
+  };
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args, "G2_write", 0, 2, argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_libff__G2T_libff__alt_bn128_pp_t, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_G2_write__SWIG_1(self, argc, argv);
+    }
+  }
+  if (argc == 2) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_libff__G2T_libff__alt_bn128_pp_t, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      {
+        _v = (PyObject_AsFileDescriptor(argv[1])>=0);
+      }
+      if (_v) {
+        return _wrap_G2_write__SWIG_0(self, argc, argv);
+      }
+    }
+  }
+  
+fail:
+  SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'G2_write'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    libff::G2< libff::alt_bn128_pp >::write(std::ostream &)\n"
+    "    libff::G2< libff::alt_bn128_pp >::write()\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_G2_read__SWIG_0(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  std::istream *arg1 = 0 ;
+  std::unique_ptr< boost_ifd_stream > stream1 ;
+  libff::G2< libff::alt_bn128_pp > *result = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  {
+#if PY_VERSION_HEX < 0x03000000
+    int fd = fileno(PyFile_AsFile(swig_obj[0]));
+#else
+    int fd = PyObject_AsFileDescriptor(swig_obj[0]);
+#endif
+    if (fd < 0) {
+      SWIG_Error(SWIG_TypeError, "File object expected.");  SWIG_fail; 
+    }
+    stream1 = std::make_unique<boost_ifd_stream>(fd, boost::iostreams::never_close_handle);
+    arg1 = stream1.get();
+  }
+  result = (libff::G2< libff::alt_bn128_pp > *)libff_G2_Sl_libff_alt_bn128_pp_Sg__read__SWIG_0(*arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libff__G2T_libff__alt_bn128_pp_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_G2_read__SWIG_1(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **SWIGUNUSEDPARM(swig_obj)) {
+  PyObject *resultobj = 0;
+  libff::G2< libff::alt_bn128_pp > *result = 0 ;
+  
+  if ((nobjs < 0) || (nobjs > 0)) SWIG_fail;
+  result = (libff::G2< libff::alt_bn128_pp > *)libff_G2_Sl_libff_alt_bn128_pp_Sg__read__SWIG_0();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libff__G2T_libff__alt_bn128_pp_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_G2_read(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[2] = {
+    0
+  };
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args, "G2_read", 0, 1, argv))) SWIG_fail;
+  --argc;
+  if (argc == 0) {
+    return _wrap_G2_read__SWIG_1(self, argc, argv);
+  }
+  if (argc == 1) {
+    int _v;
+    {
+      _v = (PyObject_AsFileDescriptor(argv[0])>=0);
+    }
+    if (_v) {
+      return _wrap_G2_read__SWIG_0(self, argc, argv);
+    }
+  }
+  
+fail:
+  SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'G2_read'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    libff::G2< libff::alt_bn128_pp >::read(std::istream &)\n"
+    "    libff::G2< libff::alt_bn128_pp >::libff_G2_Sl_libff_alt_bn128_pp_Sg__read__SWIG_0()\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_G2_str(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libff::G2< libff::alt_bn128_pp > *arg1 = (libff::G2< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  std::string result;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libff__G2T_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "G2_str" "', argument " "1"" of type '" "libff::G2< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libff::G2< libff::alt_bn128_pp > * >(argp1);
+  result = libff_G2_Sl_libff_alt_bn128_pp_Sg__str(arg1);
+  resultobj = SWIG_From_std_string(static_cast< std::string >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_G2_fromstr(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  std::string *arg1 = 0 ;
+  int res1 = SWIG_OLDOBJ ;
+  PyObject *swig_obj[1] ;
+  libff::G2< libff::alt_bn128_pp > *result = 0 ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  {
+    std::string *ptr = (std::string *)0;
+    res1 = SWIG_AsPtr_std_string(swig_obj[0], &ptr);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "G2_fromstr" "', argument " "1"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "G2_fromstr" "', argument " "1"" of type '" "std::string const &""'"); 
+    }
+    arg1 = ptr;
+  }
+  result = (libff::G2< libff::alt_bn128_pp > *)libff_G2_Sl_libff_alt_bn128_pp_Sg__fromstr((std::string const &)*arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libff__G2T_libff__alt_bn128_pp_t, 0 |  0 );
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res1)) delete arg1;
   return NULL;
 }
 
@@ -4689,8 +5678,7 @@ SWIGINTERN PyObject *_wrap_PbVariable_allocate__SWIG_0(PyObject *SWIGUNUSEDPARM(
   int res1 = 0 ;
   void *argp2 = 0 ;
   int res2 = 0 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
+  int res3 = SWIG_OLDOBJ ;
   
   if ((nobjs < 3) || (nobjs > 3)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__pb_variableT_Ft_t, 0 |  0 );
@@ -4706,18 +5694,23 @@ SWIGINTERN PyObject *_wrap_PbVariable_allocate__SWIG_0(PyObject *SWIGUNUSEDPARM(
     SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "PbVariable_allocate" "', argument " "2"" of type '" "libsnark::protoboard< Ft > &""'"); 
   }
   arg2 = reinterpret_cast< libsnark::protoboard< Ft > * >(argp2);
-  res3 = SWIG_ConvertPtr(swig_obj[2], &argp3, SWIGTYPE_p_std__string,  0  | 0);
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "PbVariable_allocate" "', argument " "3"" of type '" "std::string const &""'"); 
+  {
+    std::string *ptr = (std::string *)0;
+    res3 = SWIG_AsPtr_std_string(swig_obj[2], &ptr);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "PbVariable_allocate" "', argument " "3"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "PbVariable_allocate" "', argument " "3"" of type '" "std::string const &""'"); 
+    }
+    arg3 = ptr;
   }
-  if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "PbVariable_allocate" "', argument " "3"" of type '" "std::string const &""'"); 
-  }
-  arg3 = reinterpret_cast< std::string * >(argp3);
   (arg1)->allocate(*arg2,(std::string const &)*arg3);
   resultobj = SWIG_Py_Void();
+  if (SWIG_IsNewObj(res3)) delete arg3;
   return resultobj;
 fail:
+  if (SWIG_IsNewObj(res3)) delete arg3;
   return NULL;
 }
 
@@ -4785,7 +5778,7 @@ SWIGINTERN PyObject *_wrap_PbVariable_allocate(PyObject *self, PyObject *args) {
       int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_libsnark__protoboardT_Ft_t, SWIG_POINTER_NO_NULL);
       _v = SWIG_CheckState(res);
       if (_v) {
-        int res = SWIG_ConvertPtr(argv[2], 0, SWIGTYPE_p_std__string, SWIG_POINTER_NO_NULL | 0);
+        int res = SWIG_AsPtr_std_string(argv[2], (std::string**)(0));
         _v = SWIG_CheckState(res);
         if (_v) {
           return _wrap_PbVariable_allocate__SWIG_0(self, argc, argv);
@@ -5090,6 +6083,226 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_LinearCombination_write__SWIG_0(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  libsnark::linear_combination< Ft > *arg1 = (libsnark::linear_combination< Ft > *) 0 ;
+  std::ostream *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  std::unique_ptr< boost_ofd_stream > stream2 ;
+  
+  if ((nobjs < 2) || (nobjs > 2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__linear_combinationT_Ft_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "LinearCombination_write" "', argument " "1"" of type '" "libsnark::linear_combination< Ft > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::linear_combination< Ft > * >(argp1);
+  {
+    PyObject *flush_result = PyObject_CallMethod(swig_obj[1], const_cast<char*>("flush"), nullptr);
+    if (flush_result) Py_DECREF(flush_result);
+#if PY_VERSION_HEX < 0x03000000
+    int fd = fileno(PyFile_AsFile(swig_obj[1]));
+#else
+    int fd = PyObject_AsFileDescriptor(swig_obj[1]);
+#endif
+    if (fd < 0) {
+      SWIG_Error(SWIG_TypeError, "File object expected."); SWIG_fail; 
+    }
+    stream2 = std::make_unique<boost_ofd_stream>(fd, boost::iostreams::never_close_handle);
+    arg2 = stream2.get();
+  }
+  libsnark_linear_combination_Sl_Ft_Sg__write__SWIG_0(arg1,*arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_LinearCombination_write__SWIG_1(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  libsnark::linear_combination< Ft > *arg1 = (libsnark::linear_combination< Ft > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__linear_combinationT_Ft_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "LinearCombination_write" "', argument " "1"" of type '" "libsnark::linear_combination< Ft > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::linear_combination< Ft > * >(argp1);
+  libsnark_linear_combination_Sl_Ft_Sg__write__SWIG_0(arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_LinearCombination_write(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[3] = {
+    0
+  };
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args, "LinearCombination_write", 0, 2, argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_libsnark__linear_combinationT_Ft_t, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_LinearCombination_write__SWIG_1(self, argc, argv);
+    }
+  }
+  if (argc == 2) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_libsnark__linear_combinationT_Ft_t, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      {
+        _v = (PyObject_AsFileDescriptor(argv[1])>=0);
+      }
+      if (_v) {
+        return _wrap_LinearCombination_write__SWIG_0(self, argc, argv);
+      }
+    }
+  }
+  
+fail:
+  SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'LinearCombination_write'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    libsnark::linear_combination< Ft >::write(std::ostream &)\n"
+    "    libsnark::linear_combination< Ft >::write()\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_LinearCombination_read__SWIG_0(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  std::istream *arg1 = 0 ;
+  std::unique_ptr< boost_ifd_stream > stream1 ;
+  libsnark::linear_combination< Ft > *result = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  {
+#if PY_VERSION_HEX < 0x03000000
+    int fd = fileno(PyFile_AsFile(swig_obj[0]));
+#else
+    int fd = PyObject_AsFileDescriptor(swig_obj[0]);
+#endif
+    if (fd < 0) {
+      SWIG_Error(SWIG_TypeError, "File object expected.");  SWIG_fail; 
+    }
+    stream1 = std::make_unique<boost_ifd_stream>(fd, boost::iostreams::never_close_handle);
+    arg1 = stream1.get();
+  }
+  result = (libsnark::linear_combination< Ft > *)libsnark_linear_combination_Sl_Ft_Sg__read__SWIG_0(*arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libsnark__linear_combinationT_Ft_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_LinearCombination_read__SWIG_1(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **SWIGUNUSEDPARM(swig_obj)) {
+  PyObject *resultobj = 0;
+  libsnark::linear_combination< Ft > *result = 0 ;
+  
+  if ((nobjs < 0) || (nobjs > 0)) SWIG_fail;
+  result = (libsnark::linear_combination< Ft > *)libsnark_linear_combination_Sl_Ft_Sg__read__SWIG_0();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libsnark__linear_combinationT_Ft_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_LinearCombination_read(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[2] = {
+    0
+  };
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args, "LinearCombination_read", 0, 1, argv))) SWIG_fail;
+  --argc;
+  if (argc == 0) {
+    return _wrap_LinearCombination_read__SWIG_1(self, argc, argv);
+  }
+  if (argc == 1) {
+    int _v;
+    {
+      _v = (PyObject_AsFileDescriptor(argv[0])>=0);
+    }
+    if (_v) {
+      return _wrap_LinearCombination_read__SWIG_0(self, argc, argv);
+    }
+  }
+  
+fail:
+  SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'LinearCombination_read'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    libsnark::linear_combination< Ft >::read(std::istream &)\n"
+    "    libsnark::linear_combination< Ft >::libsnark_linear_combination_Sl_Ft_Sg__read__SWIG_0()\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_LinearCombination_str(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::linear_combination< Ft > *arg1 = (libsnark::linear_combination< Ft > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  std::string result;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__linear_combinationT_Ft_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "LinearCombination_str" "', argument " "1"" of type '" "libsnark::linear_combination< Ft > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::linear_combination< Ft > * >(argp1);
+  result = libsnark_linear_combination_Sl_Ft_Sg__str(arg1);
+  resultobj = SWIG_From_std_string(static_cast< std::string >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_LinearCombination_fromstr(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  std::string *arg1 = 0 ;
+  int res1 = SWIG_OLDOBJ ;
+  PyObject *swig_obj[1] ;
+  libsnark::linear_combination< Ft > *result = 0 ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  {
+    std::string *ptr = (std::string *)0;
+    res1 = SWIG_AsPtr_std_string(swig_obj[0], &ptr);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "LinearCombination_fromstr" "', argument " "1"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "LinearCombination_fromstr" "', argument " "1"" of type '" "std::string const &""'"); 
+    }
+    arg1 = ptr;
+  }
+  result = (libsnark::linear_combination< Ft > *)libsnark_linear_combination_Sl_Ft_Sg__fromstr((std::string const &)*arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libsnark__linear_combinationT_Ft_t, 0 |  0 );
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_delete_LinearCombination(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   libsnark::linear_combination< Ft > *arg1 = (libsnark::linear_combination< Ft > *) 0 ;
@@ -5326,6 +6539,226 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_R1csConstraint_write__SWIG_0(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_constraint< Ft > *arg1 = (libsnark::r1cs_constraint< Ft > *) 0 ;
+  std::ostream *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  std::unique_ptr< boost_ofd_stream > stream2 ;
+  
+  if ((nobjs < 2) || (nobjs > 2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_constraintT_Ft_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "R1csConstraint_write" "', argument " "1"" of type '" "libsnark::r1cs_constraint< Ft > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_constraint< Ft > * >(argp1);
+  {
+    PyObject *flush_result = PyObject_CallMethod(swig_obj[1], const_cast<char*>("flush"), nullptr);
+    if (flush_result) Py_DECREF(flush_result);
+#if PY_VERSION_HEX < 0x03000000
+    int fd = fileno(PyFile_AsFile(swig_obj[1]));
+#else
+    int fd = PyObject_AsFileDescriptor(swig_obj[1]);
+#endif
+    if (fd < 0) {
+      SWIG_Error(SWIG_TypeError, "File object expected."); SWIG_fail; 
+    }
+    stream2 = std::make_unique<boost_ofd_stream>(fd, boost::iostreams::never_close_handle);
+    arg2 = stream2.get();
+  }
+  libsnark_r1cs_constraint_Sl_Ft_Sg__write__SWIG_0(arg1,*arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_R1csConstraint_write__SWIG_1(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_constraint< Ft > *arg1 = (libsnark::r1cs_constraint< Ft > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_constraintT_Ft_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "R1csConstraint_write" "', argument " "1"" of type '" "libsnark::r1cs_constraint< Ft > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_constraint< Ft > * >(argp1);
+  libsnark_r1cs_constraint_Sl_Ft_Sg__write__SWIG_0(arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_R1csConstraint_write(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[3] = {
+    0
+  };
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args, "R1csConstraint_write", 0, 2, argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_libsnark__r1cs_constraintT_Ft_t, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_R1csConstraint_write__SWIG_1(self, argc, argv);
+    }
+  }
+  if (argc == 2) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_libsnark__r1cs_constraintT_Ft_t, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      {
+        _v = (PyObject_AsFileDescriptor(argv[1])>=0);
+      }
+      if (_v) {
+        return _wrap_R1csConstraint_write__SWIG_0(self, argc, argv);
+      }
+    }
+  }
+  
+fail:
+  SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'R1csConstraint_write'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    libsnark::r1cs_constraint< Ft >::write(std::ostream &)\n"
+    "    libsnark::r1cs_constraint< Ft >::write()\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_R1csConstraint_read__SWIG_0(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  std::istream *arg1 = 0 ;
+  std::unique_ptr< boost_ifd_stream > stream1 ;
+  libsnark::r1cs_constraint< Ft > *result = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  {
+#if PY_VERSION_HEX < 0x03000000
+    int fd = fileno(PyFile_AsFile(swig_obj[0]));
+#else
+    int fd = PyObject_AsFileDescriptor(swig_obj[0]);
+#endif
+    if (fd < 0) {
+      SWIG_Error(SWIG_TypeError, "File object expected.");  SWIG_fail; 
+    }
+    stream1 = std::make_unique<boost_ifd_stream>(fd, boost::iostreams::never_close_handle);
+    arg1 = stream1.get();
+  }
+  result = (libsnark::r1cs_constraint< Ft > *)libsnark_r1cs_constraint_Sl_Ft_Sg__read__SWIG_0(*arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libsnark__r1cs_constraintT_Ft_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_R1csConstraint_read__SWIG_1(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **SWIGUNUSEDPARM(swig_obj)) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_constraint< Ft > *result = 0 ;
+  
+  if ((nobjs < 0) || (nobjs > 0)) SWIG_fail;
+  result = (libsnark::r1cs_constraint< Ft > *)libsnark_r1cs_constraint_Sl_Ft_Sg__read__SWIG_0();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libsnark__r1cs_constraintT_Ft_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_R1csConstraint_read(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[2] = {
+    0
+  };
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args, "R1csConstraint_read", 0, 1, argv))) SWIG_fail;
+  --argc;
+  if (argc == 0) {
+    return _wrap_R1csConstraint_read__SWIG_1(self, argc, argv);
+  }
+  if (argc == 1) {
+    int _v;
+    {
+      _v = (PyObject_AsFileDescriptor(argv[0])>=0);
+    }
+    if (_v) {
+      return _wrap_R1csConstraint_read__SWIG_0(self, argc, argv);
+    }
+  }
+  
+fail:
+  SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'R1csConstraint_read'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    libsnark::r1cs_constraint< Ft >::read(std::istream &)\n"
+    "    libsnark::r1cs_constraint< Ft >::libsnark_r1cs_constraint_Sl_Ft_Sg__read__SWIG_0()\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_R1csConstraint_str(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_constraint< Ft > *arg1 = (libsnark::r1cs_constraint< Ft > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  std::string result;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_constraintT_Ft_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "R1csConstraint_str" "', argument " "1"" of type '" "libsnark::r1cs_constraint< Ft > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_constraint< Ft > * >(argp1);
+  result = libsnark_r1cs_constraint_Sl_Ft_Sg__str(arg1);
+  resultobj = SWIG_From_std_string(static_cast< std::string >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_R1csConstraint_fromstr(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  std::string *arg1 = 0 ;
+  int res1 = SWIG_OLDOBJ ;
+  PyObject *swig_obj[1] ;
+  libsnark::r1cs_constraint< Ft > *result = 0 ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  {
+    std::string *ptr = (std::string *)0;
+    res1 = SWIG_AsPtr_std_string(swig_obj[0], &ptr);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "R1csConstraint_fromstr" "', argument " "1"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "R1csConstraint_fromstr" "', argument " "1"" of type '" "std::string const &""'"); 
+    }
+    arg1 = ptr;
+  }
+  result = (libsnark::r1cs_constraint< Ft > *)libsnark_r1cs_constraint_Sl_Ft_Sg__fromstr((std::string const &)*arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libsnark__r1cs_constraintT_Ft_t, 0 |  0 );
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_delete_R1csConstraint(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   libsnark::r1cs_constraint< Ft > *arg1 = (libsnark::r1cs_constraint< Ft > *) 0 ;
@@ -5358,6 +6791,226 @@ SWIGINTERN PyObject *R1csConstraint_swigregister(PyObject *SWIGUNUSEDPARM(self),
 SWIGINTERN PyObject *R1csConstraint_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   return SWIG_Python_InitShadowInstance(args);
 }
+
+SWIGINTERN PyObject *_wrap_R1csConstraintSystem_write__SWIG_0(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_constraint_system< Ft > *arg1 = (libsnark::r1cs_constraint_system< Ft > *) 0 ;
+  std::ostream *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  std::unique_ptr< boost_ofd_stream > stream2 ;
+  
+  if ((nobjs < 2) || (nobjs > 2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_constraint_systemT_Ft_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "R1csConstraintSystem_write" "', argument " "1"" of type '" "libsnark::r1cs_constraint_system< Ft > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_constraint_system< Ft > * >(argp1);
+  {
+    PyObject *flush_result = PyObject_CallMethod(swig_obj[1], const_cast<char*>("flush"), nullptr);
+    if (flush_result) Py_DECREF(flush_result);
+#if PY_VERSION_HEX < 0x03000000
+    int fd = fileno(PyFile_AsFile(swig_obj[1]));
+#else
+    int fd = PyObject_AsFileDescriptor(swig_obj[1]);
+#endif
+    if (fd < 0) {
+      SWIG_Error(SWIG_TypeError, "File object expected."); SWIG_fail; 
+    }
+    stream2 = std::make_unique<boost_ofd_stream>(fd, boost::iostreams::never_close_handle);
+    arg2 = stream2.get();
+  }
+  libsnark_r1cs_constraint_system_Sl_Ft_Sg__write__SWIG_0(arg1,*arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_R1csConstraintSystem_write__SWIG_1(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_constraint_system< Ft > *arg1 = (libsnark::r1cs_constraint_system< Ft > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_constraint_systemT_Ft_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "R1csConstraintSystem_write" "', argument " "1"" of type '" "libsnark::r1cs_constraint_system< Ft > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_constraint_system< Ft > * >(argp1);
+  libsnark_r1cs_constraint_system_Sl_Ft_Sg__write__SWIG_0(arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_R1csConstraintSystem_write(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[3] = {
+    0
+  };
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args, "R1csConstraintSystem_write", 0, 2, argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_libsnark__r1cs_constraint_systemT_Ft_t, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_R1csConstraintSystem_write__SWIG_1(self, argc, argv);
+    }
+  }
+  if (argc == 2) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_libsnark__r1cs_constraint_systemT_Ft_t, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      {
+        _v = (PyObject_AsFileDescriptor(argv[1])>=0);
+      }
+      if (_v) {
+        return _wrap_R1csConstraintSystem_write__SWIG_0(self, argc, argv);
+      }
+    }
+  }
+  
+fail:
+  SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'R1csConstraintSystem_write'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    libsnark::r1cs_constraint_system< Ft >::write(std::ostream &)\n"
+    "    libsnark::r1cs_constraint_system< Ft >::write()\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_R1csConstraintSystem_read__SWIG_0(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  std::istream *arg1 = 0 ;
+  std::unique_ptr< boost_ifd_stream > stream1 ;
+  libsnark::r1cs_constraint_system< Ft > *result = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  {
+#if PY_VERSION_HEX < 0x03000000
+    int fd = fileno(PyFile_AsFile(swig_obj[0]));
+#else
+    int fd = PyObject_AsFileDescriptor(swig_obj[0]);
+#endif
+    if (fd < 0) {
+      SWIG_Error(SWIG_TypeError, "File object expected.");  SWIG_fail; 
+    }
+    stream1 = std::make_unique<boost_ifd_stream>(fd, boost::iostreams::never_close_handle);
+    arg1 = stream1.get();
+  }
+  result = (libsnark::r1cs_constraint_system< Ft > *)libsnark_r1cs_constraint_system_Sl_Ft_Sg__read__SWIG_0(*arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libsnark__r1cs_constraint_systemT_Ft_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_R1csConstraintSystem_read__SWIG_1(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **SWIGUNUSEDPARM(swig_obj)) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_constraint_system< Ft > *result = 0 ;
+  
+  if ((nobjs < 0) || (nobjs > 0)) SWIG_fail;
+  result = (libsnark::r1cs_constraint_system< Ft > *)libsnark_r1cs_constraint_system_Sl_Ft_Sg__read__SWIG_0();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libsnark__r1cs_constraint_systemT_Ft_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_R1csConstraintSystem_read(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[2] = {
+    0
+  };
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args, "R1csConstraintSystem_read", 0, 1, argv))) SWIG_fail;
+  --argc;
+  if (argc == 0) {
+    return _wrap_R1csConstraintSystem_read__SWIG_1(self, argc, argv);
+  }
+  if (argc == 1) {
+    int _v;
+    {
+      _v = (PyObject_AsFileDescriptor(argv[0])>=0);
+    }
+    if (_v) {
+      return _wrap_R1csConstraintSystem_read__SWIG_0(self, argc, argv);
+    }
+  }
+  
+fail:
+  SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'R1csConstraintSystem_read'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    libsnark::r1cs_constraint_system< Ft >::read(std::istream &)\n"
+    "    libsnark::r1cs_constraint_system< Ft >::libsnark_r1cs_constraint_system_Sl_Ft_Sg__read__SWIG_0()\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_R1csConstraintSystem_str(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_constraint_system< Ft > *arg1 = (libsnark::r1cs_constraint_system< Ft > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  std::string result;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_constraint_systemT_Ft_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "R1csConstraintSystem_str" "', argument " "1"" of type '" "libsnark::r1cs_constraint_system< Ft > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_constraint_system< Ft > * >(argp1);
+  result = libsnark_r1cs_constraint_system_Sl_Ft_Sg__str(arg1);
+  resultobj = SWIG_From_std_string(static_cast< std::string >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_R1csConstraintSystem_fromstr(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  std::string *arg1 = 0 ;
+  int res1 = SWIG_OLDOBJ ;
+  PyObject *swig_obj[1] ;
+  libsnark::r1cs_constraint_system< Ft > *result = 0 ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  {
+    std::string *ptr = (std::string *)0;
+    res1 = SWIG_AsPtr_std_string(swig_obj[0], &ptr);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "R1csConstraintSystem_fromstr" "', argument " "1"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "R1csConstraintSystem_fromstr" "', argument " "1"" of type '" "std::string const &""'"); 
+    }
+    arg1 = ptr;
+  }
+  result = (libsnark::r1cs_constraint_system< Ft > *)libsnark_r1cs_constraint_system_Sl_Ft_Sg__fromstr((std::string const &)*arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libsnark__r1cs_constraint_systemT_Ft_t, 0 |  0 );
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  return NULL;
+}
+
 
 SWIGINTERN PyObject *_wrap_new_R1csConstraintSystem(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
@@ -5464,6 +7117,226 @@ SWIGINTERN PyObject *_wrap_R1csPrimaryInput_at(PyObject *SWIGUNUSEDPARM(self), P
   }
   return resultobj;
 fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_R1csPrimaryInput_write__SWIG_0(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_primary_input< Ft > *arg1 = (libsnark::r1cs_primary_input< Ft > *) 0 ;
+  std::ostream *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  std::unique_ptr< boost_ofd_stream > stream2 ;
+  
+  if ((nobjs < 2) || (nobjs > 2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_primary_inputT_Ft_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "R1csPrimaryInput_write" "', argument " "1"" of type '" "libsnark::r1cs_primary_input< Ft > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_primary_input< Ft > * >(argp1);
+  {
+    PyObject *flush_result = PyObject_CallMethod(swig_obj[1], const_cast<char*>("flush"), nullptr);
+    if (flush_result) Py_DECREF(flush_result);
+#if PY_VERSION_HEX < 0x03000000
+    int fd = fileno(PyFile_AsFile(swig_obj[1]));
+#else
+    int fd = PyObject_AsFileDescriptor(swig_obj[1]);
+#endif
+    if (fd < 0) {
+      SWIG_Error(SWIG_TypeError, "File object expected."); SWIG_fail; 
+    }
+    stream2 = std::make_unique<boost_ofd_stream>(fd, boost::iostreams::never_close_handle);
+    arg2 = stream2.get();
+  }
+  libsnark_r1cs_primary_input_Sl_Ft_Sg__write__SWIG_0(arg1,*arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_R1csPrimaryInput_write__SWIG_1(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_primary_input< Ft > *arg1 = (libsnark::r1cs_primary_input< Ft > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_primary_inputT_Ft_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "R1csPrimaryInput_write" "', argument " "1"" of type '" "libsnark::r1cs_primary_input< Ft > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_primary_input< Ft > * >(argp1);
+  libsnark_r1cs_primary_input_Sl_Ft_Sg__write__SWIG_0(arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_R1csPrimaryInput_write(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[3] = {
+    0
+  };
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args, "R1csPrimaryInput_write", 0, 2, argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_libsnark__r1cs_primary_inputT_Ft_t, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_R1csPrimaryInput_write__SWIG_1(self, argc, argv);
+    }
+  }
+  if (argc == 2) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_libsnark__r1cs_primary_inputT_Ft_t, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      {
+        _v = (PyObject_AsFileDescriptor(argv[1])>=0);
+      }
+      if (_v) {
+        return _wrap_R1csPrimaryInput_write__SWIG_0(self, argc, argv);
+      }
+    }
+  }
+  
+fail:
+  SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'R1csPrimaryInput_write'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    libsnark::r1cs_primary_input< Ft >::write(std::ostream &)\n"
+    "    libsnark::r1cs_primary_input< Ft >::write()\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_R1csPrimaryInput_read__SWIG_0(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  std::istream *arg1 = 0 ;
+  std::unique_ptr< boost_ifd_stream > stream1 ;
+  libsnark::r1cs_primary_input< Ft > *result = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  {
+#if PY_VERSION_HEX < 0x03000000
+    int fd = fileno(PyFile_AsFile(swig_obj[0]));
+#else
+    int fd = PyObject_AsFileDescriptor(swig_obj[0]);
+#endif
+    if (fd < 0) {
+      SWIG_Error(SWIG_TypeError, "File object expected.");  SWIG_fail; 
+    }
+    stream1 = std::make_unique<boost_ifd_stream>(fd, boost::iostreams::never_close_handle);
+    arg1 = stream1.get();
+  }
+  result = (libsnark::r1cs_primary_input< Ft > *)libsnark_r1cs_primary_input_Sl_Ft_Sg__read__SWIG_0(*arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libsnark__r1cs_primary_inputT_Ft_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_R1csPrimaryInput_read__SWIG_1(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **SWIGUNUSEDPARM(swig_obj)) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_primary_input< Ft > *result = 0 ;
+  
+  if ((nobjs < 0) || (nobjs > 0)) SWIG_fail;
+  result = (libsnark::r1cs_primary_input< Ft > *)libsnark_r1cs_primary_input_Sl_Ft_Sg__read__SWIG_0();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libsnark__r1cs_primary_inputT_Ft_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_R1csPrimaryInput_read(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[2] = {
+    0
+  };
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args, "R1csPrimaryInput_read", 0, 1, argv))) SWIG_fail;
+  --argc;
+  if (argc == 0) {
+    return _wrap_R1csPrimaryInput_read__SWIG_1(self, argc, argv);
+  }
+  if (argc == 1) {
+    int _v;
+    {
+      _v = (PyObject_AsFileDescriptor(argv[0])>=0);
+    }
+    if (_v) {
+      return _wrap_R1csPrimaryInput_read__SWIG_0(self, argc, argv);
+    }
+  }
+  
+fail:
+  SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'R1csPrimaryInput_read'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    libsnark::r1cs_primary_input< Ft >::read(std::istream &)\n"
+    "    libsnark::r1cs_primary_input< Ft >::libsnark_r1cs_primary_input_Sl_Ft_Sg__read__SWIG_0()\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_R1csPrimaryInput_str(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_primary_input< Ft > *arg1 = (libsnark::r1cs_primary_input< Ft > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  std::string result;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_primary_inputT_Ft_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "R1csPrimaryInput_str" "', argument " "1"" of type '" "libsnark::r1cs_primary_input< Ft > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_primary_input< Ft > * >(argp1);
+  result = libsnark_r1cs_primary_input_Sl_Ft_Sg__str(arg1);
+  resultobj = SWIG_From_std_string(static_cast< std::string >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_R1csPrimaryInput_fromstr(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  std::string *arg1 = 0 ;
+  int res1 = SWIG_OLDOBJ ;
+  PyObject *swig_obj[1] ;
+  libsnark::r1cs_primary_input< Ft > *result = 0 ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  {
+    std::string *ptr = (std::string *)0;
+    res1 = SWIG_AsPtr_std_string(swig_obj[0], &ptr);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "R1csPrimaryInput_fromstr" "', argument " "1"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "R1csPrimaryInput_fromstr" "', argument " "1"" of type '" "std::string const &""'"); 
+    }
+    arg1 = ptr;
+  }
+  result = (libsnark::r1cs_primary_input< Ft > *)libsnark_r1cs_primary_input_Sl_Ft_Sg__fromstr((std::string const &)*arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libsnark__r1cs_primary_inputT_Ft_t, 0 |  0 );
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res1)) delete arg1;
   return NULL;
 }
 
@@ -5577,6 +7450,226 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_R1csAuxiliaryInput_write__SWIG_0(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_auxiliary_input< Ft > *arg1 = (libsnark::r1cs_auxiliary_input< Ft > *) 0 ;
+  std::ostream *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  std::unique_ptr< boost_ofd_stream > stream2 ;
+  
+  if ((nobjs < 2) || (nobjs > 2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_auxiliary_inputT_Ft_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "R1csAuxiliaryInput_write" "', argument " "1"" of type '" "libsnark::r1cs_auxiliary_input< Ft > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_auxiliary_input< Ft > * >(argp1);
+  {
+    PyObject *flush_result = PyObject_CallMethod(swig_obj[1], const_cast<char*>("flush"), nullptr);
+    if (flush_result) Py_DECREF(flush_result);
+#if PY_VERSION_HEX < 0x03000000
+    int fd = fileno(PyFile_AsFile(swig_obj[1]));
+#else
+    int fd = PyObject_AsFileDescriptor(swig_obj[1]);
+#endif
+    if (fd < 0) {
+      SWIG_Error(SWIG_TypeError, "File object expected."); SWIG_fail; 
+    }
+    stream2 = std::make_unique<boost_ofd_stream>(fd, boost::iostreams::never_close_handle);
+    arg2 = stream2.get();
+  }
+  libsnark_r1cs_auxiliary_input_Sl_Ft_Sg__write__SWIG_0(arg1,*arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_R1csAuxiliaryInput_write__SWIG_1(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_auxiliary_input< Ft > *arg1 = (libsnark::r1cs_auxiliary_input< Ft > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_auxiliary_inputT_Ft_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "R1csAuxiliaryInput_write" "', argument " "1"" of type '" "libsnark::r1cs_auxiliary_input< Ft > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_auxiliary_input< Ft > * >(argp1);
+  libsnark_r1cs_auxiliary_input_Sl_Ft_Sg__write__SWIG_0(arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_R1csAuxiliaryInput_write(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[3] = {
+    0
+  };
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args, "R1csAuxiliaryInput_write", 0, 2, argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_libsnark__r1cs_auxiliary_inputT_Ft_t, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_R1csAuxiliaryInput_write__SWIG_1(self, argc, argv);
+    }
+  }
+  if (argc == 2) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_libsnark__r1cs_auxiliary_inputT_Ft_t, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      {
+        _v = (PyObject_AsFileDescriptor(argv[1])>=0);
+      }
+      if (_v) {
+        return _wrap_R1csAuxiliaryInput_write__SWIG_0(self, argc, argv);
+      }
+    }
+  }
+  
+fail:
+  SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'R1csAuxiliaryInput_write'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    libsnark::r1cs_auxiliary_input< Ft >::write(std::ostream &)\n"
+    "    libsnark::r1cs_auxiliary_input< Ft >::write()\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_R1csAuxiliaryInput_read__SWIG_0(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  std::istream *arg1 = 0 ;
+  std::unique_ptr< boost_ifd_stream > stream1 ;
+  libsnark::r1cs_auxiliary_input< Ft > *result = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  {
+#if PY_VERSION_HEX < 0x03000000
+    int fd = fileno(PyFile_AsFile(swig_obj[0]));
+#else
+    int fd = PyObject_AsFileDescriptor(swig_obj[0]);
+#endif
+    if (fd < 0) {
+      SWIG_Error(SWIG_TypeError, "File object expected.");  SWIG_fail; 
+    }
+    stream1 = std::make_unique<boost_ifd_stream>(fd, boost::iostreams::never_close_handle);
+    arg1 = stream1.get();
+  }
+  result = (libsnark::r1cs_auxiliary_input< Ft > *)libsnark_r1cs_auxiliary_input_Sl_Ft_Sg__read__SWIG_0(*arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libsnark__r1cs_auxiliary_inputT_Ft_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_R1csAuxiliaryInput_read__SWIG_1(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **SWIGUNUSEDPARM(swig_obj)) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_auxiliary_input< Ft > *result = 0 ;
+  
+  if ((nobjs < 0) || (nobjs > 0)) SWIG_fail;
+  result = (libsnark::r1cs_auxiliary_input< Ft > *)libsnark_r1cs_auxiliary_input_Sl_Ft_Sg__read__SWIG_0();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libsnark__r1cs_auxiliary_inputT_Ft_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_R1csAuxiliaryInput_read(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[2] = {
+    0
+  };
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args, "R1csAuxiliaryInput_read", 0, 1, argv))) SWIG_fail;
+  --argc;
+  if (argc == 0) {
+    return _wrap_R1csAuxiliaryInput_read__SWIG_1(self, argc, argv);
+  }
+  if (argc == 1) {
+    int _v;
+    {
+      _v = (PyObject_AsFileDescriptor(argv[0])>=0);
+    }
+    if (_v) {
+      return _wrap_R1csAuxiliaryInput_read__SWIG_0(self, argc, argv);
+    }
+  }
+  
+fail:
+  SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'R1csAuxiliaryInput_read'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    libsnark::r1cs_auxiliary_input< Ft >::read(std::istream &)\n"
+    "    libsnark::r1cs_auxiliary_input< Ft >::libsnark_r1cs_auxiliary_input_Sl_Ft_Sg__read__SWIG_0()\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_R1csAuxiliaryInput_str(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_auxiliary_input< Ft > *arg1 = (libsnark::r1cs_auxiliary_input< Ft > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  std::string result;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_auxiliary_inputT_Ft_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "R1csAuxiliaryInput_str" "', argument " "1"" of type '" "libsnark::r1cs_auxiliary_input< Ft > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_auxiliary_input< Ft > * >(argp1);
+  result = libsnark_r1cs_auxiliary_input_Sl_Ft_Sg__str(arg1);
+  resultobj = SWIG_From_std_string(static_cast< std::string >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_R1csAuxiliaryInput_fromstr(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  std::string *arg1 = 0 ;
+  int res1 = SWIG_OLDOBJ ;
+  PyObject *swig_obj[1] ;
+  libsnark::r1cs_auxiliary_input< Ft > *result = 0 ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  {
+    std::string *ptr = (std::string *)0;
+    res1 = SWIG_AsPtr_std_string(swig_obj[0], &ptr);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "R1csAuxiliaryInput_fromstr" "', argument " "1"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "R1csAuxiliaryInput_fromstr" "', argument " "1"" of type '" "std::string const &""'"); 
+    }
+    arg1 = ptr;
+  }
+  result = (libsnark::r1cs_auxiliary_input< Ft > *)libsnark_r1cs_auxiliary_input_Sl_Ft_Sg__fromstr((std::string const &)*arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libsnark__r1cs_auxiliary_inputT_Ft_t, 0 |  0 );
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_new_R1csAuxiliaryInput(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   libsnark::r1cs_auxiliary_input< Ft > *result = 0 ;
@@ -5678,8 +7771,7 @@ SWIGINTERN PyObject *_wrap_Protoboard_add_r1cs_constraint__SWIG_0(PyObject *SWIG
   int res1 = 0 ;
   void *argp2 = 0 ;
   int res2 = 0 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
+  int res3 = SWIG_OLDOBJ ;
   
   if ((nobjs < 3) || (nobjs > 3)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__protoboardT_Ft_t, 0 |  0 );
@@ -5695,18 +7787,23 @@ SWIGINTERN PyObject *_wrap_Protoboard_add_r1cs_constraint__SWIG_0(PyObject *SWIG
     SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Protoboard_add_r1cs_constraint" "', argument " "2"" of type '" "libsnark::r1cs_constraint< Ft > const &""'"); 
   }
   arg2 = reinterpret_cast< libsnark::r1cs_constraint< Ft > * >(argp2);
-  res3 = SWIG_ConvertPtr(swig_obj[2], &argp3, SWIGTYPE_p_std__string,  0  | 0);
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "Protoboard_add_r1cs_constraint" "', argument " "3"" of type '" "std::string const &""'"); 
+  {
+    std::string *ptr = (std::string *)0;
+    res3 = SWIG_AsPtr_std_string(swig_obj[2], &ptr);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "Protoboard_add_r1cs_constraint" "', argument " "3"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Protoboard_add_r1cs_constraint" "', argument " "3"" of type '" "std::string const &""'"); 
+    }
+    arg3 = ptr;
   }
-  if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Protoboard_add_r1cs_constraint" "', argument " "3"" of type '" "std::string const &""'"); 
-  }
-  arg3 = reinterpret_cast< std::string * >(argp3);
   (arg1)->add_r1cs_constraint((libsnark::r1cs_constraint< Ft > const &)*arg2,(std::string const &)*arg3);
   resultobj = SWIG_Py_Void();
+  if (SWIG_IsNewObj(res3)) delete arg3;
   return resultobj;
 fail:
+  if (SWIG_IsNewObj(res3)) delete arg3;
   return NULL;
 }
 
@@ -5772,7 +7869,7 @@ SWIGINTERN PyObject *_wrap_Protoboard_add_r1cs_constraint(PyObject *self, PyObje
       int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_libsnark__r1cs_constraintT_Ft_t, SWIG_POINTER_NO_NULL | 0);
       _v = SWIG_CheckState(res);
       if (_v) {
-        int res = SWIG_ConvertPtr(argv[2], 0, SWIGTYPE_p_std__string, SWIG_POINTER_NO_NULL | 0);
+        int res = SWIG_AsPtr_std_string(argv[2], (std::string**)(0));
         _v = SWIG_CheckState(res);
         if (_v) {
           return _wrap_Protoboard_add_r1cs_constraint__SWIG_0(self, argc, argv);
@@ -6497,6 +8594,226 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_ZKProof_write__SWIG_0(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *arg1 = (libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *) 0 ;
+  std::ostream *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  std::unique_ptr< boost_ofd_stream > stream2 ;
+  
+  if ((nobjs < 2) || (nobjs > 2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_ppzksnark_proofT_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZKProof_write" "', argument " "1"" of type '" "libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > * >(argp1);
+  {
+    PyObject *flush_result = PyObject_CallMethod(swig_obj[1], const_cast<char*>("flush"), nullptr);
+    if (flush_result) Py_DECREF(flush_result);
+#if PY_VERSION_HEX < 0x03000000
+    int fd = fileno(PyFile_AsFile(swig_obj[1]));
+#else
+    int fd = PyObject_AsFileDescriptor(swig_obj[1]);
+#endif
+    if (fd < 0) {
+      SWIG_Error(SWIG_TypeError, "File object expected."); SWIG_fail; 
+    }
+    stream2 = std::make_unique<boost_ofd_stream>(fd, boost::iostreams::never_close_handle);
+    arg2 = stream2.get();
+  }
+  libsnark_r1cs_ppzksnark_proof_Sl_libff_alt_bn128_pp_Sg__write__SWIG_0(arg1,*arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKProof_write__SWIG_1(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *arg1 = (libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_ppzksnark_proofT_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZKProof_write" "', argument " "1"" of type '" "libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > * >(argp1);
+  libsnark_r1cs_ppzksnark_proof_Sl_libff_alt_bn128_pp_Sg__write__SWIG_0(arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKProof_write(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[3] = {
+    0
+  };
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args, "ZKProof_write", 0, 2, argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_libsnark__r1cs_ppzksnark_proofT_libff__alt_bn128_pp_t, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_ZKProof_write__SWIG_1(self, argc, argv);
+    }
+  }
+  if (argc == 2) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_libsnark__r1cs_ppzksnark_proofT_libff__alt_bn128_pp_t, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      {
+        _v = (PyObject_AsFileDescriptor(argv[1])>=0);
+      }
+      if (_v) {
+        return _wrap_ZKProof_write__SWIG_0(self, argc, argv);
+      }
+    }
+  }
+  
+fail:
+  SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'ZKProof_write'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp >::write(std::ostream &)\n"
+    "    libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp >::write()\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKProof_read__SWIG_0(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  std::istream *arg1 = 0 ;
+  std::unique_ptr< boost_ifd_stream > stream1 ;
+  libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *result = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  {
+#if PY_VERSION_HEX < 0x03000000
+    int fd = fileno(PyFile_AsFile(swig_obj[0]));
+#else
+    int fd = PyObject_AsFileDescriptor(swig_obj[0]);
+#endif
+    if (fd < 0) {
+      SWIG_Error(SWIG_TypeError, "File object expected.");  SWIG_fail; 
+    }
+    stream1 = std::make_unique<boost_ifd_stream>(fd, boost::iostreams::never_close_handle);
+    arg1 = stream1.get();
+  }
+  result = (libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *)libsnark_r1cs_ppzksnark_proof_Sl_libff_alt_bn128_pp_Sg__read__SWIG_0(*arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libsnark__r1cs_ppzksnark_proofT_libff__alt_bn128_pp_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKProof_read__SWIG_1(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **SWIGUNUSEDPARM(swig_obj)) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *result = 0 ;
+  
+  if ((nobjs < 0) || (nobjs > 0)) SWIG_fail;
+  result = (libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *)libsnark_r1cs_ppzksnark_proof_Sl_libff_alt_bn128_pp_Sg__read__SWIG_0();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libsnark__r1cs_ppzksnark_proofT_libff__alt_bn128_pp_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKProof_read(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[2] = {
+    0
+  };
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args, "ZKProof_read", 0, 1, argv))) SWIG_fail;
+  --argc;
+  if (argc == 0) {
+    return _wrap_ZKProof_read__SWIG_1(self, argc, argv);
+  }
+  if (argc == 1) {
+    int _v;
+    {
+      _v = (PyObject_AsFileDescriptor(argv[0])>=0);
+    }
+    if (_v) {
+      return _wrap_ZKProof_read__SWIG_0(self, argc, argv);
+    }
+  }
+  
+fail:
+  SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'ZKProof_read'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp >::read(std::istream &)\n"
+    "    libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp >::libsnark_r1cs_ppzksnark_proof_Sl_libff_alt_bn128_pp_Sg__read__SWIG_0()\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKProof_str(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *arg1 = (libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  std::string result;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_ppzksnark_proofT_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZKProof_str" "', argument " "1"" of type '" "libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > * >(argp1);
+  result = libsnark_r1cs_ppzksnark_proof_Sl_libff_alt_bn128_pp_Sg__str(arg1);
+  resultobj = SWIG_From_std_string(static_cast< std::string >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKProof_fromstr(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  std::string *arg1 = 0 ;
+  int res1 = SWIG_OLDOBJ ;
+  PyObject *swig_obj[1] ;
+  libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *result = 0 ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  {
+    std::string *ptr = (std::string *)0;
+    res1 = SWIG_AsPtr_std_string(swig_obj[0], &ptr);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZKProof_fromstr" "', argument " "1"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ZKProof_fromstr" "', argument " "1"" of type '" "std::string const &""'"); 
+    }
+    arg1 = ptr;
+  }
+  result = (libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *)libsnark_r1cs_ppzksnark_proof_Sl_libff_alt_bn128_pp_Sg__fromstr((std::string const &)*arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libsnark__r1cs_ppzksnark_proofT_libff__alt_bn128_pp_t, 0 |  0 );
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_new_ZKProof(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   libsnark::r1cs_ppzksnark_proof< libff::alt_bn128_pp > *result = 0 ;
@@ -7070,6 +9387,226 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_ZKVerificationKey_write__SWIG_0(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *arg1 = (libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *) 0 ;
+  std::ostream *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  std::unique_ptr< boost_ofd_stream > stream2 ;
+  
+  if ((nobjs < 2) || (nobjs > 2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_ppzksnark_verification_keyT_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZKVerificationKey_write" "', argument " "1"" of type '" "libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > * >(argp1);
+  {
+    PyObject *flush_result = PyObject_CallMethod(swig_obj[1], const_cast<char*>("flush"), nullptr);
+    if (flush_result) Py_DECREF(flush_result);
+#if PY_VERSION_HEX < 0x03000000
+    int fd = fileno(PyFile_AsFile(swig_obj[1]));
+#else
+    int fd = PyObject_AsFileDescriptor(swig_obj[1]);
+#endif
+    if (fd < 0) {
+      SWIG_Error(SWIG_TypeError, "File object expected."); SWIG_fail; 
+    }
+    stream2 = std::make_unique<boost_ofd_stream>(fd, boost::iostreams::never_close_handle);
+    arg2 = stream2.get();
+  }
+  libsnark_r1cs_ppzksnark_verification_key_Sl_libff_alt_bn128_pp_Sg__write__SWIG_0(arg1,*arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKVerificationKey_write__SWIG_1(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *arg1 = (libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_ppzksnark_verification_keyT_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZKVerificationKey_write" "', argument " "1"" of type '" "libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > * >(argp1);
+  libsnark_r1cs_ppzksnark_verification_key_Sl_libff_alt_bn128_pp_Sg__write__SWIG_0(arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKVerificationKey_write(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[3] = {
+    0
+  };
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args, "ZKVerificationKey_write", 0, 2, argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_libsnark__r1cs_ppzksnark_verification_keyT_libff__alt_bn128_pp_t, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_ZKVerificationKey_write__SWIG_1(self, argc, argv);
+    }
+  }
+  if (argc == 2) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_libsnark__r1cs_ppzksnark_verification_keyT_libff__alt_bn128_pp_t, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      {
+        _v = (PyObject_AsFileDescriptor(argv[1])>=0);
+      }
+      if (_v) {
+        return _wrap_ZKVerificationKey_write__SWIG_0(self, argc, argv);
+      }
+    }
+  }
+  
+fail:
+  SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'ZKVerificationKey_write'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp >::write(std::ostream &)\n"
+    "    libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp >::write()\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKVerificationKey_read__SWIG_0(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  std::istream *arg1 = 0 ;
+  std::unique_ptr< boost_ifd_stream > stream1 ;
+  libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *result = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  {
+#if PY_VERSION_HEX < 0x03000000
+    int fd = fileno(PyFile_AsFile(swig_obj[0]));
+#else
+    int fd = PyObject_AsFileDescriptor(swig_obj[0]);
+#endif
+    if (fd < 0) {
+      SWIG_Error(SWIG_TypeError, "File object expected.");  SWIG_fail; 
+    }
+    stream1 = std::make_unique<boost_ifd_stream>(fd, boost::iostreams::never_close_handle);
+    arg1 = stream1.get();
+  }
+  result = (libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *)libsnark_r1cs_ppzksnark_verification_key_Sl_libff_alt_bn128_pp_Sg__read__SWIG_0(*arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libsnark__r1cs_ppzksnark_verification_keyT_libff__alt_bn128_pp_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKVerificationKey_read__SWIG_1(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **SWIGUNUSEDPARM(swig_obj)) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *result = 0 ;
+  
+  if ((nobjs < 0) || (nobjs > 0)) SWIG_fail;
+  result = (libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *)libsnark_r1cs_ppzksnark_verification_key_Sl_libff_alt_bn128_pp_Sg__read__SWIG_0();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libsnark__r1cs_ppzksnark_verification_keyT_libff__alt_bn128_pp_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKVerificationKey_read(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[2] = {
+    0
+  };
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args, "ZKVerificationKey_read", 0, 1, argv))) SWIG_fail;
+  --argc;
+  if (argc == 0) {
+    return _wrap_ZKVerificationKey_read__SWIG_1(self, argc, argv);
+  }
+  if (argc == 1) {
+    int _v;
+    {
+      _v = (PyObject_AsFileDescriptor(argv[0])>=0);
+    }
+    if (_v) {
+      return _wrap_ZKVerificationKey_read__SWIG_0(self, argc, argv);
+    }
+  }
+  
+fail:
+  SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'ZKVerificationKey_read'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp >::read(std::istream &)\n"
+    "    libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp >::libsnark_r1cs_ppzksnark_verification_key_Sl_libff_alt_bn128_pp_Sg__read__SWIG_0()\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKVerificationKey_str(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *arg1 = (libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  std::string result;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_ppzksnark_verification_keyT_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZKVerificationKey_str" "', argument " "1"" of type '" "libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > * >(argp1);
+  result = libsnark_r1cs_ppzksnark_verification_key_Sl_libff_alt_bn128_pp_Sg__str(arg1);
+  resultobj = SWIG_From_std_string(static_cast< std::string >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKVerificationKey_fromstr(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  std::string *arg1 = 0 ;
+  int res1 = SWIG_OLDOBJ ;
+  PyObject *swig_obj[1] ;
+  libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *result = 0 ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  {
+    std::string *ptr = (std::string *)0;
+    res1 = SWIG_AsPtr_std_string(swig_obj[0], &ptr);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZKVerificationKey_fromstr" "', argument " "1"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ZKVerificationKey_fromstr" "', argument " "1"" of type '" "std::string const &""'"); 
+    }
+    arg1 = ptr;
+  }
+  result = (libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *)libsnark_r1cs_ppzksnark_verification_key_Sl_libff_alt_bn128_pp_Sg__fromstr((std::string const &)*arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libsnark__r1cs_ppzksnark_verification_keyT_libff__alt_bn128_pp_t, 0 |  0 );
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_ZKVerificationKey_encoded_IC_query_size(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *arg1 = (libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *) 0 ;
@@ -7166,6 +9703,272 @@ SWIGINTERN PyObject *ZKVerificationKey_swigregister(PyObject *SWIGUNUSEDPARM(sel
 }
 
 SWIGINTERN PyObject *ZKVerificationKey_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  return SWIG_Python_InitShadowInstance(args);
+}
+
+SWIGINTERN PyObject *_wrap_ZKProvingKey_write__SWIG_0(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp > *arg1 = (libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp > *) 0 ;
+  std::ostream *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  std::unique_ptr< boost_ofd_stream > stream2 ;
+  
+  if ((nobjs < 2) || (nobjs > 2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_ppzksnark_proving_keyT_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZKProvingKey_write" "', argument " "1"" of type '" "libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp > * >(argp1);
+  {
+    PyObject *flush_result = PyObject_CallMethod(swig_obj[1], const_cast<char*>("flush"), nullptr);
+    if (flush_result) Py_DECREF(flush_result);
+#if PY_VERSION_HEX < 0x03000000
+    int fd = fileno(PyFile_AsFile(swig_obj[1]));
+#else
+    int fd = PyObject_AsFileDescriptor(swig_obj[1]);
+#endif
+    if (fd < 0) {
+      SWIG_Error(SWIG_TypeError, "File object expected."); SWIG_fail; 
+    }
+    stream2 = std::make_unique<boost_ofd_stream>(fd, boost::iostreams::never_close_handle);
+    arg2 = stream2.get();
+  }
+  libsnark_r1cs_ppzksnark_proving_key_Sl_libff_alt_bn128_pp_Sg__write__SWIG_0(arg1,*arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKProvingKey_write__SWIG_1(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp > *arg1 = (libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_ppzksnark_proving_keyT_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZKProvingKey_write" "', argument " "1"" of type '" "libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp > * >(argp1);
+  libsnark_r1cs_ppzksnark_proving_key_Sl_libff_alt_bn128_pp_Sg__write__SWIG_0(arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKProvingKey_write(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[3] = {
+    0
+  };
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args, "ZKProvingKey_write", 0, 2, argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_libsnark__r1cs_ppzksnark_proving_keyT_libff__alt_bn128_pp_t, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_ZKProvingKey_write__SWIG_1(self, argc, argv);
+    }
+  }
+  if (argc == 2) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_libsnark__r1cs_ppzksnark_proving_keyT_libff__alt_bn128_pp_t, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      {
+        _v = (PyObject_AsFileDescriptor(argv[1])>=0);
+      }
+      if (_v) {
+        return _wrap_ZKProvingKey_write__SWIG_0(self, argc, argv);
+      }
+    }
+  }
+  
+fail:
+  SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'ZKProvingKey_write'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp >::write(std::ostream &)\n"
+    "    libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp >::write()\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKProvingKey_read__SWIG_0(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  std::istream *arg1 = 0 ;
+  std::unique_ptr< boost_ifd_stream > stream1 ;
+  libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp > *result = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  {
+#if PY_VERSION_HEX < 0x03000000
+    int fd = fileno(PyFile_AsFile(swig_obj[0]));
+#else
+    int fd = PyObject_AsFileDescriptor(swig_obj[0]);
+#endif
+    if (fd < 0) {
+      SWIG_Error(SWIG_TypeError, "File object expected.");  SWIG_fail; 
+    }
+    stream1 = std::make_unique<boost_ifd_stream>(fd, boost::iostreams::never_close_handle);
+    arg1 = stream1.get();
+  }
+  result = (libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp > *)libsnark_r1cs_ppzksnark_proving_key_Sl_libff_alt_bn128_pp_Sg__read__SWIG_0(*arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libsnark__r1cs_ppzksnark_proving_keyT_libff__alt_bn128_pp_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKProvingKey_read__SWIG_1(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **SWIGUNUSEDPARM(swig_obj)) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp > *result = 0 ;
+  
+  if ((nobjs < 0) || (nobjs > 0)) SWIG_fail;
+  result = (libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp > *)libsnark_r1cs_ppzksnark_proving_key_Sl_libff_alt_bn128_pp_Sg__read__SWIG_0();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libsnark__r1cs_ppzksnark_proving_keyT_libff__alt_bn128_pp_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKProvingKey_read(PyObject *self, PyObject *args) {
+  Py_ssize_t argc;
+  PyObject *argv[2] = {
+    0
+  };
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args, "ZKProvingKey_read", 0, 1, argv))) SWIG_fail;
+  --argc;
+  if (argc == 0) {
+    return _wrap_ZKProvingKey_read__SWIG_1(self, argc, argv);
+  }
+  if (argc == 1) {
+    int _v;
+    {
+      _v = (PyObject_AsFileDescriptor(argv[0])>=0);
+    }
+    if (_v) {
+      return _wrap_ZKProvingKey_read__SWIG_0(self, argc, argv);
+    }
+  }
+  
+fail:
+  SWIG_Python_RaiseOrModifyTypeError("Wrong number or type of arguments for overloaded function 'ZKProvingKey_read'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp >::read(std::istream &)\n"
+    "    libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp >::libsnark_r1cs_ppzksnark_proving_key_Sl_libff_alt_bn128_pp_Sg__read__SWIG_0()\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKProvingKey_str(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp > *arg1 = (libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  std::string result;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_ppzksnark_proving_keyT_libff__alt_bn128_pp_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZKProvingKey_str" "', argument " "1"" of type '" "libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp > * >(argp1);
+  result = libsnark_r1cs_ppzksnark_proving_key_Sl_libff_alt_bn128_pp_Sg__str(arg1);
+  resultobj = SWIG_From_std_string(static_cast< std::string >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZKProvingKey_fromstr(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  std::string *arg1 = 0 ;
+  int res1 = SWIG_OLDOBJ ;
+  PyObject *swig_obj[1] ;
+  libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp > *result = 0 ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  {
+    std::string *ptr = (std::string *)0;
+    res1 = SWIG_AsPtr_std_string(swig_obj[0], &ptr);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZKProvingKey_fromstr" "', argument " "1"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ZKProvingKey_fromstr" "', argument " "1"" of type '" "std::string const &""'"); 
+    }
+    arg1 = ptr;
+  }
+  result = (libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp > *)libsnark_r1cs_ppzksnark_proving_key_Sl_libff_alt_bn128_pp_Sg__fromstr((std::string const &)*arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libsnark__r1cs_ppzksnark_proving_keyT_libff__alt_bn128_pp_t, 0 |  0 );
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_ZKProvingKey(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp > *result = 0 ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "new_ZKProvingKey", 0, 0, 0)) SWIG_fail;
+  result = (libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp > *)new libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp >();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_libsnark__r1cs_ppzksnark_proving_keyT_libff__alt_bn128_pp_t, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_ZKProvingKey(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp > *arg1 = (libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libsnark__r1cs_ppzksnark_proving_keyT_libff__alt_bn128_pp_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_ZKProvingKey" "', argument " "1"" of type '" "libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp > *""'"); 
+  }
+  arg1 = reinterpret_cast< libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp > * >(argp1);
+  delete arg1;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *ZKProvingKey_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!SWIG_Python_UnpackTuple(args, "swigregister", 1, 1, &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_libsnark__r1cs_ppzksnark_proving_keyT_libff__alt_bn128_pp_t, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *ZKProvingKey_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   return SWIG_Python_InitShadowInstance(args);
 }
 
@@ -8337,6 +11140,10 @@ static PyMethodDef SwigMethods[] = {
 	 { "fieldinverse", _wrap_fieldinverse, METH_O, "fieldinverse(Ft val) -> Ft"},
 	 { "get_modulus", _wrap_get_modulus, METH_NOARGS, "get_modulus() -> libff::bigint< Ft::num_limbs >"},
 	 { "G1_to_affine_coordinates", _wrap_G1_to_affine_coordinates, METH_O, "G1_to_affine_coordinates(G1 self)"},
+	 { "G1_write", _wrap_G1_write, METH_VARARGS, "G1_write(G1 self, std::ostream & str=std::cout)"},
+	 { "G1_read", _wrap_G1_read, METH_VARARGS, "G1_read(std::istream & str=std::cin) -> G1"},
+	 { "G1_str", _wrap_G1_str, METH_O, "G1_str(G1 self) -> std::string"},
+	 { "G1_fromstr", _wrap_G1_fromstr, METH_O, "G1_fromstr(std::string const & str) -> G1"},
 	 { "G1_getx", _wrap_G1_getx, METH_O, "G1_getx(G1 self) -> Fqt"},
 	 { "G1_gety", _wrap_G1_gety, METH_O, "G1_gety(G1 self) -> Fqt"},
 	 { "G1_getz", _wrap_G1_getz, METH_O, "G1_getz(G1 self) -> Fqt"},
@@ -8350,6 +11157,10 @@ static PyMethodDef SwigMethods[] = {
 	 { "G2_Y_get", _wrap_G2_Y_get, METH_O, "G2_Y_get(G2 self) -> Fq2t"},
 	 { "G2_Z_set", _wrap_G2_Z_set, METH_VARARGS, "G2_Z_set(G2 self, Fq2t Z)"},
 	 { "G2_Z_get", _wrap_G2_Z_get, METH_O, "G2_Z_get(G2 self) -> Fq2t"},
+	 { "G2_write", _wrap_G2_write, METH_VARARGS, "G2_write(G2 self, std::ostream & str=std::cout)"},
+	 { "G2_read", _wrap_G2_read, METH_VARARGS, "G2_read(std::istream & str=std::cin) -> G2"},
+	 { "G2_str", _wrap_G2_str, METH_O, "G2_str(G2 self) -> std::string"},
+	 { "G2_fromstr", _wrap_G2_fromstr, METH_O, "G2_fromstr(std::string const & str) -> G2"},
 	 { "new_G2", _wrap_new_G2, METH_NOARGS, "new_G2() -> G2"},
 	 { "delete_G2", _wrap_delete_G2, METH_O, "delete_G2(G2 self)"},
 	 { "G2_swigregister", G2_swigregister, METH_O, NULL},
@@ -8390,6 +11201,10 @@ static PyMethodDef SwigMethods[] = {
 	 { "LinearCombination___add__", _wrap_LinearCombination___add__, METH_VARARGS, "LinearCombination___add__(LinearCombination self, LinearCombination other) -> LinearCombination"},
 	 { "LinearCombination___sub__", _wrap_LinearCombination___sub__, METH_VARARGS, "LinearCombination___sub__(LinearCombination self, LinearCombination other) -> LinearCombination"},
 	 { "LinearCombination___neg__", _wrap_LinearCombination___neg__, METH_O, "LinearCombination___neg__(LinearCombination self) -> LinearCombination"},
+	 { "LinearCombination_write", _wrap_LinearCombination_write, METH_VARARGS, "LinearCombination_write(LinearCombination self, std::ostream & str=std::cout)"},
+	 { "LinearCombination_read", _wrap_LinearCombination_read, METH_VARARGS, "LinearCombination_read(std::istream & str=std::cin) -> LinearCombination"},
+	 { "LinearCombination_str", _wrap_LinearCombination_str, METH_O, "LinearCombination_str(LinearCombination self) -> std::string"},
+	 { "LinearCombination_fromstr", _wrap_LinearCombination_fromstr, METH_O, "LinearCombination_fromstr(std::string const & str) -> LinearCombination"},
 	 { "delete_LinearCombination", _wrap_delete_LinearCombination, METH_O, "delete_LinearCombination(LinearCombination self)"},
 	 { "LinearCombination_swigregister", LinearCombination_swigregister, METH_O, NULL},
 	 { "LinearCombination_swiginit", LinearCombination_swiginit, METH_VARARGS, NULL},
@@ -8400,21 +11215,37 @@ static PyMethodDef SwigMethods[] = {
 	 { "R1csConstraint_c_set", _wrap_R1csConstraint_c_set, METH_VARARGS, "R1csConstraint_c_set(R1csConstraint self, LinearCombination c)"},
 	 { "R1csConstraint_c_get", _wrap_R1csConstraint_c_get, METH_O, "R1csConstraint_c_get(R1csConstraint self) -> LinearCombination"},
 	 { "new_R1csConstraint", _wrap_new_R1csConstraint, METH_VARARGS, "new_R1csConstraint(LinearCombination a, LinearCombination b, LinearCombination c) -> R1csConstraint"},
+	 { "R1csConstraint_write", _wrap_R1csConstraint_write, METH_VARARGS, "R1csConstraint_write(R1csConstraint self, std::ostream & str=std::cout)"},
+	 { "R1csConstraint_read", _wrap_R1csConstraint_read, METH_VARARGS, "R1csConstraint_read(std::istream & str=std::cin) -> R1csConstraint"},
+	 { "R1csConstraint_str", _wrap_R1csConstraint_str, METH_O, "R1csConstraint_str(R1csConstraint self) -> std::string"},
+	 { "R1csConstraint_fromstr", _wrap_R1csConstraint_fromstr, METH_O, "R1csConstraint_fromstr(std::string const & str) -> R1csConstraint"},
 	 { "delete_R1csConstraint", _wrap_delete_R1csConstraint, METH_O, "delete_R1csConstraint(R1csConstraint self)"},
 	 { "R1csConstraint_swigregister", R1csConstraint_swigregister, METH_O, NULL},
 	 { "R1csConstraint_swiginit", R1csConstraint_swiginit, METH_VARARGS, NULL},
+	 { "R1csConstraintSystem_write", _wrap_R1csConstraintSystem_write, METH_VARARGS, "R1csConstraintSystem_write(R1csConstraintSystem self, std::ostream & str=std::cout)"},
+	 { "R1csConstraintSystem_read", _wrap_R1csConstraintSystem_read, METH_VARARGS, "R1csConstraintSystem_read(std::istream & str=std::cin) -> R1csConstraintSystem"},
+	 { "R1csConstraintSystem_str", _wrap_R1csConstraintSystem_str, METH_O, "R1csConstraintSystem_str(R1csConstraintSystem self) -> std::string"},
+	 { "R1csConstraintSystem_fromstr", _wrap_R1csConstraintSystem_fromstr, METH_O, "R1csConstraintSystem_fromstr(std::string const & str) -> R1csConstraintSystem"},
 	 { "new_R1csConstraintSystem", _wrap_new_R1csConstraintSystem, METH_NOARGS, "new_R1csConstraintSystem() -> R1csConstraintSystem"},
 	 { "delete_R1csConstraintSystem", _wrap_delete_R1csConstraintSystem, METH_O, "delete_R1csConstraintSystem(R1csConstraintSystem self)"},
 	 { "R1csConstraintSystem_swigregister", R1csConstraintSystem_swigregister, METH_O, NULL},
 	 { "R1csConstraintSystem_swiginit", R1csConstraintSystem_swiginit, METH_VARARGS, NULL},
 	 { "R1csPrimaryInput_size", _wrap_R1csPrimaryInput_size, METH_O, "R1csPrimaryInput_size(R1csPrimaryInput self) -> int"},
 	 { "R1csPrimaryInput_at", _wrap_R1csPrimaryInput_at, METH_VARARGS, "R1csPrimaryInput_at(R1csPrimaryInput self, int index) -> Ft"},
+	 { "R1csPrimaryInput_write", _wrap_R1csPrimaryInput_write, METH_VARARGS, "R1csPrimaryInput_write(R1csPrimaryInput self, std::ostream & str=std::cout)"},
+	 { "R1csPrimaryInput_read", _wrap_R1csPrimaryInput_read, METH_VARARGS, "R1csPrimaryInput_read(std::istream & str=std::cin) -> R1csPrimaryInput"},
+	 { "R1csPrimaryInput_str", _wrap_R1csPrimaryInput_str, METH_O, "R1csPrimaryInput_str(R1csPrimaryInput self) -> std::string"},
+	 { "R1csPrimaryInput_fromstr", _wrap_R1csPrimaryInput_fromstr, METH_O, "R1csPrimaryInput_fromstr(std::string const & str) -> R1csPrimaryInput"},
 	 { "new_R1csPrimaryInput", _wrap_new_R1csPrimaryInput, METH_NOARGS, "new_R1csPrimaryInput() -> R1csPrimaryInput"},
 	 { "delete_R1csPrimaryInput", _wrap_delete_R1csPrimaryInput, METH_O, "delete_R1csPrimaryInput(R1csPrimaryInput self)"},
 	 { "R1csPrimaryInput_swigregister", R1csPrimaryInput_swigregister, METH_O, NULL},
 	 { "R1csPrimaryInput_swiginit", R1csPrimaryInput_swiginit, METH_VARARGS, NULL},
 	 { "R1csAuxiliaryInput_size", _wrap_R1csAuxiliaryInput_size, METH_O, "R1csAuxiliaryInput_size(R1csAuxiliaryInput self) -> int"},
 	 { "R1csAuxiliaryInput_at", _wrap_R1csAuxiliaryInput_at, METH_VARARGS, "R1csAuxiliaryInput_at(R1csAuxiliaryInput self, int index) -> Ft"},
+	 { "R1csAuxiliaryInput_write", _wrap_R1csAuxiliaryInput_write, METH_VARARGS, "R1csAuxiliaryInput_write(R1csAuxiliaryInput self, std::ostream & str=std::cout)"},
+	 { "R1csAuxiliaryInput_read", _wrap_R1csAuxiliaryInput_read, METH_VARARGS, "R1csAuxiliaryInput_read(std::istream & str=std::cin) -> R1csAuxiliaryInput"},
+	 { "R1csAuxiliaryInput_str", _wrap_R1csAuxiliaryInput_str, METH_O, "R1csAuxiliaryInput_str(R1csAuxiliaryInput self) -> std::string"},
+	 { "R1csAuxiliaryInput_fromstr", _wrap_R1csAuxiliaryInput_fromstr, METH_O, "R1csAuxiliaryInput_fromstr(std::string const & str) -> R1csAuxiliaryInput"},
 	 { "new_R1csAuxiliaryInput", _wrap_new_R1csAuxiliaryInput, METH_NOARGS, "new_R1csAuxiliaryInput() -> R1csAuxiliaryInput"},
 	 { "delete_R1csAuxiliaryInput", _wrap_delete_R1csAuxiliaryInput, METH_O, "delete_R1csAuxiliaryInput(R1csAuxiliaryInput self)"},
 	 { "R1csAuxiliaryInput_swigregister", R1csAuxiliaryInput_swigregister, METH_O, NULL},
@@ -8453,12 +11284,16 @@ static PyMethodDef SwigMethods[] = {
 	 { "ZKProof_g_H_get", _wrap_ZKProof_g_H_get, METH_O, "ZKProof_g_H_get(ZKProof self) -> G1"},
 	 { "ZKProof_g_K_set", _wrap_ZKProof_g_K_set, METH_VARARGS, "ZKProof_g_K_set(ZKProof self, G1 g_K)"},
 	 { "ZKProof_g_K_get", _wrap_ZKProof_g_K_get, METH_O, "ZKProof_g_K_get(ZKProof self) -> G1"},
+	 { "ZKProof_write", _wrap_ZKProof_write, METH_VARARGS, "ZKProof_write(ZKProof self, std::ostream & str=std::cout)"},
+	 { "ZKProof_read", _wrap_ZKProof_read, METH_VARARGS, "ZKProof_read(std::istream & str=std::cin) -> ZKProof"},
+	 { "ZKProof_str", _wrap_ZKProof_str, METH_O, "ZKProof_str(ZKProof self) -> std::string"},
+	 { "ZKProof_fromstr", _wrap_ZKProof_fromstr, METH_O, "ZKProof_fromstr(std::string const & str) -> ZKProof"},
 	 { "new_ZKProof", _wrap_new_ZKProof, METH_NOARGS, "new_ZKProof() -> ZKProof"},
 	 { "delete_ZKProof", _wrap_delete_ZKProof, METH_O, "delete_ZKProof(ZKProof self)"},
 	 { "ZKProof_swigregister", ZKProof_swigregister, METH_O, NULL},
 	 { "ZKProof_swiginit", ZKProof_swiginit, METH_VARARGS, NULL},
-	 { "ZKKeypair_pk_set", _wrap_ZKKeypair_pk_set, METH_VARARGS, "ZKKeypair_pk_set(ZKKeypair self, libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp > * pk)"},
-	 { "ZKKeypair_pk_get", _wrap_ZKKeypair_pk_get, METH_O, "ZKKeypair_pk_get(ZKKeypair self) -> libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp > *"},
+	 { "ZKKeypair_pk_set", _wrap_ZKKeypair_pk_set, METH_VARARGS, "ZKKeypair_pk_set(ZKKeypair self, ZKProvingKey pk)"},
+	 { "ZKKeypair_pk_get", _wrap_ZKKeypair_pk_get, METH_O, "ZKKeypair_pk_get(ZKKeypair self) -> ZKProvingKey"},
 	 { "ZKKeypair_vk_set", _wrap_ZKKeypair_vk_set, METH_VARARGS, "ZKKeypair_vk_set(ZKKeypair self, ZKVerificationKey vk)"},
 	 { "ZKKeypair_vk_get", _wrap_ZKKeypair_vk_get, METH_O, "ZKKeypair_vk_get(ZKKeypair self) -> ZKVerificationKey"},
 	 { "new_ZKKeypair", _wrap_new_ZKKeypair, METH_O, "new_ZKKeypair(ZKKeypair other) -> ZKKeypair"},
@@ -8479,14 +11314,26 @@ static PyMethodDef SwigMethods[] = {
 	 { "ZKVerificationKey_gamma_beta_g2_get", _wrap_ZKVerificationKey_gamma_beta_g2_get, METH_O, "ZKVerificationKey_gamma_beta_g2_get(ZKVerificationKey self) -> G2"},
 	 { "ZKVerificationKey_rC_Z_g2_set", _wrap_ZKVerificationKey_rC_Z_g2_set, METH_VARARGS, "ZKVerificationKey_rC_Z_g2_set(ZKVerificationKey self, G2 rC_Z_g2)"},
 	 { "ZKVerificationKey_rC_Z_g2_get", _wrap_ZKVerificationKey_rC_Z_g2_get, METH_O, "ZKVerificationKey_rC_Z_g2_get(ZKVerificationKey self) -> G2"},
+	 { "ZKVerificationKey_write", _wrap_ZKVerificationKey_write, METH_VARARGS, "ZKVerificationKey_write(ZKVerificationKey self, std::ostream & str=std::cout)"},
+	 { "ZKVerificationKey_read", _wrap_ZKVerificationKey_read, METH_VARARGS, "ZKVerificationKey_read(std::istream & str=std::cin) -> ZKVerificationKey"},
+	 { "ZKVerificationKey_str", _wrap_ZKVerificationKey_str, METH_O, "ZKVerificationKey_str(ZKVerificationKey self) -> std::string"},
+	 { "ZKVerificationKey_fromstr", _wrap_ZKVerificationKey_fromstr, METH_O, "ZKVerificationKey_fromstr(std::string const & str) -> ZKVerificationKey"},
 	 { "ZKVerificationKey_encoded_IC_query_size", _wrap_ZKVerificationKey_encoded_IC_query_size, METH_O, "ZKVerificationKey_encoded_IC_query_size(ZKVerificationKey self) -> int"},
 	 { "ZKVerificationKey_encoded_IC_query", _wrap_ZKVerificationKey_encoded_IC_query, METH_VARARGS, "ZKVerificationKey_encoded_IC_query(ZKVerificationKey self, int ix) -> G1"},
 	 { "new_ZKVerificationKey", _wrap_new_ZKVerificationKey, METH_NOARGS, "new_ZKVerificationKey() -> ZKVerificationKey"},
 	 { "delete_ZKVerificationKey", _wrap_delete_ZKVerificationKey, METH_O, "delete_ZKVerificationKey(ZKVerificationKey self)"},
 	 { "ZKVerificationKey_swigregister", ZKVerificationKey_swigregister, METH_O, NULL},
 	 { "ZKVerificationKey_swiginit", ZKVerificationKey_swiginit, METH_VARARGS, NULL},
+	 { "ZKProvingKey_write", _wrap_ZKProvingKey_write, METH_VARARGS, "ZKProvingKey_write(ZKProvingKey self, std::ostream & str=std::cout)"},
+	 { "ZKProvingKey_read", _wrap_ZKProvingKey_read, METH_VARARGS, "ZKProvingKey_read(std::istream & str=std::cin) -> ZKProvingKey"},
+	 { "ZKProvingKey_str", _wrap_ZKProvingKey_str, METH_O, "ZKProvingKey_str(ZKProvingKey self) -> std::string"},
+	 { "ZKProvingKey_fromstr", _wrap_ZKProvingKey_fromstr, METH_O, "ZKProvingKey_fromstr(std::string const & str) -> ZKProvingKey"},
+	 { "new_ZKProvingKey", _wrap_new_ZKProvingKey, METH_NOARGS, "new_ZKProvingKey() -> ZKProvingKey"},
+	 { "delete_ZKProvingKey", _wrap_delete_ZKProvingKey, METH_O, "delete_ZKProvingKey(ZKProvingKey self)"},
+	 { "ZKProvingKey_swigregister", ZKProvingKey_swigregister, METH_O, NULL},
+	 { "ZKProvingKey_swiginit", ZKProvingKey_swiginit, METH_VARARGS, NULL},
 	 { "zk_generator", _wrap_zk_generator, METH_O, "zk_generator(R1csConstraintSystem cs) -> ZKKeypair"},
-	 { "zk_prover", _wrap_zk_prover, METH_VARARGS, "zk_prover(libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp > const & pk, R1csPrimaryInput primary_input, R1csAuxiliaryInput auxiliary_input) -> ZKProof"},
+	 { "zk_prover", _wrap_zk_prover, METH_VARARGS, "zk_prover(ZKProvingKey pk, R1csPrimaryInput primary_input, R1csAuxiliaryInput auxiliary_input) -> ZKProof"},
 	 { "zk_verifier_weak_IC", _wrap_zk_verifier_weak_IC, METH_VARARGS, "zk_verifier_weak_IC(ZKVerificationKey vk, R1csPrimaryInput primary_input, ZKProof proof) -> bool"},
 	 { "zk_verifier_strong_IC", _wrap_zk_verifier_strong_IC, METH_VARARGS, "zk_verifier_strong_IC(ZKVerificationKey vk, R1csPrimaryInput primary_input, ZKProof proof) -> bool"},
 	 { "zk_read_key", _wrap_zk_read_key, METH_VARARGS, "zk_read_key(char const * ekfile, R1csConstraintSystem cs=None) -> ZKKeypair"},
@@ -8552,7 +11399,6 @@ static swig_type_info _swigt__p_libsnark__r1cs_ppzksnark_proving_keyT_libff__alt
 static swig_type_info _swigt__p_libsnark__r1cs_ppzksnark_verification_keyT_libff__alt_bn128_pp_t = {"_p_libsnark__r1cs_ppzksnark_verification_keyT_libff__alt_bn128_pp_t", "libsnark::r1cs_ppzksnark_verification_key< libff::alt_bn128_pp > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_libsnark__r1cs_primary_inputT_Ft_t = {"_p_libsnark__r1cs_primary_inputT_Ft_t", "libsnark::r1cs_primary_input< Ft > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_libsnark__variableT_Ft_t = {"_p_libsnark__variableT_Ft_t", "libsnark::variable< Ft > *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_std__string = {"_p_std__string", "std::string *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_var_index_t = {"_p_var_index_t", "var_index_t *", 0, 0, (void*)0, 0};
 
 static swig_type_info *swig_type_initial[] = {
@@ -8581,7 +11427,6 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_libsnark__r1cs_ppzksnark_verification_keyT_libff__alt_bn128_pp_t,
   &_swigt__p_libsnark__r1cs_primary_inputT_Ft_t,
   &_swigt__p_libsnark__variableT_Ft_t,
-  &_swigt__p_std__string,
   &_swigt__p_var_index_t,
 };
 
@@ -8610,7 +11455,6 @@ static swig_cast_info _swigc__p_libsnark__r1cs_ppzksnark_proving_keyT_libff__alt
 static swig_cast_info _swigc__p_libsnark__r1cs_ppzksnark_verification_keyT_libff__alt_bn128_pp_t[] = {  {&_swigt__p_libsnark__r1cs_ppzksnark_verification_keyT_libff__alt_bn128_pp_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_libsnark__r1cs_primary_inputT_Ft_t[] = {  {&_swigt__p_libsnark__r1cs_primary_inputT_Ft_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_libsnark__variableT_Ft_t[] = {  {&_swigt__p_libsnark__variableT_Ft_t, 0, 0, 0},  {&_swigt__p_libsnark__pb_variableT_Ft_t, _p_libsnark__pb_variableT_Ft_tTo_p_libsnark__variableT_Ft_t, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_std__string[] = {  {&_swigt__p_std__string, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_var_index_t[] = {  {&_swigt__p_var_index_t, 0, 0, 0},{0, 0, 0, 0}};
 
 static swig_cast_info *swig_cast_initial[] = {
@@ -8639,7 +11483,6 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_libsnark__r1cs_ppzksnark_verification_keyT_libff__alt_bn128_pp_t,
   _swigc__p_libsnark__r1cs_primary_inputT_Ft_t,
   _swigc__p_libsnark__variableT_Ft_t,
-  _swigc__p_std__string,
   _swigc__p_var_index_t,
 };
 
@@ -9370,6 +12213,21 @@ SWIG_init(void) {
   
   SWIG_InstallConstants(d,swig_const_table);
   
+  globals = SWIG_globals();
+  if (!globals) {
+    PyErr_SetString(PyExc_TypeError, "Failure to create SWIG globals.");
+#if PY_VERSION_HEX >= 0x03000000
+    return NULL;
+#else
+    return;
+#endif
+  }
+  PyDict_SetItemString(md, "cvar", globals);
+  Py_DECREF(globals);
+  SWIG_addvarlink(globals, "inhibit_profiling_info", Swig_var_inhibit_profiling_info_get, Swig_var_inhibit_profiling_info_set);
+  SWIG_addvarlink(globals, "binary_output", Swig_var_binary_output_get, Swig_var_binary_output_set);
+  SWIG_addvarlink(globals, "montgomery_output", Swig_var_montgomery_output_get, Swig_var_montgomery_output_set);
+  SWIG_addvarlink(globals, "no_pt_compression", Swig_var_no_pt_compression_get, Swig_var_no_pt_compression_set);
   
   libff::alt_bn128_pp::init_public_params();
   libff::inhibit_profiling_info = true;

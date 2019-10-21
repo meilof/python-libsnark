@@ -1,4 +1,9 @@
+import sys
+
 import libsnark.alt_bn128 as libsnark
+
+#use this to get libsnark debugging output
+#libsnark.cvar.inhibit_profiling_info = False
 
 pb=libsnark.ProtoboardPub()
 
@@ -51,6 +56,17 @@ print("*** Generating proof (" +
        ")")
     
 proof=libsnark.zk_prover(keypair.pk, pubvals, privvals);
+
+libsnark.cvar.binary_output = False
+libsnark.cvar.no_pt_compression = False
+libsnark.cvar.montgomery_output = False
+proof.write(sys.stdout)
+
+#libsnark.cvar.no_pt_compression = True
+#proof.write(sys.stdout)
+
+print("proof is", pubvals.str())
+
 verified=libsnark.zk_verifier_strong_IC(keypair.vk, pubvals, proof);
     
 print("*** Public inputs: " + " ".join([str(pubvals.at(i)) for i in range(pubvals.size())]))

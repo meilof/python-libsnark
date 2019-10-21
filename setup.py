@@ -20,4 +20,4 @@ setup(name = "python-libsnark",
       url='https://github.com/meilof/python-libsnark',
       packages = ["libsnark"],
       package_dir = {"libsnark": "."},
-      ext_modules = [Extension("libsnark._alt_bn128", ["alt_bn128_wrap.cpp"], extra_compile_args=["-std=c++11", "-Wno-sign-compare", "-Wno-delete-non-virtual-dtor", "-Wno-unused-variable", "-DCURVE_ALT_BN128", "-DBN_SUPPORT_SNARK=1", "-DMONTGOMERY_OUTPUT", "-DNO_PROCPS"], libraries=["snark", "ff", "gmpxx"], swig_opts=["-c++"])])
+      ext_modules = [Extension("libsnark._alt_bn128", ["alt_bn128_wrap.cpp"], extra_compile_args=["-std=c++14", "-Wno-sign-compare", "-Wno-delete-non-virtual-dtor", "-Wno-unused-variable", "-DCURVE_ALT_BN128", "-DBN_SUPPORT_SNARK=1", "-DMONTGOMERY_OUTPUT", "-DNO_PROCPS"], libraries=["snark", "ff", "gmpxx", "boost_iostreams"], swig_opts=["-c++"])])

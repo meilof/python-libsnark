@@ -74,6 +74,7 @@ class Ft(object):
 
 # Register Ft in _alt_bn128:
 _alt_bn128.Ft_swigregister(Ft)
+cvar = _alt_bn128.cvar
 
 class Fqt(object):
     r"""Proxy of C++ Fqt class."""
@@ -132,6 +133,24 @@ class G1(object):
         r"""to_affine_coordinates(G1 self)"""
         return _alt_bn128.G1_to_affine_coordinates(self)
 
+    def write(self, *args):
+        r"""write(G1 self, std::ostream & str=std::cout)"""
+        return _alt_bn128.G1_write(self, *args)
+
+    @staticmethod
+    def read(*args):
+        r"""read(std::istream & str=std::cin) -> G1"""
+        return _alt_bn128.G1_read(*args)
+
+    def str(self):
+        r"""str(G1 self) -> std::string"""
+        return _alt_bn128.G1_str(self)
+
+    @staticmethod
+    def fromstr(str):
+        r"""fromstr(std::string const & str) -> G1"""
+        return _alt_bn128.G1_fromstr(str)
+
     def getx(self):
         r"""getx(G1 self) -> Fqt"""
         return _alt_bn128.G1_getx(self)
@@ -152,6 +171,14 @@ class G1(object):
 # Register G1 in _alt_bn128:
 _alt_bn128.G1_swigregister(G1)
 
+def G1_read(*args):
+    r"""G1_read(std::istream & str=std::cin) -> G1"""
+    return _alt_bn128.G1_read(*args)
+
+def G1_fromstr(str):
+    r"""G1_fromstr(std::string const & str) -> G1"""
+    return _alt_bn128.G1_fromstr(str)
+
 class G2(object):
     r"""
     Proxy of C++ libff::G2< libff::alt_bn128_pp > class.
@@ -164,6 +191,24 @@ class G2(object):
     Y = property(_alt_bn128.G2_Y_get, _alt_bn128.G2_Y_set, doc=r"""Y : Fq2t""")
     Z = property(_alt_bn128.G2_Z_get, _alt_bn128.G2_Z_set, doc=r"""Z : Fq2t""")
 
+    def write(self, *args):
+        r"""write(G2 self, std::ostream & str=std::cout)"""
+        return _alt_bn128.G2_write(self, *args)
+
+    @staticmethod
+    def read(*args):
+        r"""read(std::istream & str=std::cin) -> G2"""
+        return _alt_bn128.G2_read(*args)
+
+    def str(self):
+        r"""str(G2 self) -> std::string"""
+        return _alt_bn128.G2_str(self)
+
+    @staticmethod
+    def fromstr(str):
+        r"""fromstr(std::string const & str) -> G2"""
+        return _alt_bn128.G2_fromstr(str)
+
     def __init__(self):
         r"""__init__(G2 self) -> G2"""
         _alt_bn128.G2_swiginit(self, _alt_bn128.new_G2())
@@ -171,6 +216,14 @@ class G2(object):
 
 # Register G2 in _alt_bn128:
 _alt_bn128.G2_swigregister(G2)
+
+def G2_read(*args):
+    r"""G2_read(std::istream & str=std::cin) -> G2"""
+    return _alt_bn128.G2_read(*args)
+
+def G2_fromstr(str):
+    r"""G2_fromstr(std::string const & str) -> G2"""
+    return _alt_bn128.G2_fromstr(str)
 
 class KnowledgeCommitmentG1G1(object):
     r"""Proxy of C++ libsnark::knowledge_commitment< libff::G1< libff::alt_bn128_pp >,libff::G1< libff::alt_bn128_pp > > class."""
@@ -266,10 +319,36 @@ class LinearCombination(object):
     def __neg__(self):
         r"""__neg__(LinearCombination self) -> LinearCombination"""
         return _alt_bn128.LinearCombination___neg__(self)
+
+    def write(self, *args):
+        r"""write(LinearCombination self, std::ostream & str=std::cout)"""
+        return _alt_bn128.LinearCombination_write(self, *args)
+
+    @staticmethod
+    def read(*args):
+        r"""read(std::istream & str=std::cin) -> LinearCombination"""
+        return _alt_bn128.LinearCombination_read(*args)
+
+    def str(self):
+        r"""str(LinearCombination self) -> std::string"""
+        return _alt_bn128.LinearCombination_str(self)
+
+    @staticmethod
+    def fromstr(str):
+        r"""fromstr(std::string const & str) -> LinearCombination"""
+        return _alt_bn128.LinearCombination_fromstr(str)
     __swig_destroy__ = _alt_bn128.delete_LinearCombination
 
 # Register LinearCombination in _alt_bn128:
 _alt_bn128.LinearCombination_swigregister(LinearCombination)
+
+def LinearCombination_read(*args):
+    r"""LinearCombination_read(std::istream & str=std::cin) -> LinearCombination"""
+    return _alt_bn128.LinearCombination_read(*args)
+
+def LinearCombination_fromstr(str):
+    r"""LinearCombination_fromstr(std::string const & str) -> LinearCombination"""
+    return _alt_bn128.LinearCombination_fromstr(str)
 
 class R1csConstraint(object):
     r"""Proxy of C++ libsnark::r1cs_constraint< Ft > class."""
@@ -283,16 +362,60 @@ class R1csConstraint(object):
     def __init__(self, a, b, c):
         r"""__init__(R1csConstraint self, LinearCombination a, LinearCombination b, LinearCombination c) -> R1csConstraint"""
         _alt_bn128.R1csConstraint_swiginit(self, _alt_bn128.new_R1csConstraint(a, b, c))
+
+    def write(self, *args):
+        r"""write(R1csConstraint self, std::ostream & str=std::cout)"""
+        return _alt_bn128.R1csConstraint_write(self, *args)
+
+    @staticmethod
+    def read(*args):
+        r"""read(std::istream & str=std::cin) -> R1csConstraint"""
+        return _alt_bn128.R1csConstraint_read(*args)
+
+    def str(self):
+        r"""str(R1csConstraint self) -> std::string"""
+        return _alt_bn128.R1csConstraint_str(self)
+
+    @staticmethod
+    def fromstr(str):
+        r"""fromstr(std::string const & str) -> R1csConstraint"""
+        return _alt_bn128.R1csConstraint_fromstr(str)
     __swig_destroy__ = _alt_bn128.delete_R1csConstraint
 
 # Register R1csConstraint in _alt_bn128:
 _alt_bn128.R1csConstraint_swigregister(R1csConstraint)
+
+def R1csConstraint_read(*args):
+    r"""R1csConstraint_read(std::istream & str=std::cin) -> R1csConstraint"""
+    return _alt_bn128.R1csConstraint_read(*args)
+
+def R1csConstraint_fromstr(str):
+    r"""R1csConstraint_fromstr(std::string const & str) -> R1csConstraint"""
+    return _alt_bn128.R1csConstraint_fromstr(str)
 
 class R1csConstraintSystem(object):
     r"""Proxy of C++ libsnark::r1cs_constraint_system< Ft > class."""
 
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
+
+    def write(self, *args):
+        r"""write(R1csConstraintSystem self, std::ostream & str=std::cout)"""
+        return _alt_bn128.R1csConstraintSystem_write(self, *args)
+
+    @staticmethod
+    def read(*args):
+        r"""read(std::istream & str=std::cin) -> R1csConstraintSystem"""
+        return _alt_bn128.R1csConstraintSystem_read(*args)
+
+    def str(self):
+        r"""str(R1csConstraintSystem self) -> std::string"""
+        return _alt_bn128.R1csConstraintSystem_str(self)
+
+    @staticmethod
+    def fromstr(str):
+        r"""fromstr(std::string const & str) -> R1csConstraintSystem"""
+        return _alt_bn128.R1csConstraintSystem_fromstr(str)
 
     def __init__(self):
         r"""__init__(R1csConstraintSystem self) -> R1csConstraintSystem"""
@@ -301,6 +424,14 @@ class R1csConstraintSystem(object):
 
 # Register R1csConstraintSystem in _alt_bn128:
 _alt_bn128.R1csConstraintSystem_swigregister(R1csConstraintSystem)
+
+def R1csConstraintSystem_read(*args):
+    r"""R1csConstraintSystem_read(std::istream & str=std::cin) -> R1csConstraintSystem"""
+    return _alt_bn128.R1csConstraintSystem_read(*args)
+
+def R1csConstraintSystem_fromstr(str):
+    r"""R1csConstraintSystem_fromstr(std::string const & str) -> R1csConstraintSystem"""
+    return _alt_bn128.R1csConstraintSystem_fromstr(str)
 
 class R1csPrimaryInput(object):
     r"""Proxy of C++ libsnark::r1cs_primary_input< Ft > class."""
@@ -316,6 +447,24 @@ class R1csPrimaryInput(object):
         r"""at(R1csPrimaryInput self, int index) -> Ft"""
         return _alt_bn128.R1csPrimaryInput_at(self, index)
 
+    def write(self, *args):
+        r"""write(R1csPrimaryInput self, std::ostream & str=std::cout)"""
+        return _alt_bn128.R1csPrimaryInput_write(self, *args)
+
+    @staticmethod
+    def read(*args):
+        r"""read(std::istream & str=std::cin) -> R1csPrimaryInput"""
+        return _alt_bn128.R1csPrimaryInput_read(*args)
+
+    def str(self):
+        r"""str(R1csPrimaryInput self) -> std::string"""
+        return _alt_bn128.R1csPrimaryInput_str(self)
+
+    @staticmethod
+    def fromstr(str):
+        r"""fromstr(std::string const & str) -> R1csPrimaryInput"""
+        return _alt_bn128.R1csPrimaryInput_fromstr(str)
+
     def __init__(self):
         r"""__init__(R1csPrimaryInput self) -> R1csPrimaryInput"""
         _alt_bn128.R1csPrimaryInput_swiginit(self, _alt_bn128.new_R1csPrimaryInput())
@@ -323,6 +472,14 @@ class R1csPrimaryInput(object):
 
 # Register R1csPrimaryInput in _alt_bn128:
 _alt_bn128.R1csPrimaryInput_swigregister(R1csPrimaryInput)
+
+def R1csPrimaryInput_read(*args):
+    r"""R1csPrimaryInput_read(std::istream & str=std::cin) -> R1csPrimaryInput"""
+    return _alt_bn128.R1csPrimaryInput_read(*args)
+
+def R1csPrimaryInput_fromstr(str):
+    r"""R1csPrimaryInput_fromstr(std::string const & str) -> R1csPrimaryInput"""
+    return _alt_bn128.R1csPrimaryInput_fromstr(str)
 
 class R1csAuxiliaryInput(object):
     r"""Proxy of C++ libsnark::r1cs_auxiliary_input< Ft > class."""
@@ -338,6 +495,24 @@ class R1csAuxiliaryInput(object):
         r"""at(R1csAuxiliaryInput self, int index) -> Ft"""
         return _alt_bn128.R1csAuxiliaryInput_at(self, index)
 
+    def write(self, *args):
+        r"""write(R1csAuxiliaryInput self, std::ostream & str=std::cout)"""
+        return _alt_bn128.R1csAuxiliaryInput_write(self, *args)
+
+    @staticmethod
+    def read(*args):
+        r"""read(std::istream & str=std::cin) -> R1csAuxiliaryInput"""
+        return _alt_bn128.R1csAuxiliaryInput_read(*args)
+
+    def str(self):
+        r"""str(R1csAuxiliaryInput self) -> std::string"""
+        return _alt_bn128.R1csAuxiliaryInput_str(self)
+
+    @staticmethod
+    def fromstr(str):
+        r"""fromstr(std::string const & str) -> R1csAuxiliaryInput"""
+        return _alt_bn128.R1csAuxiliaryInput_fromstr(str)
+
     def __init__(self):
         r"""__init__(R1csAuxiliaryInput self) -> R1csAuxiliaryInput"""
         _alt_bn128.R1csAuxiliaryInput_swiginit(self, _alt_bn128.new_R1csAuxiliaryInput())
@@ -345,6 +520,14 @@ class R1csAuxiliaryInput(object):
 
 # Register R1csAuxiliaryInput in _alt_bn128:
 _alt_bn128.R1csAuxiliaryInput_swigregister(R1csAuxiliaryInput)
+
+def R1csAuxiliaryInput_read(*args):
+    r"""R1csAuxiliaryInput_read(std::istream & str=std::cin) -> R1csAuxiliaryInput"""
+    return _alt_bn128.R1csAuxiliaryInput_read(*args)
+
+def R1csAuxiliaryInput_fromstr(str):
+    r"""R1csAuxiliaryInput_fromstr(std::string const & str) -> R1csAuxiliaryInput"""
+    return _alt_bn128.R1csAuxiliaryInput_fromstr(str)
 
 class Protoboard(object):
     r"""Proxy of C++ libsnark::protoboard< Ft > class."""
@@ -449,6 +632,24 @@ class ZKProof(object):
     g_H = property(_alt_bn128.ZKProof_g_H_get, _alt_bn128.ZKProof_g_H_set, doc=r"""g_H : libff::G1<(libff::alt_bn128_pp)>""")
     g_K = property(_alt_bn128.ZKProof_g_K_get, _alt_bn128.ZKProof_g_K_set, doc=r"""g_K : libff::G1<(libff::alt_bn128_pp)>""")
 
+    def write(self, *args):
+        r"""write(ZKProof self, std::ostream & str=std::cout)"""
+        return _alt_bn128.ZKProof_write(self, *args)
+
+    @staticmethod
+    def read(*args):
+        r"""read(std::istream & str=std::cin) -> ZKProof"""
+        return _alt_bn128.ZKProof_read(*args)
+
+    def str(self):
+        r"""str(ZKProof self) -> std::string"""
+        return _alt_bn128.ZKProof_str(self)
+
+    @staticmethod
+    def fromstr(str):
+        r"""fromstr(std::string const & str) -> ZKProof"""
+        return _alt_bn128.ZKProof_fromstr(str)
+
     def __init__(self):
         r"""__init__(ZKProof self) -> ZKProof"""
         _alt_bn128.ZKProof_swiginit(self, _alt_bn128.new_ZKProof())
@@ -456,6 +657,14 @@ class ZKProof(object):
 
 # Register ZKProof in _alt_bn128:
 _alt_bn128.ZKProof_swigregister(ZKProof)
+
+def ZKProof_read(*args):
+    r"""ZKProof_read(std::istream & str=std::cin) -> ZKProof"""
+    return _alt_bn128.ZKProof_read(*args)
+
+def ZKProof_fromstr(str):
+    r"""ZKProof_fromstr(std::string const & str) -> ZKProof"""
+    return _alt_bn128.ZKProof_fromstr(str)
 
 class ZKKeypair(object):
     r"""Proxy of C++ libsnark::r1cs_ppzksnark_keypair< libff::alt_bn128_pp > class."""
@@ -486,6 +695,24 @@ class ZKVerificationKey(object):
     gamma_beta_g2 = property(_alt_bn128.ZKVerificationKey_gamma_beta_g2_get, _alt_bn128.ZKVerificationKey_gamma_beta_g2_set, doc=r"""gamma_beta_g2 : libff::G2<(libff::alt_bn128_pp)>""")
     rC_Z_g2 = property(_alt_bn128.ZKVerificationKey_rC_Z_g2_get, _alt_bn128.ZKVerificationKey_rC_Z_g2_set, doc=r"""rC_Z_g2 : libff::G2<(libff::alt_bn128_pp)>""")
 
+    def write(self, *args):
+        r"""write(ZKVerificationKey self, std::ostream & str=std::cout)"""
+        return _alt_bn128.ZKVerificationKey_write(self, *args)
+
+    @staticmethod
+    def read(*args):
+        r"""read(std::istream & str=std::cin) -> ZKVerificationKey"""
+        return _alt_bn128.ZKVerificationKey_read(*args)
+
+    def str(self):
+        r"""str(ZKVerificationKey self) -> std::string"""
+        return _alt_bn128.ZKVerificationKey_str(self)
+
+    @staticmethod
+    def fromstr(str):
+        r"""fromstr(std::string const & str) -> ZKVerificationKey"""
+        return _alt_bn128.ZKVerificationKey_fromstr(str)
+
     def encoded_IC_query_size(self):
         r"""encoded_IC_query_size(ZKVerificationKey self) -> int"""
         return _alt_bn128.ZKVerificationKey_encoded_IC_query_size(self)
@@ -502,13 +729,61 @@ class ZKVerificationKey(object):
 # Register ZKVerificationKey in _alt_bn128:
 _alt_bn128.ZKVerificationKey_swigregister(ZKVerificationKey)
 
+def ZKVerificationKey_read(*args):
+    r"""ZKVerificationKey_read(std::istream & str=std::cin) -> ZKVerificationKey"""
+    return _alt_bn128.ZKVerificationKey_read(*args)
+
+def ZKVerificationKey_fromstr(str):
+    r"""ZKVerificationKey_fromstr(std::string const & str) -> ZKVerificationKey"""
+    return _alt_bn128.ZKVerificationKey_fromstr(str)
+
+class ZKProvingKey(object):
+    r"""Proxy of C++ libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp > class."""
+
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    __repr__ = _swig_repr
+
+    def write(self, *args):
+        r"""write(ZKProvingKey self, std::ostream & str=std::cout)"""
+        return _alt_bn128.ZKProvingKey_write(self, *args)
+
+    @staticmethod
+    def read(*args):
+        r"""read(std::istream & str=std::cin) -> ZKProvingKey"""
+        return _alt_bn128.ZKProvingKey_read(*args)
+
+    def str(self):
+        r"""str(ZKProvingKey self) -> std::string"""
+        return _alt_bn128.ZKProvingKey_str(self)
+
+    @staticmethod
+    def fromstr(str):
+        r"""fromstr(std::string const & str) -> ZKProvingKey"""
+        return _alt_bn128.ZKProvingKey_fromstr(str)
+
+    def __init__(self):
+        r"""__init__(ZKProvingKey self) -> ZKProvingKey"""
+        _alt_bn128.ZKProvingKey_swiginit(self, _alt_bn128.new_ZKProvingKey())
+    __swig_destroy__ = _alt_bn128.delete_ZKProvingKey
+
+# Register ZKProvingKey in _alt_bn128:
+_alt_bn128.ZKProvingKey_swigregister(ZKProvingKey)
+
+def ZKProvingKey_read(*args):
+    r"""ZKProvingKey_read(std::istream & str=std::cin) -> ZKProvingKey"""
+    return _alt_bn128.ZKProvingKey_read(*args)
+
+def ZKProvingKey_fromstr(str):
+    r"""ZKProvingKey_fromstr(std::string const & str) -> ZKProvingKey"""
+    return _alt_bn128.ZKProvingKey_fromstr(str)
+
 
 def zk_generator(cs):
     r"""zk_generator(R1csConstraintSystem cs) -> ZKKeypair"""
     return _alt_bn128.zk_generator(cs)
 
 def zk_prover(pk, primary_input, auxiliary_input):
-    r"""zk_prover(libsnark::r1cs_ppzksnark_proving_key< libff::alt_bn128_pp > const & pk, R1csPrimaryInput primary_input, R1csAuxiliaryInput auxiliary_input) -> ZKProof"""
+    r"""zk_prover(ZKProvingKey pk, R1csPrimaryInput primary_input, R1csAuxiliaryInput auxiliary_input) -> ZKProof"""
     return _alt_bn128.zk_prover(pk, primary_input, auxiliary_input)
 
 def zk_verifier_weak_IC(vk, primary_input, proof):
