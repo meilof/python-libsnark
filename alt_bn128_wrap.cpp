@@ -4421,7 +4421,8 @@ SWIGINTERN PyObject *_wrap_fieldinverse(PyObject *SWIGUNUSEDPARM(self), PyObject
       if (val>=0) {
         arg1 = new Ft(val);
       } else {
-        *arg1 = -*(new Ft(-val));
+        arg1 = new Ft(-val);
+        *arg1 = -*arg1;
       }
     } else {
       PyObject *str = PyObject_Str(swig_obj[0]);
@@ -5900,7 +5901,8 @@ SWIGINTERN PyObject *_wrap_new_LinearCombination__SWIG_1(PyObject *SWIGUNUSEDPAR
       if (val>=0) {
         arg1 = new Ft(val);
       } else {
-        *arg1 = -*(new Ft(-val));
+        arg1 = new Ft(-val);
+        *arg1 = -*arg1;
       }
     } else {
       PyObject *str = PyObject_Str(swig_obj[0]);
@@ -6017,7 +6019,8 @@ SWIGINTERN PyObject *_wrap_LinearCombination___mul__(PyObject *SWIGUNUSEDPARM(se
       if (val>=0) {
         arg2 = new Ft(val);
       } else {
-        *arg2 = -*(new Ft(-val));
+        arg2 = new Ft(-val);
+        *arg2 = -*arg2;
       }
     } else {
       PyObject *str = PyObject_Str(swig_obj[1]);
@@ -8194,7 +8197,8 @@ SWIGINTERN PyObject *_wrap_Protoboard_setval(PyObject *SWIGUNUSEDPARM(self), PyO
       if (val>=0) {
         arg3 = new Ft(val);
       } else {
-        *arg3 = -*(new Ft(-val));
+        arg3 = new Ft(-val);
+        *arg3 = -*arg3;
       }
     } else {
       PyObject *str = PyObject_Str(swig_obj[2]);

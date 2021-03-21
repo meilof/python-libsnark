@@ -11,7 +11,8 @@
 		if (val>=0) {
         	$1 = new Ft(val);
 		} else {
-			*$1 = -*(new Ft(-val));
+			$1 = new Ft(-val);
+			*$1 = -*$1;
 		}
     } else {
         PyObject *str = PyObject_Str($input);
