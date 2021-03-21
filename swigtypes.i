@@ -8,15 +8,24 @@
     val = PyLong_AsLongAndOverflow($input, &overflow);
     
     if (val!=-1 || (overflow==0 && !PyErr_Occurred())) {
-        $1 = new Ft(val);
+		if (val>=0) {
+        	$1 = new Ft(val);
+		} else {
+			*$1 = -*(new Ft(-val));
+		}
     } else {
         PyObject *str = PyObject_Str($input);
         if (!str) { SWIG_fail; }
     
         const char* cstr = PyUnicode_AsUTF8(str);
         if (!cstr) { Py_DECREF(str); SWIG_fail; }
-        
-        $1 = new Ft(libff::bigint<Ft::num_limbs>(cstr));    
+		
+		if (cstr[0]=='-') {
+			$1 = new Ft(libff::bigint<Ft::num_limbs>(cstr+1));
+			*$1 = -*$1;
+		} else {
+        	$1 = new Ft(libff::bigint<Ft::num_limbs>(cstr));    
+		}
         Py_DECREF(str);
     }
 }
