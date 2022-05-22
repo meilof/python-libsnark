@@ -8,7 +8,7 @@ Install from pip with
 pip install python-libsnark
 ```
 
-Binary versions available at [PyPi](https://pypi.org/manage/project/python-libsnark/release/0.3.1/) for Linux (Python 3.5, 3.6, 3.7, 3.8), Mac OS (Python 3.7), and Windows (Python 3.7 32-bit/64-bit).
+Binary versions available at [PyPi](https://pypi.org/manage/project/python-libsnark/release/0.3.3/) for Linux/Mac OS/Windows  .
 
 ## Functionality
 
@@ -79,7 +79,7 @@ The wrapper is created using SWIG. To update the wrapper, use `swig -python -c++
 To compile libsnark, use:
 
 ```
-sudo cmake -DCMAKE_PREFIX_PATH=/usr/local/Cellar/openssl/1.0.2t -DCMAKE_SHARED_LINKER_FLAGS=-L/usr/local/Cellar/openssl/1.0.2t/lib -DWITH_PROCPS=OFF -DWITH_SUPERCOP=OFF -DOPT_FLAGS=-std=c++11 -DCURVE=ALT_BN128 ..
+sudo cmake -DCMAKE_PREFIX_PATH=/usr/local/opt/openssl\@1.1/ -DCMAKE_SHARED_LINKER_FLAGS=-L/usr/local/opt/openssl\@1.1/lib -DWITH_PROCPS=OFF -DWITH_SUPERCOP=OFF -DOPT_FLAGS=-std=c++11 -DCURVE=ALT_BN128 ..
 ```
 
 ### To build manylinux packages
@@ -89,7 +89,7 @@ docker run -it -v $(pwd):/io quay.io/pypa/manylinux2010_x86_64
 ```
 inside the docker:
 ```
-yum install cmake3 openssl-devel boost-devel
+yum install cmake3 openssl-devel boost-devel gmp-devel
 build and install libgmp with ./configure --enable-cxx; make install
 cmake3 .. -DCURVE=ALT_BN128 -DUSE_PT_COMPRESSION=OFF -DWITH_PROCPS=OFF -DBINARY_OUTPUT=OFF
 make install
